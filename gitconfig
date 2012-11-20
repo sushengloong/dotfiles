@@ -1,0 +1,26 @@
+[core]
+	excludesfile = ~/.gitignore_global
+[user]
+	name = Sheng-Loong Su
+	email = sushengloong@gmail.com
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  ui = true
+[alias]
+  st = status -s -b
+  di = diff
+  co = checkout
+  ci = commit
+  br = branch
+  man = help
+  su = submodule update
+  sui = submodule update --init
+  l = log --oneline --decorate --graph
+  fixup = commit --amend -C HEAD
+  timeline = log --graph --branches --pretty=oneline --decorate
+  untracked-files = ls-files -o --exclude-standard
+  ignored-files = ls-files --others -i --exclude-standard
+  modified-files = ls-files -m
