@@ -6,13 +6,19 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+" Railscasts theme
+Bundle 'vim-scripts/Railscasts-Theme-GUIand256color'
+
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'groenewege/vim-less'
+Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
-
+Bundle 'tpope/vim-repeat'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
@@ -26,15 +32,8 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'mileszs/ack.vim'
 Bundle 'sjl/gundo.vim'
-
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'groenewege/vim-less'
-
 Bundle 'vim-scripts/matrix.vim--Yang'
 Bundle 'koron/nyancat-vim'
-
-" Railscasts theme
-Bundle 'vim-scripts/Railscasts-Theme-GUIand256color'
 
 syntax on
 filetype plugin indent on
@@ -103,6 +102,13 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Resize split window fast
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+" Remap ZoomWin
+nnoremap <leader>zw :ZoomWin<CR>
+
 " Clear search
 nnoremap <leader><space> :noh<cr>
 
@@ -144,9 +150,6 @@ imap <C-L> <Space>=><Space>
 " Remap tcomment toggle
 nmap <leader>c gcc
 vmap <leader>c gcc
-
-" Remap ZoomWin
-nnoremap <leader>zw :ZoomWin<CR>
 
 " Remap Ack
 nnoremap <leader>a :Ack!<space>
