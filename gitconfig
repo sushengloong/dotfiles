@@ -19,6 +19,7 @@
   su = submodule update
   sui = submodule update --init
   l = log --oneline --decorate --graph
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
   fixup = commit --amend -C HEAD
   timeline = log --graph --branches --pretty=oneline --decorate
   untracked-files = ls-files -o --exclude-standard
