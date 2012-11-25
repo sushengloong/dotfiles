@@ -104,8 +104,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Resize split window fast
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>+ <C-w>+<C-w>>
+nnoremap <silent> <Leader>- <C-w>-<C-w><
 
 " Remap ZoomWin
 nnoremap <leader>zw :ZoomWin<CR>
