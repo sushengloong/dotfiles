@@ -143,8 +143,12 @@ nnoremap <leader>t :TagbarToggle<CR>
 " Remap NERDTree toggle
 nnoremap <leader>n :NERDTreeToggle<CR>
 
+" Make the omnicomplete text readable
+highlight PmenuSel ctermfg=black
+
 " Makes autocomplete easier
 imap <Tab> <C-P>
+imap <S-Tab> <C-N>
 
 imap <C-L> <Space>=><Space>
 
