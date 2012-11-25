@@ -65,6 +65,11 @@ set hlsearch
 set background=dark
 colorscheme railscasts
 
+" Use Ack instead of Grep when available
+if executable("ack")
+  set grepprg=ack\ -H\ --nogroup\ --nocolor
+endif
+
 " good for my fingers
 inoremap jj <ESC>
 
