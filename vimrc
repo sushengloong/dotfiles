@@ -32,6 +32,7 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'mileszs/ack.vim'
 Bundle 'sjl/gundo.vim'
+Bundle 'mattn/calendar-vim'
 Bundle 'vim-scripts/matrix.vim--Yang'
 Bundle 'koron/nyancat-vim'
 
