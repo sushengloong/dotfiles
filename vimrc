@@ -159,7 +159,7 @@ imap <C-L> <Space>=><Space>
 
 " Remap tcomment toggle
 nmap <leader>c gcc
-vmap <leader>c gcc
+vmap <leader>c gc
 
 " Remap Ack
 nnoremap <leader>a :Ack!<space>
