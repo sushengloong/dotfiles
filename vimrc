@@ -36,6 +36,7 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'honza/snipmate-snippets'
 Bundle 'garbas/vim-snipmate'
+Bundle 'godlygeek/tabular'
 Bundle 'mattn/calendar-vim'
 Bundle 'vim-scripts/matrix.vim--Yang'
 Bundle 'koron/nyancat-vim'
@@ -184,3 +185,14 @@ nnoremap <leader>rsr :Rake sunspot:reindex<CR>
 
 " Map Gundo key (need to be compiled with python support)
 nnoremap <leader>u :GundoToggle<CR>
+
+" remap tabular.vim keys
+let mapleader=','
+if exists(":Tabularize")
+  nmap <Leader>ta= :Tabularize /=<CR>
+  vmap <Leader>ta= :Tabularize /=<CR>
+  nmap <Leader>ta: :Tabularize /:\zs<CR>
+  vmap <Leader>ta: :Tabularize /:\zs<CR>
+  nmap <Leader>ta=> :Tabularize /=><CR>
+  vmap <Leader>ta=> :Tabularize /=><CR>
+endif
