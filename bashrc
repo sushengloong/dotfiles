@@ -22,3 +22,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 
 alias ctags="`brew --prefix`/bin/ctags"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
