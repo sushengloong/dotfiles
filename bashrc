@@ -1,9 +1,7 @@
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Add Bash completion
-if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
-  . `brew --prefix`/etc/bash_completion.d/git-completion.bash
-fi
+source "$HOME/.git-completion.bash"
 
 # Git branch in prompt.
 parse_git_branch() {
@@ -18,10 +16,17 @@ export TNS_ADMIN="/usr/local/oracle/network/admin"
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 export PATH=$PATH:$DYLD_LIBRARY_PATH
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Add HomeBrew path
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
-
-alias ctags="`brew --prefix`/bin/ctags"
-
-### Added by the Heroku Toolbelt
+# Add MacPorts path
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
+# Add RVM to PATH for scripting
+export PATH=$HOME/.rvm/bin:$PATH
+# Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# use MacVim-bundled Vim if available
+if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+  alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+fi
