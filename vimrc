@@ -196,3 +196,6 @@ if exists(":Tabularize")
   nmap <Leader>ta=> :Tabularize /=><CR>
   vmap <Leader>ta=> :Tabularize /=><CR>
 endif
+
+" Toggle auto-indenting for code paste
+set pastetoggle=<F2>
