@@ -30,3 +30,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
+
+# vim ftw!
+export EDITOR=vim
