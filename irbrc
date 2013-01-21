@@ -1,9 +1,11 @@
-require 'rubygems'
-require 'awesome_print'
-require 'interactive_editor'
+%w[rubygems awesome_print interactive_editor].each do |gem|
+  begin
+    require gem
+  rescue LoadError
+  end
+end
 
 # Clear the screen
 def clear
   system 'clear'
-  ENV['RAILS_ENV'] ? "Rails environment: #{ENV['RAILS_ENV']}" : "No rails environment - happy hacking!"
 end
