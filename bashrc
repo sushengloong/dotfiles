@@ -4,10 +4,10 @@
 source "$HOME/.git-completion.bash"
 
 # Git branch in prompt.
-parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+parse_git_branch_and_ruby_version() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1|$(ruby -e "puts RUBY_VERSION"))/"
 }
-export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch_and_ruby_version)\[\033[00m\] $ "
 
 # Add Oracle library to path
 export DYLD_LIBRARY_PATH="/usr/local/oracle/instantclient_10_2"
