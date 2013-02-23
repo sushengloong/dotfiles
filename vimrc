@@ -11,6 +11,7 @@ Bundle 'vim-scripts/Railscasts-Theme-GUIand256color'
 
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'nono/vim-handlebars'
 Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-fugitive'
