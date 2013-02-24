@@ -71,6 +71,19 @@ set hlsearch
 set wildmenu
 set wildmode=list:longest,full
 
+" always show status line
+set laststatus=2
+" set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+set statusline=\ "
+set statusline+=%f\ " file name
+set statusline+=[
+set statusline+=%{strlen(&ft)?&ft:'none'} " filetype
+set statusline+=]
+set statusline+=%h%1*%m%r%w%0* " flag
+set statusline+=%= " right align
+set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
+
+set t_Co=256
 set background=dark
 colorscheme railscasts
 
