@@ -68,6 +68,9 @@ set smartcase
 set incsearch
 set hlsearch
 
+set wildmenu
+set wildmode=list:longest,full
+
 set background=dark
 colorscheme railscasts
 
