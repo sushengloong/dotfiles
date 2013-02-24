@@ -169,8 +169,8 @@ vmap <leader>c gc
 nnoremap <leader>a :Ack!<space>
 
 " Regenerate tags
-map <leader>rt :!ctags --extra=+f --languages=-javascript,sql --exclude=.git  --exclude=log -R *<CR><C-M>"
-"map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git  --exclude=log -R * `bundle show rails`/../*<CR><C-M>"
+map <leader>rt :!ctags --extra=+f --languages=-javascript,sql --exclude=.git  --exclude=log -R *<CR><C-M>
+"map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git  --exclude=log -R * `bundle show rails`/../*<CR><C-M>
 "map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/* `rvm gemdir`/bundler/gems/*<CR><C-M>
 
 " Edit routes and schema in Rails app
@@ -209,3 +209,15 @@ set pastetoggle=<F2>
 nmap <Leader>v :set paste<CR>o<esc>"*]p:set nopaste<cr>
 vmap <Leader>v c<esc>:set paste<CR>"*]p:set nopaste<cr>
 imap <Leader>v <esc>:set paste<CR>"*]p:set nopaste<cr>A
+
+" rename current file
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+command! Rename :call RenameFile()<cr>
