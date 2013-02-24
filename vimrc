@@ -83,6 +83,8 @@ set statusline+=%h%1*%m%r%w%0* " flag
 set statusline+=%= " right align
 set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
 
+set cursorline
+
 set t_Co=256
 set background=dark
 colorscheme railscasts
