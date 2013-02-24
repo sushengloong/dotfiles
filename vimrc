@@ -201,3 +201,8 @@ endif
 
 " Toggle auto-indenting for code paste
 set pastetoggle=<F2>
+
+" Paste from clipboard
+nmap <Leader>v :set paste<CR>o<esc>"*]p:set nopaste<cr>
+vmap <Leader>v c<esc>:set paste<CR>"*]p:set nopaste<cr>
+imap <Leader>v <esc>:set paste<CR>"*]p:set nopaste<cr>A
