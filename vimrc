@@ -172,6 +172,9 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 " Make the omnicomplete text readable
 highlight PmenuSel ctermfg=black
 
+" Make matching search phrase more obvious
+highlight Search cterm=NONE ctermbg=darkred ctermfg=white
+
 " Makes autocomplete easier
 imap <Tab> <C-P>
 imap <S-Tab> <C-N>
