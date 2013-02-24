@@ -129,6 +129,10 @@ nnoremap <C-l> <C-w>l
 nnoremap <silent> <Leader>+ <C-w>+<C-w>>
 nnoremap <silent> <Leader>- <C-w>-<C-w><
 
+" Make equal or maximize current split window
+nmap <Leader>w= <C-w>=
+nmap <Leader>wm <C-w>\|<C-w>_
+
 " Remap ZoomWin
 nnoremap <leader>zw :ZoomWin<CR>
 
