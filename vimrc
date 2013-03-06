@@ -246,3 +246,5 @@ function! RenameFile()
     endif
 endfunction
 command! Rename :call RenameFile()<cr>
+
+nmap <Leader>gg :ToggleGitGutter<cr>
