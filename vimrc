@@ -31,7 +31,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-scripts/ZoomWin'
-Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -89,11 +89,6 @@ set cursorline
 set t_Co=256
 set background=dark
 colorscheme railscasts
-
-" Use Ack instead of Grep when available
-if executable("ack")
-  set grepprg=ack\ -H\ --nogroup\ --nocolor
-endif
 
 " good for my fingers
 inoremap jj <ESC>
@@ -188,7 +183,7 @@ nmap <leader>c gcc
 vmap <leader>c gc
 
 " Remap Ack
-nnoremap <leader>a :Ack!<space>
+nnoremap <leader>a :Ag<space>
 
 " Regenerate tags
 map <leader>rt :!ctags --extra=+f --languages=-javascript,sql --exclude=.git  --exclude=log -R *<CR><C-M>
