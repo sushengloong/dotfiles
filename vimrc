@@ -240,6 +240,3 @@ endfunction
 command! Rename :call RenameFile()<cr>
 
 nmap <Leader>gg :ToggleGitGutter<cr>
-
-" Enable omnicomplete for certain languages
-autocmd FileType css,scss set omnifunc=csscomplete#CompleteCSS
