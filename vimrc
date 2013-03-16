@@ -227,6 +227,9 @@ imap <Leader>v <esc>:set paste<CR>"*]p:set nopaste<cr>A
 " Copy to clipboard
 map <leader>y "*y
 
+" Quick way to print directory of current file
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
 " rename current file
 function! RenameFile()
     let old_name = expand('%')
