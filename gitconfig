@@ -1,5 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
+	pager =
 [user]
 	name = Sheng-Loong Su
 	email = sushengloong@gmail.com
