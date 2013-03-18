@@ -242,7 +242,7 @@ function! RenameFile()
 endfunction
 command! Rename :call RenameFile()<cr>
 
-nmap <Leader>gg :ToggleGitGutter<cr>
+nmap <Leader>gg :GitGutterToggle<cr>
 
 augroup vimrcEx
   " Clear all autocmds in the group
