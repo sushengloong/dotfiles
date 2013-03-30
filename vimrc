@@ -188,6 +188,7 @@ command! Rroutes :e config/routes.rb
 command! Rschema :e db/schema.rb
 
 " Remap some tabs commands
+nnoremap <leader>tn :tabe<CR>
 nnoremap <leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <leader>tc :tabclose<CR>
 
