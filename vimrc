@@ -30,7 +30,6 @@ Bundle 'vim-scripts/EasyGrep'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tsaleh/vim-matchit'
-Bundle 'vim-scripts/ZoomWin'
 Bundle 'rking/ag.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'SirVer/ultisnips'
@@ -126,9 +125,6 @@ nnoremap <silent> <Leader>- <C-w>-<C-w><
 
 " Make equal or maximize current split window
 nmap <C-w>m <C-w>\|<C-w>_
-
-" Remap ZoomWin
-nnoremap <leader>zw :ZoomWin<CR>
 
 " Clear search
 nnoremap <leader><space> :noh<cr>
