@@ -35,3 +35,5 @@ fi
 
 # vim ftw!
 export EDITOR=vim
+
+alias z="zeus"
