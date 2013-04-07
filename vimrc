@@ -20,6 +20,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-eunuch'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
@@ -176,7 +177,7 @@ nmap <leader>c gcc
 vmap <leader>c gc
 
 " Remap Ack
-nnoremap <leader>a :Ag<space>
+nnoremap <leader>a :Ag!<space>
 
 " Regenerate tags
 map <leader>rt :!ctags --extra=+f --languages=-javascript,sql --exclude=.git  --exclude=log -R *<CR><C-M>
