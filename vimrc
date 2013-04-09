@@ -66,6 +66,9 @@ set smartcase
 set incsearch
 set hlsearch
 
+" always show tabs title
+set showtabline=2
+
 set wildmenu
 set wildmode=list:longest,full
 
@@ -155,7 +158,7 @@ vmap <C-h> <gv
 vmap <C-l> >gv
 
 " Remap tagbar toggle
-nnoremap <leader>t :TagbarToggle<CR>
+nnoremap <leader>tb :TagbarToggle<CR>
 
 " Remap NERDTree toggle
 nnoremap <leader>n :NERDTreeToggle<CR>
