@@ -10,7 +10,6 @@ Clone repository:
 Create symlinks:
   ln -s ~/dotfiles/bashrc ~/.bashrc
   ln -s ~/dotfiles/bash_profile ~/.bash_profile
-  ln -s ~/dotfiles/ackrc ~/.ackrc
   ln -s ~/dotfiles/gitconfig ~/.gitconfig
   ln -s ~/dotfiles/githelpers ~/.githelpers
   ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
