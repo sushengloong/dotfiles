@@ -36,4 +36,6 @@ fi
 # vim ftw!
 export EDITOR=vim
 
+# i'm a lazy typist
 alias z="zeus"
+alias v="vim"
