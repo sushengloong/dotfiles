@@ -10,8 +10,11 @@
   interactive = auto
   ui = true
 [alias]
-  st = status -s -b
-  di = diff
+  s = status
+  st = !sh -c 'git s'
+  d = diff
+  di = !sh -c 'git d'
+  ds = diff --staged
   co = checkout
   ci = commit
   br = branch
