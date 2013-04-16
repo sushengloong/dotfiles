@@ -181,6 +181,9 @@ imap <C-L> <Space>=><Space>
 nmap <leader>c gcc
 vmap <leader>c gc
 
+" ag config
+let g:agprg="ag --column --smart-case"
+
 " Remap Ack
 nnoremap <leader>a :Ag!<space>
 
