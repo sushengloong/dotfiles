@@ -254,3 +254,7 @@ augroup vimrcEx
   \   exe "normal g`\"" |
   \ endif
 augroup END
+
+" Notes
+" creates an html rendering of the current file
+" :%TOhtml
