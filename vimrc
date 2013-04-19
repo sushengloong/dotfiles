@@ -139,6 +139,12 @@ nnoremap <leader><space> :noh<cr>
 let g:ctrlp_map = '<leader>p'
 nnoremap <leader>b :CtrlPBuffer<CR>
 
+" Sane Ignore For ctrlp
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }
+
 " type <leader><leader> to trigger easy motion
 let g:EasyMotion_leader_key = '<leader><leader>'
 
