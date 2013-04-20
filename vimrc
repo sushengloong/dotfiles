@@ -175,7 +175,7 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 " highlight PmenuSel ctermfg=black
 
 " Make matching search phrase more obvious
-highlight Search cterm=NONE ctermbg=darkred ctermfg=white
+highlight Search cterm=NONE ctermbg=yellow ctermfg=black
 
 " Makes autocomplete easier
 imap <Tab> <C-P>
