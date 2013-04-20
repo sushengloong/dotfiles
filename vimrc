@@ -202,7 +202,48 @@ map <leader>rt :!ctags --extra=+f --languages=-javascript,sql --exclude=.git  --
 command! Rroutes :e config/routes.rb
 command! Rschema :e db/schema.rb
 
+" Display tab number
+if exists("+showtabline")
+function MyTabLine()
+    let s = ''
+    let t = tabpagenr()
+    let i = 1
+    while i <= tabpagenr('$')
+        let buflist = tabpagebuflist(i)
+        let winnr = tabpagewinnr(i)
+        let s .= '%' . i . 'T'
+        let s .= (i == t ? '%1*' : '%2*')
+        let s .= ' '
+        let s .= i . ')'
+        let s .= ' %*'
+        let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+        let file = bufname(buflist[winnr - 1])
+        let file = fnamemodify(file, ':p:t')
+        if file == ''
+            let file = '[No Name]'
+        endif
+        let s .= file
+        let i = i + 1
+    endwhile
+    let s .= '%T%#TabLineFill#%='
+    let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+    return s
+endfunction
+set stal=2
+set tabline=%!MyTabLine()
+endif
+
 " Remap some tabs commands
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+nnoremap <leader>0 :tablast<CR>
 nnoremap <leader>tn :tabe<CR>
 nnoremap <leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <leader>tc :tabclose<CR>
