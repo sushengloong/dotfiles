@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="aussiegeek"
+ZSH_THEME="shengloong"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -42,13 +42,14 @@ ZSH_THEME="aussiegeek"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(brew bundler gem git nyan rvm osx)
 
-source $ZSH/oh-my-zsh.sh
-
-# disable correction prompt
-unsetopt correct
-
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+source $ZSH/oh-my-zsh.sh
+
+# Please stop these annoying correction prompts
+unsetopt correct_all
+unsetopt correct
 
 # Customize to your needs...
 export PATH=$PATH:/usr/local/heroku/bin:$HOME/.rvm/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.rvm/gems/ruby-2.0.0-p195/bin:$HOME/.rvm/gems/ruby-2.0.0-p195@global/bin:$HOME/.rvm/rubies/ruby-2.0.0-p195/bin:$HOME/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/oracle/instantclient_11_2
