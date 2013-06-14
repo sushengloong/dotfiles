@@ -88,6 +88,9 @@ set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
 
 set cursorline
 
+" Display extra whitespace
+set list listchars=tab:»·,trail:·
+
 set t_Co=256
 set background=dark
 colorscheme railscasts
