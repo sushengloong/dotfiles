@@ -51,6 +51,9 @@ source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 unsetopt correct
 
+# so that HEAD^ in git works without escaping ^
+setopt NO_NOMATCH
+
 # Customize to your needs...
 export PATH=$PATH:/usr/local/heroku/bin:$HOME/.rvm/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.rvm/gems/ruby-2.0.0-p195/bin:$HOME/.rvm/gems/ruby-2.0.0-p195@global/bin:$HOME/.rvm/rubies/ruby-2.0.0-p195/bin:$HOME/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/oracle/instantclient_11_2
 
