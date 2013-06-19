@@ -308,6 +308,9 @@ augroup vimrcEx
   \ endif
 augroup END
 
+" disable syntastic for some languages
+let g:syntastic_mode_map={ 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java'] }
+
 " Notes
 " creates an html rendering of the current file
 " :%TOhtml
