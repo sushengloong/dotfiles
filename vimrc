@@ -30,7 +30,6 @@ Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/EasyGrep'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Raimondi/delimitMate'
-Bundle 'tsaleh/vim-matchit'
 Bundle 'rking/ag.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'SirVer/ultisnips'
@@ -38,10 +37,14 @@ Bundle 'godlygeek/tabular'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'nelstrom/vim-qargs'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'mattn/calendar-vim'
 Bundle 'vim-scripts/matrix.vim--Yang'
 Bundle 'koron/nyancat-vim'
+
+runtime macros/matchit.vim
 
 syntax on
 filetype plugin indent on
