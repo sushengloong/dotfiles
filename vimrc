@@ -42,6 +42,7 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Bundle 'myusuf3/numbers.vim'
 Bundle 'mattn/calendar-vim'
 Bundle 'vim-scripts/matrix.vim--Yang'
 Bundle 'koron/nyancat-vim'
@@ -303,6 +304,8 @@ endfunction
 command! Rename :call RenameFile()<cr>
 
 nmap <Leader>gg :GitGutterToggle<cr>
+
+nnoremap <F3> :NumbersToggle<CR>
 
 augroup vimrcEx
   " Clear all autocmds in the group
