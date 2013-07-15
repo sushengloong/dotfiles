@@ -22,6 +22,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-eunuch'
 Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
@@ -180,7 +181,8 @@ vmap <C-l> >gv
 nnoremap <leader>tb :TagbarToggle<CR>
 
 " Remap NERDTree toggle
-nnoremap <leader>n :NERDTreeToggle<CR>
+" nnoremap <leader>n :NERDTreeToggle<CR>
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 " Make the omnicomplete text readable
 " highlight PmenuSel ctermfg=black
