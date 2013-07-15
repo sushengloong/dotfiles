@@ -32,7 +32,8 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Raimondi/delimitMate'
 Bundle 'rking/ag.vim'
 Bundle 'sjl/gundo.vim'
-Bundle 'SirVer/ultisnips'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'Shougo/neosnippet.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'nelstrom/vim-qargs'
@@ -319,6 +320,9 @@ augroup END
 
 " disable syntastic for some languages
 let g:syntastic_mode_map={ 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java'] }
+
+" enable neocomplcache
+let g:neocomplcache_enable_at_startup = 1
 
 " Notes
 " creates an html rendering of the current file
