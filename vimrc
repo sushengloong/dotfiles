@@ -304,7 +304,7 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-command! Rename :call RenameFile()<cr>
+command! RenameFile :call RenameFile()<cr>
 
 nmap <Leader>gg :GitGutterToggle<cr>
 
