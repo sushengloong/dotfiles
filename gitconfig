@@ -50,3 +50,5 @@
 	trustExitCode = true
 [github]
 	user = sushengloong
+[credential]
+	helper = osxkeychain
