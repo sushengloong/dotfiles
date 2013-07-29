@@ -8,6 +8,7 @@ Bundle 'gmarik/vundle'
 
 " Railscasts theme
 Bundle 'vim-scripts/Railscasts-Theme-GUIand256color'
+Bundle 'tomasr/molokai'
 
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kchmck/vim-coffee-script'
@@ -103,6 +104,7 @@ set list listchars=tab:»·,trail:·
 set t_Co=256
 set background=dark
 colorscheme railscasts
+" colorscheme molokai
 
 " good for my fingers
 inoremap jj <ESC>
