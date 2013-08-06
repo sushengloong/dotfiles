@@ -331,3 +331,7 @@ let g:neocomplcache_enable_at_startup = 1
 " Notes
 " creates an html rendering of the current file
 " :%TOhtml
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
