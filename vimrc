@@ -47,6 +47,7 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'vim-scripts/AutoTag'
+Bundle 'thoughtbot/vim-rspec'
 Bundle 'mattn/calendar-vim'
 Bundle 'vim-scripts/matrix.vim--Yang'
 Bundle 'koron/nyancat-vim'
@@ -328,6 +329,12 @@ let g:syntastic_mode_map={ 'mode': 'active', 'active_filetypes': [], 'passive_fi
 
 " enable neocomplcache
 let g:neocomplcache_enable_at_startup = 1
+
+" Rspec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR> " clash with ag shortkey
 
 " Notes
 " creates an html rendering of the current file
