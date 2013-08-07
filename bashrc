@@ -10,13 +10,20 @@ parse_git_branch_and_ruby_version() {
 export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch_and_ruby_version)\[\033[00m\] $ "
 
 # Add Oracle library to path
-#export DYLD_LIBRARY_PATH="/usr/local/oracle/instantclient_10_2"
-#export DYLD_LIBRARY_PATH="/usr/local/oracle/instantclient_11_2"
-#export SQLPATH="/usr/local/oracle/instantclient_10_2"
-#export SQLPATH="/usr/local/oracle/instantclient_11_2"
-#export TNS_ADMIN="/usr/local/oracle/network/admin"
-#export NLS_LANG="AMERICAN_AMERICA.UTF8"
-#export PATH=$PATH:$DYLD_LIBRARY_PATH
+
+INSTANTCLIENT_10_2="/usr/local/oracle/instantclient_10_2"
+INSTANTCLIENT_11_2="/usr/local/oracle/instantclient_11_2"
+
+if [ -d "$INSTANTCLIENT_10_2" ]; then
+  export DYLD_LIBRARY_PATH="$INSTANTCLIENT_10_2"
+  export SQLPATH="$INSTANTCLIENT_10_2"
+else
+  export DYLD_LIBRARY_PATH="$INSTANTCLIENT_11_2"
+  export SQLPATH="$INSTANTCLIENT_11_2"
+fi
+export TNS_ADMIN="/usr/local/oracle/network/admin"
+export NLS_LANG="AMERICAN_AMERICA.UTF8"
+export PATH=$PATH:$DYLD_LIBRARY_PATH
 
 # Add HomeBrew path
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
