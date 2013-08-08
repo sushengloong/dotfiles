@@ -12,8 +12,6 @@ runtime macros/matchit.vim
 
 syntax on
 
-au BufRead,BufNewFile *.rabl setf ruby
-
 set nobackup
 set nowritebackup
 set noswapfile
@@ -273,6 +271,8 @@ augroup vimrcEx
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal g`\"" |
   \ endif
+
+  au BufRead,BufNewFile *.rabl setf ruby
 augroup END
 
 " disable syntastic for some languages
