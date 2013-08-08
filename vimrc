@@ -1,61 +1,16 @@
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Remap leader key
+let mapleader = ","
+let g:mapleader = ","
 
-Bundle 'gmarik/vundle'
-
-" Railscasts theme
-Bundle 'vim-scripts/Railscasts-Theme-GUIand256color'
-Bundle 'tomasr/molokai'
-
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'nono/vim-handlebars'
-Bundle 'groenewege/vim-less'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-eunuch'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'scrooloose/syntastic'
-Bundle 'kien/ctrlp.vim'
-Bundle 'ervandew/supertab'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/EasyGrep'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Raimondi/delimitMate'
-Bundle 'rking/ag.vim'
-Bundle 'sjl/gundo.vim'
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'Shougo/neosnippet.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'nelstrom/vim-qargs'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'vim-scripts/AutoTag'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'mattn/calendar-vim'
-Bundle 'vim-scripts/matrix.vim--Yang'
-Bundle 'koron/nyancat-vim'
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
 runtime macros/matchit.vim
 
 syntax on
-filetype plugin indent on
 
 au BufRead,BufNewFile *.rabl setf ruby
 
@@ -110,10 +65,6 @@ colorscheme railscasts
 
 " good for my fingers
 inoremap jj <ESC>
-
-" Remap leader key
-let mapleader = ","
-let g:mapleader = ","
 
 " Save one keystroke
 nnoremap ; :
