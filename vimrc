@@ -39,6 +39,10 @@ set showtabline=2
 set wildmenu
 set wildmode=list:longest,full
 
+" no code folding
+set foldmethod=manual
+set nofoldenable
+
 " always show status line
 set laststatus=2
 " set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
@@ -266,6 +270,7 @@ nnoremap <F3> :NumbersToggle<CR>
 augroup vimrcEx
   " Clear all autocmds in the group
   autocmd!
+
   " Jump to last cursor position unless it's invalid or in an event handler
   autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -273,6 +278,10 @@ augroup vimrcEx
   \ endif
 
   au BufRead,BufNewFile *.rabl setf ruby
+
+  "for ruby, autoindent with two spaces, always expand tabs
+  autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
+  autocmd FileType python,java set sw=4 sts=4 et
 augroup END
 
 " disable syntastic for some languages
