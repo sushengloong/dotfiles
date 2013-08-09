@@ -76,6 +76,9 @@ nnoremap \ ;
 " Remap pipe to repeat backward find
 nnoremap \| ,
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 " Be a man, do the right thing!
 nnoremap <up> :echo "Be a man. Do the right thing. Use HJKL!"<cr>
 nnoremap <down> :echo "Be a man. Do the right thing. Use HJKL!"<cr>
