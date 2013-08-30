@@ -299,6 +299,9 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 " map <Leader>a :call RunAllSpecs()<CR> " clash with ag shortkey
 
+" YankRing.vim mappings
+nnoremap <silent> <F10> :YRShow<CR>
+
 " Notes
 " creates an html rendering of the current file
 " :%TOhtml
