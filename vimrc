@@ -28,7 +28,7 @@ set expandtab
 set history=500
 set backspace=indent,eol,start
 
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 set ignorecase
 set smartcase
