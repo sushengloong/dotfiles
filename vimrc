@@ -111,6 +111,7 @@ nnoremap <leader><space> :noh<cr>
 
 " remap some CtrlP keys
 let g:ctrlp_map = '<leader>p'
+let g:ctrlp_show_hidden = 1
 nnoremap <leader>b :CtrlPBuffer<CR>
 
 " Sane Ignore For ctrlp
