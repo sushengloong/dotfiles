@@ -271,8 +271,6 @@ command! RenameFile :call RenameFile()<cr>
 
 nmap <Leader>gg :GitGutterToggle<cr>
 
-nnoremap <F3> :NumbersToggle<CR>
-
 augroup vimrcEx
   " Clear all autocmds in the group
   autocmd!
