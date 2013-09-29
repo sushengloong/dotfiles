@@ -18,6 +18,7 @@ set noswapfile
 
 set encoding=utf-8
 set number
+set relativenumber
 set hidden
 set tabstop=2
 set softtabstop=2
