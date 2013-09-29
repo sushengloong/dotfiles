@@ -152,10 +152,6 @@ map <Leader>n <plug>NERDTreeTabsToggle<CR>
 " Make matching search phrase more obvious
 highlight Search cterm=NONE ctermbg=yellow ctermfg=black
 
-" Makes autocomplete easier
-imap <Tab> <C-P>
-imap <S-Tab> <C-N>
-
 imap <C-L> <Space>=><Space>
 
 " Remap tcomment toggle
