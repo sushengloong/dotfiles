@@ -288,6 +288,9 @@ let g:syntastic_mode_map={ 'mode': 'active', 'active_filetypes': [], 'passive_fi
 
 " enable neocomplcache
 let g:neocomplcache_enable_at_startup = 1
+" vim-rails is causing problem. neocomplete author suggests to overwrite completefunc
+" https://github.com/tpope/vim-rails/issues/283#issuecomment-25172471
+let g:neocomplcache_force_overwrite_completefunc = 1
 
 " Rspec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
