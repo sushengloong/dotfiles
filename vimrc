@@ -142,8 +142,9 @@ vmap <C-l> >gv
 " Remap tagbar toggle
 nnoremap <leader>tb :TagbarToggle<CR>
 
+" Do not open nerdtree even in gui vim
+let g:nerdtree_tabs_open_on_gui_startup = 0
 " Remap NERDTree toggle
-" nnoremap <leader>n :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 " Make the omnicomplete text readable
