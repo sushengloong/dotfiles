@@ -39,6 +39,7 @@ set showtabline=2
 
 set wildmenu
 set wildmode=list:longest,full
+set showcmd
 
 " no code folding
 set foldmethod=manual
