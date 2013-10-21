@@ -115,6 +115,7 @@ nnoremap <leader><space> :noh<cr>
 let g:ctrlp_map = '<leader>p'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_follow_symlinks = 2
+let g:ctrlp_working_path_mode = 'a'
 nnoremap <leader>b :CtrlPBuffer<CR>
 
 " Sane Ignore For ctrlp
