@@ -315,3 +315,5 @@ nnoremap <silent> <F10> :YRShow<CR>
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+set guifont=Menlo\ Regular:h14
