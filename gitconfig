@@ -52,3 +52,5 @@
 	user = sushengloong
 [credential]
 	helper = osxkeychain
+[push]
+	default = simple
