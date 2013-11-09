@@ -9,40 +9,6 @@ parse_git_branch_and_ruby_version() {
 }
 export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch_and_ruby_version)\[\033[00m\] $ "
 
-# Add Oracle library to path
-
-INSTANTCLIENT_10_2="/usr/local/oracle/instantclient_10_2"
-INSTANTCLIENT_11_2="/usr/local/oracle/instantclient_11_2"
-
-if [ -d "$INSTANTCLIENT_10_2" ]; then
-  export DYLD_LIBRARY_PATH="$INSTANTCLIENT_10_2"
-  export SQLPATH="$INSTANTCLIENT_10_2"
-else
-  export DYLD_LIBRARY_PATH="$INSTANTCLIENT_11_2"
-  export SQLPATH="$INSTANTCLIENT_11_2"
+if [ -f ~/.commonrc ]; then
+  source ~/.commonrc
 fi
-export TNS_ADMIN="/usr/local/oracle/network/admin"
-export NLS_LANG="AMERICAN_AMERICA.UTF8"
-export PATH=$PATH:$DYLD_LIBRARY_PATH
-
-# Add HomeBrew path
-export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
-# Add MacPorts path
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
-# Add RVM to PATH for scripting
-export PATH=$HOME/.rvm/bin:$PATH
-# Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# use MacVim-bundled Vim if available
-if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
-  alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-fi
-
-# vim ftw!
-export EDITOR=vim
-
-# i'm a lazy typist
-alias z="zeus"
-alias v="vim"

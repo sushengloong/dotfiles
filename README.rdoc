@@ -8,6 +8,7 @@ Clone repository:
   git clone https://github.com/sushengloong/dotfiles.git ~/dotfiles
 
 Create symlinks:
+  ln -s ~/dotfiles/commonrc ~/.commonrc
   ln -s ~/dotfiles/zshrc ~/.zshrc
   ln -s ~/dotfiles/zprofile ~/.zprofile
   ln -s ~/dotfiles/shengloong.zsh-theme ~/.oh-my-zsh/themes/shengloong.zsh-theme
