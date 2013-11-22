@@ -14,6 +14,13 @@ export TNS_ADMIN="/usr/local/oracle/network/admin"
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 export PATH=$PATH:$DYLD_LIBRARY_PATH
 
+# Add MySQL library to path
+MYSQL_LIB="/usr/local/mysql/lib"
+
+if [ -d "$MYSQL_LIB" ]; then
+  export DYLD_LIBRARY_PATH=$MYSQL_LIB:$DYLD_LIBRARY_PATH
+fi
+
 # Add HomeBrew path
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 # Add MacPorts path
