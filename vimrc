@@ -270,10 +270,6 @@ function! RenameFile()
 endfunction
 command! RenameFile :call RenameFile()<cr>
 
-" workaround for issue https://github.com/airblade/vim-gitgutter/issues/109
-let g:gitgutter_realtime = 0
-nmap <Leader>gg :GitGutterToggle<cr>
-
 augroup vimrcEx
   " Clear all autocmds in the group
   autocmd!
