@@ -66,7 +66,7 @@ set list listchars=tab:»·,trail:·
 
 set t_Co=256
 set background=dark
-colorscheme railscasts
+colorscheme molokai
 " colorscheme molokai
 
 " good for my fingers
