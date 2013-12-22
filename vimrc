@@ -304,6 +304,7 @@ map <Leader>l :call RunLastSpec()<CR>
 
 " YankRing.vim mappings
 nnoremap <silent> <F10> :YRShow<CR>
+let g:yankring_history_dir = '$HOME/.vim'
 
 " Notes
 " creates an html rendering of the current file
