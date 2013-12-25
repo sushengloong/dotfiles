@@ -117,6 +117,7 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_follow_symlinks = 2
 let g:ctrlp_working_path_mode = 'a'
 nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>. :CtrlPTag<cr>
 
 " Sane Ignore For ctrlp
 let g:ctrlp_custom_ignore = {
@@ -297,9 +298,9 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_force_overwrite_completefunc = 1
 
 " Rspec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
+map <Leader>cs :call RunCurrentSpecFile()<CR>
+map <Leader>ns :call RunNearestSpec()<CR>
+map <Leader>ls :call RunLastSpec()<CR>
 " map <Leader>a :call RunAllSpecs()<CR> " clash with ag shortkey
 
 " YankRing.vim mappings
