@@ -23,6 +23,9 @@ Create symlinks:
   ln -s ~/dotfiles/vimrc.bundles ~/.vimrc.bundles
   ln -s ~/dotfiles/irbrc ~/.irbrc
 
+Copy custom prezto theme:
+  cp ~/dotfiles/prompt_superlinh_setup ~/.zprezto/modules/prompt/functions
+
 Setup Vundle:
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
