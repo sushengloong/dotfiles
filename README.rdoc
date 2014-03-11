@@ -10,8 +10,7 @@ Clone repository:
 Create symlinks:
   ln -s ~/dotfiles/commonrc ~/.commonrc
   ln -s ~/dotfiles/zshrc ~/.zshrc
-  ln -s ~/dotfiles/zprofile ~/.zprofile
-  ln -s ~/dotfiles/shengloong.zsh-theme ~/.oh-my-zsh/themes/shengloong.zsh-theme
+  ln -s ~/dotfiles/zpreztorc .zpreztorc
   ln -s ~/dotfiles/bashrc ~/.bashrc
   ln -s ~/dotfiles/bash_profile ~/.bash_profile
   ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
