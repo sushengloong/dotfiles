@@ -23,9 +23,6 @@ fi
 
 # Add HomeBrew path
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
-# Add MacPorts path
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
 # Add RVM to PATH for scripting
 export PATH=$HOME/.rvm/bin:$PATH
 # Added by the Heroku Toolbelt
