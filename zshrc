@@ -10,6 +10,13 @@ if [ -f ~/.zprezto/runcoms/zshrc ]; then
   source ~/.zprezto/runcoms/zshrc
 fi
 
+# Please stop these annoying correction prompts
+unsetopt correct_all
+unsetopt correct
+
+# so that HEAD^ in git works without escaping ^
+setopt NO_NOMATCH
+
 if [ -f ~/.commonrc ]; then
   source ~/.commonrc
 fi
