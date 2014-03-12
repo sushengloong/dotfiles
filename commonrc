@@ -33,6 +33,10 @@ if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 
+if [ -f "`brew --prefix`/bin/ctags" ]; then
+  alias ctags="`brew --prefix`/bin/ctags"
+fi
+
 # vim ftw!
 export EDITOR=vim
 
