@@ -11,6 +11,7 @@ Bundle 'gmarik/vundle'
 " Railscasts theme
 Bundle 'vim-scripts/Railscasts-Theme-GUIand256color'
 Bundle 'tomasr/molokai'
+Bundle 'flazz/vim-colorschemes'
 
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rake'

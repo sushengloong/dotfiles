@@ -66,7 +66,7 @@ set list listchars=tab:»·,trail:·
 
 set t_Co=256
 set background=dark
-colorscheme molokai
+colorscheme vividchalk
 " colorscheme molokai
 
 " good for my fingers
