@@ -328,3 +328,7 @@ endif
 
 " build gem
 nnoremap <Leader>gb :!rake build && rake install<cr>
+
+" allow undo after deleting text in insert mode
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
