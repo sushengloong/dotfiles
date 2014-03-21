@@ -31,6 +31,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # use MacVim-bundled Vim if available
 if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+  alias vi=vim
 fi
 
 if [ -f "`brew --prefix`/bin/ctags" ]; then
