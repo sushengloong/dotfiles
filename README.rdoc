@@ -26,8 +26,9 @@ Create symlinks:
 Copy custom prezto theme:
   cp ~/dotfiles/prompt_superlinh_setup ~/.zprezto/modules/prompt/functions
 
-Setup Vundle:
-  git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+Setup NeoBundle:
+  mkdir -p ~/.vim/bundle
+  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
 Install bundle:
-  vim +BundleInstall +qall
+  Launch vim, run :NeoBundleInstall

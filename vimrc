@@ -1,4 +1,13 @@
-set nocompatible
+if has('vim_starting')
+  " Be iMproved
+  set nocompatible
+
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 " Remap leader key
 let mapleader = ","
@@ -7,6 +16,13 @@ let g:mapleader = ","
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 runtime macros/matchit.vim
 
@@ -111,19 +127,31 @@ nmap <C-w>m <C-w>\|<C-w>_
 " Clear search
 nnoremap <leader><space> :noh<cr>
 
-" remap some CtrlP keys
-let g:ctrlp_map = '<leader>p'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_follow_symlinks = 2
-let g:ctrlp_working_path_mode = 'a'
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>. :CtrlPTag<cr>
+" unite.vim - one replaces some plugins
+" behaves like ctrlp
+let g:unite_enable_start_insert = 1
+let g:unite_split_rule = 'botright'
+let g:unite_winheight = 10
 
-" Sane Ignore For ctrlp
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|tmp$',
-  \ 'file': '\.exe$\|\.so$\|\.dat$\|\.log$\|\.jpg$\|\.jpeg$\|\.png$\|\.gif$\|\.zip$\|\.tar$\|\.rar$\|\.gz$\|\.class$'
-  \ }
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+nnoremap <leader>p :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
+
+" Use ag for search
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --smart-case'
+  let g:unite_source_grep_recursive_opt = ''
+  nnoremap <leader>a :Unite grep:.<cr>
+endif
+
+" behaves like yankring
+let g:unite_source_history_yank_enable = 1
+nnoremap <leader>y :Unite history/yank<cr>
+
+" behaves like bufexplorer
+nnoremap <leader>b :Unite -quick-match buffer<cr>
 
 " type <leader><leader> to trigger easy motion
 let g:EasyMotion_leader_key = '<leader><leader>'
@@ -164,12 +192,6 @@ imap <C-L> <Space>=><Space>
 " Remap tcomment toggle
 nmap <leader>c gcc
 vmap <leader>c gc
-
-" ag config
-let g:agprg="ag --column --smart-case"
-
-" Remap Ack
-nnoremap <leader>a :Ag!<space>
 
 " Regenerate tags
 map <leader>rt :!ctags --extra=+f --languages=-javascript,sql --exclude=.git  --exclude=log -R *<CR><C-M>
@@ -254,7 +276,7 @@ vmap <Leader>v c<esc>:set paste<CR>"*]p:set nopaste<cr>
 imap <Leader>v <esc>:set paste<CR>"*]p:set nopaste<cr>A
 
 " Copy to clipboard
-map <leader>y "*y
+vmap <leader>y "*y
 
 " Quick way to print directory of current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -305,10 +327,6 @@ map <Leader>cs :call RunCurrentSpecFile()<CR>
 map <Leader>ns :call RunNearestSpec()<CR>
 map <Leader>ls :call RunLastSpec()<CR>
 " map <Leader>a :call RunAllSpecs()<CR> " clash with ag shortkey
-
-" YankRing.vim mappings
-nnoremap <silent> <F10> :YRShow<CR>
-let g:yankring_history_dir = '$HOME/.vim'
 
 " Notes
 " creates an html rendering of the current file
