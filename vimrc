@@ -156,6 +156,9 @@ nnoremap <leader>b :Unite -quick-match buffer<cr>
 " behaves like tagbar
 nnoremap <leader>o :Unite outline<cr>
 
+" unite-tag
+nnoremap <leader>t :Unite tag<cr>
+
 " type <leader><leader> to trigger easy motion
 let g:EasyMotion_leader_key = '<leader><leader>'
 
