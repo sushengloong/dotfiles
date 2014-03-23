@@ -159,6 +159,13 @@ nnoremap <leader>o :Unite outline<cr>
 " unite-tag
 nnoremap <leader>t :Unite tag<cr>
 
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+
 " type <leader><leader> to trigger easy motion
 let g:EasyMotion_leader_key = '<leader><leader>'
 
@@ -318,12 +325,6 @@ augroup END
 
 " disable syntastic for some languages
 let g:syntastic_mode_map={ 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java'] }
-
-" enable neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-" vim-rails is causing problem. neocomplete author suggests to overwrite completefunc
-" https://github.com/tpope/vim-rails/issues/283#issuecomment-25172471
-let g:neocomplcache_force_overwrite_completefunc = 1
 
 " Rspec.vim mappings
 map <Leader>cs :call RunCurrentSpecFile()<CR>

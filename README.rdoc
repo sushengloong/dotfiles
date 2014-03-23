@@ -26,6 +26,10 @@ Create symlinks:
 Copy custom prezto theme:
   cp ~/dotfiles/prompt_superlinh_setup ~/.zprezto/modules/prompt/functions
 
+Install Vim:
+  brew install macvim --with-cscope --with-lua --override-system-vim
+  brew linkapps
+
 Setup NeoBundle:
   mkdir -p ~/.vim/bundle
   git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
