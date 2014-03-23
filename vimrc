@@ -153,6 +153,9 @@ nnoremap <leader>y :Unite history/yank<cr>
 " behaves like bufexplorer
 nnoremap <leader>b :Unite -quick-match buffer<cr>
 
+" behaves like tagbar
+nnoremap <leader>o :Unite outline<cr>
+
 " type <leader><leader> to trigger easy motion
 let g:EasyMotion_leader_key = '<leader><leader>'
 
@@ -172,9 +175,6 @@ vmap <C-k> [egv
 vmap <C-j> ]egv
 vmap <C-h> <gv
 vmap <C-l> >gv
-
-" Remap tagbar toggle
-nnoremap <leader>tb :TagbarToggle<CR>
 
 " Do not open nerdtree even in gui vim
 let g:nerdtree_tabs_open_on_gui_startup = 0

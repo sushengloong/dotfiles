@@ -11,6 +11,7 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-rails'
@@ -33,7 +34,6 @@ NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'vim-scripts/EasyGrep'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Raimondi/delimitMate'
