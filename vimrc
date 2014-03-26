@@ -130,31 +130,39 @@ nnoremap <leader><space> :noh<cr>
 " unite.vim - one replaces some plugins
 " behaves like ctrlp
 let g:unite_enable_start_insert = 1
+let g:unite_source_history_yank_enable = 1
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
 let g:unite_split_rule = 'botright'
 let g:unite_winheight = 10
+let g:unite_force_overwrite_statusline = 0
+let g:unite_source_file_rec_max_cache_files = 0
 
+call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate',
+            \ 'max_candidates', 0)
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
-nnoremap <leader>p :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
+nnoremap <leader>p :<C-u>Unite -buffer-name=files -start-insert file_rec/async:!<cr>
 
 " Use ag for search
 if executable('ag')
+  let g:unite_source_rec_async_command='ag --nocolor --nogroup --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr" --hidden -g ""'
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --smart-case'
   let g:unite_source_grep_recursive_opt = ''
-  nnoremap <leader>a :Unite grep:.<cr>
+  nnoremap <leader>a :<C-u>Unite -buffer-name=search-buffer grep:.<CR>
 endif
 
 " behaves like yankring
 let g:unite_source_history_yank_enable = 1
-nnoremap <leader>y :Unite history/yank<cr>
+nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<cr>
 
 " behaves like bufexplorer
-nnoremap <leader>b :Unite -quick-match buffer<cr>
+nnoremap <leader>b :<C-u>Unite -quick-match -buffer-name=buffer buffer<cr>
 
 " behaves like tagbar
-nnoremap <leader>o :Unite outline<cr>
+nnoremap <leader>o :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
 
 " unite-tag
 nnoremap <leader>t :Unite tag<cr>
