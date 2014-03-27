@@ -100,14 +100,6 @@ nnoremap \| ,
 cmap w!! w !sudo tee > /dev/null %
 
 " Be a man, do the right thing!
-nnoremap <up> :echo "Be a man. Do the right thing. Use HJKL!"<cr>
-nnoremap <down> :echo "Be a man. Do the right thing. Use HJKL!"<cr>
-nnoremap <left> :echo "Be a man. Do the right thing. Use HJKL!"<cr>
-nnoremap <right> :echo "Be a man. Do the right thing. Use HJKL!"<cr>
-inoremap <up> <Esc>:echo "Be a man. Do the right thing. Use HJKL!"<cr>
-inoremap <down> <Esc>:echo "Be a man. Do the right thing. Use HJKL!"<cr>
-inoremap <left> <Esc>:echo "Be a man. Do the right thing. Use HJKL!"<cr>
-inoremap <right> <Esc>:echo "Be a man. Do the right thing. Use HJKL!"<cr>
 nnoremap j gj
 nnoremap k gk
 
@@ -126,46 +118,6 @@ nmap <C-w>m <C-w>\|<C-w>_
 
 " Clear search
 nnoremap <leader><space> :noh<cr>
-
-" unite.vim - one replaces some plugins
-" behaves like ctrlp
-let g:unite_enable_start_insert = 1
-let g:unite_source_history_yank_enable = 1
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
-let g:unite_split_rule = 'botright'
-let g:unite_winheight = 10
-let g:unite_force_overwrite_statusline = 0
-let g:unite_source_file_rec_max_cache_files = 0
-
-call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate',
-            \ 'max_candidates', 0)
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-
-nnoremap <leader>p :<C-u>Unite -buffer-name=files -start-insert file_rec/async:!<cr>
-
-" Use ag for search
-if executable('ag')
-  let g:unite_source_rec_async_command='ag --nocolor --nogroup --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr" --hidden -g ""'
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --smart-case'
-  let g:unite_source_grep_recursive_opt = ''
-  nnoremap <leader>a :<C-u>Unite -buffer-name=search-buffer grep:.<CR>
-endif
-
-" behaves like yankring
-let g:unite_source_history_yank_enable = 1
-nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<cr>
-
-" behaves like bufexplorer
-nnoremap <leader>b :<C-u>Unite -quick-match -buffer-name=buffer buffer<cr>
-
-" behaves like tagbar
-nnoremap <leader>o :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
-
-" unite-tag
-nnoremap <leader>t :Unite tag<cr>
 
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
@@ -362,3 +314,17 @@ nnoremap <Leader>gb :!rake build && rake install<cr>
 " allow undo after deleting text in insert mode
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+
+" CtrlP config
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_follow_symlinks = 2
+let g:ctrlp_working_path_mode = 'a'
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <silent> <leader>p :ClearCtrlPCache<cr>\|:CtrlP<cr>
+
+" Sane Ignore For ctrlp
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|tmp$',
+      \ 'file': '\.exe$\|\.so$\|\.dat$\|\.log$\|\.jpg$\|\.jpeg$\|\.png$\|\.gif$\|\.zip$\|\.tar$\|\.rar$\|\.gz$\|\.class$'
+      \ }
