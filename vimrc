@@ -328,3 +328,9 @@ let g:ctrlp_custom_ignore = {
       \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|tmp$',
       \ 'file': '\.exe$\|\.so$\|\.dat$\|\.log$\|\.jpg$\|\.jpeg$\|\.png$\|\.gif$\|\.zip$\|\.tar$\|\.rar$\|\.gz$\|\.class$'
       \ }
+
+" ag config
+let g:agprg="ag --column --smart-case"
+
+" Remap Ack
+nnoremap <leader>a :Ag!<space>

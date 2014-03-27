@@ -2,7 +2,6 @@
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : 'make -f make_mingw32.mak',
@@ -13,6 +12,8 @@ NeoBundle 'Shougo/vimproc', {
       \ }
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'rking/ag.vim'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-rails'
