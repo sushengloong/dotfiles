@@ -53,3 +53,6 @@ alias tmux="tmux -u"
 
 # Initialize rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# export cairo library for rabbit
+export DYLD_LIBRARY_PATH=/usr/local/opt/cairo/lib:$DYLD_LIBRARY_PATH
