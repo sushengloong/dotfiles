@@ -22,8 +22,18 @@ Create symlinks:
   ln -s ~/dotfiles/vimrc ~/.vimrc
   ln -s ~/dotfiles/vimrc.bundles ~/.vimrc.bundles
   ln -s ~/dotfiles/irbrc ~/.irbrc
+  ln -s ~/dotfiles/gemrc ~/.gemrc
 
-Copy custom prezto theme:
+Install Homebrew:
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+
+Install newer version of zsh:
+  brew install zsh
+
+Install Pretzo:
+  Refer to https://github.com/sorin-ionescu/prezto
+
+Copy custom Prezto theme:
   cp ~/dotfiles/prompt_superlinh_setup ~/.zprezto/modules/prompt/functions
 
 Install Vim:
@@ -36,3 +46,9 @@ Setup NeoBundle:
 
 Install bundle:
   Launch vim, run :NeoBundleInstall
+
+Install rbenv:
+  Refer to https://github.com/sstephenson/rbenv
+
+Install rbenv gem-src plugin:
+  git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
