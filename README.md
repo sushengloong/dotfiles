@@ -57,10 +57,9 @@ brew linkapps
 ```
 mkdir -p ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+vim
+Enter y or call :NeoBundleInstall
 ```
-
-### Install bundle:
-Launch vim, run :NeoBundleInstall
 
 ### Install rbenv:
 Refer to https://github.com/sstephenson/rbenv
