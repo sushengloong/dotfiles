@@ -1,1 +1,8 @@
+---
+:update_sources: true
+:sources:
+- http://rubygems.org/
+- http://vld2.shareinvestor.com:8000
+gem: --no-document
+gem: --no-ri --no-rdoc
 gemsrc_clone_root: ~/.gem_src
