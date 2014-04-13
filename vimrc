@@ -334,3 +334,7 @@ let g:agprg="ag --column --smart-case"
 
 " Remap Ack
 nnoremap <leader>a :Ag!<space>
+
+" Vim 7.4 HTML indent not working properly
+" http://stackoverflow.com/a/19330009
+let g:html_indent_inctags = "html,body,head,tbody"
