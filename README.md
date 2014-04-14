@@ -68,3 +68,8 @@ Refer to https://github.com/sstephenson/rbenv
 ```
 git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
 ```
+
+### Install reattach-to-user-namespace
+```
+brew install reattach-to-user-namespace
+```
