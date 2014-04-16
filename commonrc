@@ -48,6 +48,11 @@ alias v="vim"
 # always run tmux with utf-8
 alias tmux="tmux -u"
 
+# prevent 'screen-256color': unknown terminal type
+# when ssh'ing into remote in a tmux session
+# https://coderwall.com/p/ftuwdq
+alias ssh='TERM=xterm ssh'
+
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
