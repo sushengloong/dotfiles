@@ -29,6 +29,11 @@ ln -s ~/dotfiles/irbrc ~/.irbrc
 ln -s ~/dotfiles/gemrc ~/.gemrc
 ```
 
+### Install iTerm 2
+```
+Download from http://www.iterm2.com/
+```
+
 ### Install Homebrew:
 ```
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
