@@ -22,7 +22,6 @@ ln -s ~/dotfiles/agignore ~/.agignore
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/githelpers ~/.githelpers
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
-ln -s ~/dotfiles/git-completion.bash ~/.git-completion.bash
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/vimrc.bundles ~/.vimrc.bundles
 ln -s ~/dotfiles/irbrc ~/.irbrc
