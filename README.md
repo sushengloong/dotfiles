@@ -6,9 +6,7 @@ For Mac OSX 10.6 - 10.9
 ## Installation
 
 ### Install iTerm 2:
-```
 Download from http://www.iterm2.com/
-```
 
 ### Install Homebrew:
 ```
