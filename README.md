@@ -5,7 +5,7 @@ For Mac OSX 10.6 - 10.9
 
 ## Installation
 
-### Install iTerm 2
+### Install iTerm 2:
 ```
 Download from http://www.iterm2.com/
 ```
@@ -60,7 +60,7 @@ Refer to https://github.com/sstephenson/rbenv
 git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
 ```
 
-### Install the_silver_searcher / ag
+### Install the_silver_searcher / ag:
 ```
 brew install the_silver_search
 ```
