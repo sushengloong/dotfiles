@@ -323,7 +323,7 @@ let g:ctrlp_follow_symlinks = 2
 let g:ctrlp_working_path_mode = 'a'
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <silent> <leader>p :ClearCtrlPCache<cr>\|:CtrlP<cr>
+nnoremap <C-p> :ClearCtrlPCache<cr>\|:CtrlP<cr>
 
 " Sane Ignore For ctrlp
 let g:ctrlp_custom_ignore = {
@@ -340,3 +340,7 @@ nnoremap <leader>a :Ag!<space>
 " Vim 7.4 HTML indent not working properly
 " http://stackoverflow.com/a/19330009
 let g:html_indent_inctags = "html,body,head,tbody"
+
+" Remap yankstack keys
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
