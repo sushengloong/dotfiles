@@ -9,10 +9,6 @@ endif
 " Required:
 call neobundle#rc(expand('~/.vim/bundle/'))
 
-" Remap leader key
-let mapleader = ","
-let g:mapleader = ","
-
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
@@ -27,6 +23,10 @@ NeoBundleCheck
 runtime macros/matchit.vim
 
 syntax on
+
+" Remap leader key
+let mapleader = ","
+let g:mapleader = ","
 
 set nobackup
 set nowritebackup
