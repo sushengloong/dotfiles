@@ -52,6 +52,11 @@ Refer to https://github.com/sorin-ionescu/prezto
 cp ~/dotfiles/prompt_superlinh_setup ~/.zprezto/modules/prompt/functions
 ```
 
+### Install tmux:
+```
+brew install tmux
+```
+
 ### Install Vim:
 ```
 brew install macvim --with-cscope --with-lua --override-system-vim
@@ -77,4 +82,9 @@ git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
 ### Install reattach-to-user-namespace
 ```
 brew install reattach-to-user-namespace
+```
+
+### Install the_silver_searcher / ag
+```
+brew install the_silver_search
 ```
