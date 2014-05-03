@@ -132,6 +132,10 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
 " type <leader><leader> to trigger easy motion
 let g:EasyMotion_leader_key = '<leader><leader>'
 
@@ -158,7 +162,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 " Make the omnicomplete text readable
-" highlight PmenuSel ctermfg=black
+highlight PmenuSel ctermfg=black
 
 " Make matching search phrase more obvious
 highlight Search cterm=NONE ctermbg=yellow ctermfg=black
