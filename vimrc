@@ -24,10 +24,6 @@ runtime macros/matchit.vim
 
 syntax on
 
-" Remap leader key
-let mapleader = ","
-let g:mapleader = ","
-
 set nobackup
 set nowritebackup
 set noswapfile
@@ -87,14 +83,6 @@ colorscheme vividchalk
 
 " good for my fingers
 inoremap jj <ESC>
-
-" Save one keystroke
-nnoremap ; :
-
-" Remap backslash to repeat forward find
-nnoremap \ ;
-" Remap pipe to repeat backward find
-nnoremap \| ,
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
@@ -237,7 +225,6 @@ nnoremap <leader>rsr :Rake sunspot:reindex<CR>
 nnoremap <leader>u :GundoToggle<CR>
 
 " remap tabular.vim keys
-let mapleader=','
 if exists(":Tabularize")
   nmap <Leader>ta= :Tabularize /=<CR>
   vmap <Leader>ta= :Tabularize /=<CR>
