@@ -124,9 +124,6 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
-" type <leader><leader> to trigger easy motion
-let g:EasyMotion_leader_key = '<leader><leader>'
-
 " Edit and source vimrc
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
