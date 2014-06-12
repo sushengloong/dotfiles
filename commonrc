@@ -61,3 +61,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # export cairo library for rabbit
 export DYLD_LIBRARY_PATH=/usr/local/opt/cairo/lib:$DYLD_LIBRARY_PATH
+
+export CLICOLOR=1
+## light background
+#export LSCOLORS=ExFxCxDxBxegedabagacad
+## dark background
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
