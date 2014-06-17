@@ -81,6 +81,18 @@ set background=dark
 colorscheme vividchalk
 " colorscheme molokai
 
+" Remap leader key
+let mapleader = ","
+let g:mapleader = ","
+
+" Save one keystroke
+nnoremap ; :
+
+" Remap backslash to repeat forward find
+nnoremap \ ;
+" Remap pipe to repeat backward find
+nnoremap \| ,
+
 " good for my fingers
 inoremap jj <ESC>
 
