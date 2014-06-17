@@ -82,8 +82,8 @@ colorscheme vividchalk
 " colorscheme molokai
 
 " Remap leader key
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = "\<space>"
+let g:mapleader = "\<space>"
 
 " Save one keystroke
 nnoremap ; :
