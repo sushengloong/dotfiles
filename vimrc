@@ -93,9 +93,6 @@ nnoremap \ ;
 " Remap pipe to repeat backward find
 nnoremap \| ,
 
-" good for my fingers
-inoremap jj <ESC>
-
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
