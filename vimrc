@@ -85,6 +85,8 @@ colorscheme vividchalk
 let mapleader = ","
 let g:mapleader = ","
 
+inoremap jk <Esc>
+
 " Save one keystroke
 nnoremap ; :
 
