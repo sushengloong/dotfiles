@@ -72,3 +72,7 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 if [ -f /usr/libexec/java_home ]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
+
+# workaround iterm2 solarized colorscheme
+# makes ls display colorized output
+export CLICOLOR=1
