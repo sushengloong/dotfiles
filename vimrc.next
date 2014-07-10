@@ -28,6 +28,10 @@ NeoBundle 'tpope/vim-sensible'
 NeoBundle 'Shougo/unite.vim'
 " Precision colorscheme for the vim
 NeoBundle 'altercation/vim-colors-solarized'
+" Quoting/parenthesizing made simple
+NeoBundle 'tpope/vim-surround'
+" Ruby on Rails power tools
+NeoBundle 'tpope/vim-rails'
 
 call neobundle#end()
 
@@ -62,3 +66,7 @@ nnoremap <C-p> :Unite -buffer-name=files file_rec/async<cr>
 " move by displayed line instead of physical line
 nnoremap j gj
 nnoremap k gk
+
+" case-insensitive search unless specified otherwise
+set ignorecase
+set smartcase
