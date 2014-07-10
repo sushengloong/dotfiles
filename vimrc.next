@@ -32,6 +32,8 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'tpope/vim-surround'
 " Ruby on Rails power tools
 NeoBundle 'tpope/vim-rails'
+" Next generation completion framework
+NeoBundle 'Shougo/neocomplete.vim'
 
 call neobundle#end()
 
@@ -73,10 +75,23 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
-" move by displayed line instead of physical line
-nnoremap j gj
-nnoremap k gk
-
 " case-insensitive search unless specified otherwise
 set ignorecase
 set smartcase
+
+" configure neocomplete
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" move by displayed line instead of physical line
+nnoremap j gj
+nnoremap k gk
+" Can't be bothered to understand ESC vs <c-c> in insert mode
+imap <c-c> <esc>
