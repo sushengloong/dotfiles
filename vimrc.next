@@ -34,6 +34,8 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-rails'
 " Next generation completion framework
 NeoBundle 'Shougo/neocomplete.vim'
+" Comment plugin
+NeoBundle 'tomtom/tcomment_vim'
 
 call neobundle#end()
 
@@ -107,3 +109,5 @@ inoremap <c-c> <esc>
 nnoremap <leader><space> :noh<cr>
 " Make equal or maximize current split window
 nnoremap <C-w>m <C-w>\|<C-w>_
+" Remap TComment keys
+noremap <leader>c :TComment<cr>
