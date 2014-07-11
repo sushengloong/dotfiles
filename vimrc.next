@@ -54,6 +54,7 @@ set number
 " case-insensitive search unless specified otherwise
 set ignorecase
 set smartcase
+set hlsearch
 " highlight current line
 set cursorline
 " better tab spaces
@@ -101,4 +102,8 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 nnoremap j gj
 nnoremap k gk
 " Can't be bothered to understand ESC vs <c-c> in insert mode
-imap <c-c> <esc>
+inoremap <c-c> <esc>
+" Clear search
+nnoremap <leader><space> :noh<cr>
+" Make equal or maximize current split window
+nnoremap <C-w>m <C-w>\|<C-w>_
