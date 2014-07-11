@@ -47,6 +47,11 @@ NeoBundleCheck
 let mapleader = ","
 let g:mapleader = ","
 
+" Change colorscheme
+colorscheme solarized
+let g:solarized_termcolors=256
+set background=dark
+
 " Don't make backups at all
 set nobackup
 set nowritebackup
@@ -59,16 +64,14 @@ set smartcase
 set hlsearch
 " highlight current line
 set cursorline
+" highlight trailing whitespaces
+highlight ExtraWhitespace ctermbg=darkred guibg=darkred
+match ExtraWhitespace /\s\+$/
 " better tab spaces
 set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
-
-" Change colorscheme
-colorscheme solarized
-let g:solarized_termcolors=256
-set background=dark
 
 " Make Unite to do CtrlP-style search
 call unite#custom#profile('default', 'context', {
