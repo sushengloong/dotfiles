@@ -52,6 +52,7 @@ set background=dark
 " Don't make backups at all
 set nobackup
 set nowritebackup
+set noswapfile
 " Hybrid line number mode
 set relativenumber
 set number
