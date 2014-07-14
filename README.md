@@ -81,7 +81,6 @@ ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/githelpers ~/.githelpers
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
 ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/vimrc.bundles ~/.vimrc.bundles
 ln -s ~/dotfiles/irbrc ~/.irbrc
 ln -s ~/dotfiles/gemrc ~/.gemrc
 ```

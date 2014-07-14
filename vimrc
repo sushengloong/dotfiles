@@ -1,7 +1,4 @@
-" Experimental vimrc
-" My original vimrc has become very bloated and slow :(
-" so I would like to start everything from scratch
-" and re-add config and plugins as and when I need them only
+" This is Sheng-Loong Su's .vimrc
 
 if has('vim_starting')
   set nocompatible
