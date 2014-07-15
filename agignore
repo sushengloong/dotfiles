@@ -1,7 +1,11 @@
+.git/
+.svn/
+.hg/
 log/
 logs/
 images/
 tmp/
+node_modules/
 tags
 *.tags*
 *.gemtags*

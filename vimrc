@@ -90,8 +90,9 @@ nnoremap <leader>y :<C-u>Unite history/yank<CR>
 
 " Use ag (the_silver_searcher) if available
 if executable('ag')
+  let g:unite_source_rec_async_command = 'ag --nogroup --nocolor --column --hidden -g ""'
   let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --hidden -g ""'
   let g:unite_source_grep_recursive_opt = ''
 endif
 
