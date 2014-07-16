@@ -87,6 +87,7 @@ nnoremap <leader>a :<C-u>Unite grep:. -buffer-name=search<cr>
 " Search through yank history
 let g:unite_source_history_yank_enable = 1
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
+nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<cr>
 
 " Use ag (the_silver_searcher) if available
 if executable('ag')
