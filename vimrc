@@ -110,7 +110,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 nnoremap j gj
 nnoremap k gk
 " Can't be bothered to understand ESC vs <c-c> in insert mode
-inoremap <c-c> <esc>
+noremap <c-c> <esc>
 " Clear search
 nnoremap <leader><space> :noh<cr>
 " Make equal or maximize current split window
