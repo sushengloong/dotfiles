@@ -20,11 +20,11 @@ NeoBundle 'Shougo/vimproc.vim', {
       \ }
 " Defaults everyone can agree on
 NeoBundle 'tpope/vim-sensible'
+" A colorful, dark color scheme for Vim
+NeoBundle 'nanotech/jellybeans.vim'
 " Search and display information from arbitrary sources
 " like files, buffers, recently used files or registers
 NeoBundle 'Shougo/unite.vim'
-" Precision colorscheme for the vim
-NeoBundle 'altercation/vim-colors-solarized'
 " Quoting/parenthesizing made simple
 NeoBundle 'tpope/vim-surround'
 " Ruby on Rails power tools
@@ -47,8 +47,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Change colorscheme
-colorscheme solarized
-let g:solarized_termcolors=256
+colorscheme jellybeans
 set background=dark
 
 " Don't make backups at all
