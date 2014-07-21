@@ -123,3 +123,16 @@ nnoremap <C-w>m <C-w>\|<C-w>_
 noremap <leader>c :TComment<cr>
 " Generate tags
 noremap <leader>rt :!/usr/local/bin/ctags --extra=+f --languages=-javascript,sql --exclude=.git --exclude=.svn --exclude=log -R *<CR><C-M>
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+  augroup jumpLastCursorPos
+    " Clear all autocmds in the group
+    autocmd!
+    " Jump to last cursor position unless it's invalid or in an event handler
+    autocmd BufReadPost *
+          \ if line("'\"") > 0 && line("'\"") <= line("$") |
+          \   exe "normal g`\"" |
+          \ endif
+  augroup END
+endif
