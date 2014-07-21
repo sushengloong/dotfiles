@@ -39,6 +39,8 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kana/vim-textobj-user'
 " A custom text object for selecting ruby blocks
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
+" Syntax checking hacks for vim
+NeoBundle 'scrooloose/syntastic'
 
 call neobundle#end()
 
