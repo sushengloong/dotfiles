@@ -33,6 +33,8 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'Shougo/neocomplete.vim'
 " Comment plugin
 NeoBundle 'tomtom/tcomment_vim'
+" A Git wrapper so awesome
+NeoBundle 'tpope/vim-fugitive'
 
 call neobundle#end()
 
