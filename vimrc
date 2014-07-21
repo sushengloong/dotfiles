@@ -90,7 +90,6 @@ nnoremap <leader>f :<C-u>Unite grep:. -buffer-name=search<cr>
 let g:unite_source_history_yank_enable = 1
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
 nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<cr>
-nnoremap <leader>a :<C-u>UniteResume<cr>
 
 " Use ag (the_silver_searcher) if available
 if executable('ag')
