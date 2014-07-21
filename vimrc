@@ -35,6 +35,10 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'tomtom/tcomment_vim'
 " A Git wrapper so awesome
 NeoBundle 'tpope/vim-fugitive'
+" Create your own text objects
+NeoBundle 'kana/vim-textobj-user'
+" A custom text object for selecting ruby blocks
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
 call neobundle#end()
 
