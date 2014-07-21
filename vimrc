@@ -78,6 +78,10 @@ call unite#custom#profile('default', 'context', {
 	\   'winheight': 10,
 	\   'direction': 'botright'
 	\ })
+" Do not quit Unite automatically after opening a file in search buffer
+call unite#custom#profile('search', 'context', {
+  \   'no_quit' : 1
+  \ })
 call unite#custom#profile('default', 'ignorecase', 1)
 call unite#custom#profile('default', 'smartcase', 1)
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
