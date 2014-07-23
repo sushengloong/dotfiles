@@ -105,7 +105,7 @@ nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<cr>
 if executable('ag')
   let g:unite_source_rec_async_command = 'ag --nogroup --nocolor --column --hidden -g ""'
   let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --hidden'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --hidden --smart-case'
   let g:unite_source_grep_recursive_opt = ''
 endif
 
