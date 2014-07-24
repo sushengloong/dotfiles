@@ -41,6 +41,8 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 " Syntax checking hacks for vim
 NeoBundle 'scrooloose/syntastic'
+" Rename the current file in the vim buffer + retain relative path
+NeoBundle 'danro/rename.vim'
 " nyancat on vim
 NeoBundle 'koron/nyancat-vim'
 
