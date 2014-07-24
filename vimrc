@@ -43,6 +43,8 @@ NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'scrooloose/syntastic'
 " Rename the current file in the vim buffer + retain relative path
 NeoBundle 'danro/rename.vim'
+" Seamless navigation between tmux panes and vim splits
+NeoBundle 'christoomey/vim-tmux-navigator'
 " nyancat on vim
 NeoBundle 'koron/nyancat-vim'
 
