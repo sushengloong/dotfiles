@@ -133,6 +133,8 @@ nnoremap <C-w>m <C-w>\|<C-w>_
 noremap <leader>c :TComment<cr>
 " Generate tags
 noremap <leader>rt :!/usr/local/bin/ctags --extra=+f --languages=-javascript,sql --exclude=.git --exclude=.svn --exclude=log -R *<CR><C-M>
+" Paste from system clipboard
+noremap <leader>p :set paste<cr>o<esc>"+p:set nopaste<cr>
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
