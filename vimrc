@@ -41,6 +41,8 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 " Syntax checking hacks for vim
 NeoBundle 'scrooloose/syntastic'
+" nyancat on vim
+NeoBundle 'koron/nyancat-vim'
 
 call neobundle#end()
 
