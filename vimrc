@@ -151,4 +151,11 @@ if has("autocmd")
           \   exe "normal g`\"" |
           \ endif
   augroup END
+
+  augroup setFiletype
+    " Clear all autocmds in the group
+    autocmd!
+    " Set filetype for additional file extensions
+    autocmd BufNewFile,BufRead *.gradle setf groovy
+  augroup END
 endif
