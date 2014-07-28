@@ -85,6 +85,8 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
+" Disable beep and flash
+set noerrorbells visualbell t_vb=
 
 " Make Unite to do CtrlP-style search
 call unite#custom#profile('default', 'context', {
