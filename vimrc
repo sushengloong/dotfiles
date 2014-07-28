@@ -45,6 +45,8 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'danro/rename.vim'
 " Seamless navigation between tmux panes and vim splits
 NeoBundle 'christoomey/vim-tmux-navigator'
+" CoffeeScript support for vim
+NeoBundle 'kchmck/vim-coffee-script'
 " nyancat on vim
 NeoBundle 'koron/nyancat-vim'
 
