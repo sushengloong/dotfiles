@@ -141,7 +141,10 @@ noremap <leader>c :TComment<cr>
 noremap <leader>rt :!/usr/local/bin/ctags --extra=+f --languages=-javascript,sql --exclude=.git --exclude=.svn --exclude=log -R *<CR><C-M>
 " Paste from system clipboard
 noremap <leader>p :set paste<cr>o<esc>"+p:set nopaste<cr>
+" Put current working directory in command
 cnoremap %% <C-R>=expand('%:p:h').'/'<cr>
+" Compile and run a single Java file
+noremap <leader>rj :!javac % && java <C-R>=expand('%:r')<cr><cr>
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
