@@ -61,8 +61,8 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Change colorscheme
-colorscheme jellybeans
 set background=dark
+colorscheme jellybeans
 
 " Don't make backups at all
 set nobackup
