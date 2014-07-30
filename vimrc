@@ -164,6 +164,7 @@ if has("autocmd")
     " Clear all autocmds in the group
     autocmd!
     " Set filetype for additional file extensions
-    autocmd BufNewFile,BufRead *.gradle setf groovy
+    autocmd BufNewFile,BufRead *.gradle setfiletype groovy
+    autocmd BufNewFile,BufRead */gitconfig setfiletype gitconfig
   augroup END
 endif
