@@ -1,6 +1,14 @@
 " This is Sheng-Loong Su's .vimrc
 
 if has('vim_starting')
+  " Some Linux distributions set filetype in /etc/vimrc.
+  " Clear filetype flags before changing runtimepath to force Vim to reload them.
+  if exists("g:did_load_filetypes")
+    filetype off
+    filetype plugin indent off
+  endif
+  set runtimepath+=$GOROOT/misc/vim
+
   set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -168,3 +176,6 @@ if has("autocmd")
     autocmd BufNewFile,BufRead */gitconfig setfiletype gitconfig
   augroup END
 endif
+
+filetype plugin indent on
+syntax on
