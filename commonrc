@@ -72,3 +72,8 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 if [ -f /usr/libexec/java_home ]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
+
+if [ -d /usr/local/opt/go/libexec ]; then
+  export GOROOT=/usr/local/opt/go/libexec
+  export PATH="$GOROOT/bin:$PATH"
+fi
