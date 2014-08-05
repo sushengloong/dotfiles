@@ -73,7 +73,9 @@ if [ -f /usr/libexec/java_home ]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
+# configure golang environments
 if [ -d /usr/local/opt/go/libexec ]; then
   export GOROOT=/usr/local/opt/go/libexec
-  export PATH="$GOROOT/bin:$PATH"
+  export GOPATH=$HOME/go
+  export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 fi
