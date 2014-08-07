@@ -96,6 +96,9 @@ set softtabstop=2
 " Disable beep and flash
 set noerrorbells visualbell t_vb=
 
+" Set explore mode to use NerdTree list style
+let g:netrw_liststyle=3
+
 " Syntastic config
 let g:syntastic_mode_map={ 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java'] }
 
