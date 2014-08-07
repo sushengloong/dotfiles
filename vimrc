@@ -96,6 +96,9 @@ set softtabstop=2
 " Disable beep and flash
 set noerrorbells visualbell t_vb=
 
+" Syntastic config
+let g:syntastic_mode_map={ 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java'] }
+
 " Make Unite to do CtrlP-style search
 call unite#custom#profile('default', 'context', {
 	\   'start_insert': 1,
