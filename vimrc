@@ -106,8 +106,8 @@ let g:syntastic_mode_map={ 'mode': 'active', 'active_filetypes': [], 'passive_fi
 call unite#custom#profile('default', 'context', {
 	\   'start_insert': 1,
 	\   'winheight': 10,
-	\   'direction': 'botright'
 	\ })
+	"\   'direction': 'botright'
 " Do not quit Unite automatically after opening a file in search buffer
 call unite#custom#profile('search', 'context', {
   \   'no_quit' : 1
