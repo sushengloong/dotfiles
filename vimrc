@@ -35,6 +35,8 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'Shougo/unite.vim'
 " Quoting/parenthesizing made simple
 NeoBundle 'tpope/vim-surround'
+" enable repeating supported plugin maps with dot
+NeoBundle 'tpope/vim-repeat'
 " Ruby on Rails power tools
 NeoBundle 'tpope/vim-rails'
 " Next generation completion framework
