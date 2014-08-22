@@ -102,6 +102,7 @@ set noerrorbells visualbell t_vb=
 let g:netrw_liststyle=3
 
 " Syntastic config
+let g:syntastic_enable_highlighting=0
 let g:syntastic_mode_map={ 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java'] }
 
 " Make Unite to do CtrlP-style search
