@@ -97,6 +97,8 @@ set tabstop=2
 set softtabstop=2
 " Disable beep and flash
 set noerrorbells visualbell t_vb=
+" To resolve syntastic error
+set shell=/bin/bash
 
 " Set explore mode to use NerdTree list style
 let g:netrw_liststyle=3
