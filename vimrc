@@ -117,8 +117,8 @@ call unite#custom#profile('default', 'context', {
 call unite#custom#profile('search', 'context', {
   \   'no_quit' : 1
   \ })
-call unite#custom#profile('default', 'ignorecase', 1)
-call unite#custom#profile('default', 'smartcase', 1)
+call unite#custom#profile('default', 'context.ignorecase', 1)
+call unite#custom#profile('default', 'context.smartcase', 1)
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 "call unite#custom#source('file_rec,file_rec/async', 'matchers', ['converter_relative_word', 'matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
