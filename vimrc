@@ -87,6 +87,8 @@ set tabstop=2
 set softtabstop=2
 " Disable beep and flash
 set noerrorbells visualbell t_vb=
+" configure wild menu mode
+set wildmode=longest:list,full
 " To resolve syntastic error
 set shell=/bin/bash
 
