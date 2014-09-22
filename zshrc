@@ -1,9 +1,5 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
 # Please stop these annoying correction prompts
 unsetopt correct_all
@@ -11,6 +7,11 @@ unsetopt correct
 
 # so that HEAD^ in git works without escaping ^
 setopt NO_NOMATCH
+
+ZSH_THEME="robbyrussell"
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
 
 if [ -f ~/.commonrc ]; then
   source ~/.commonrc
