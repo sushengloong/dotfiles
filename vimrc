@@ -93,7 +93,6 @@ set shell=/bin/bash
 " Set explore mode to use NerdTree list style
 let g:netrw_liststyle=3
 
-
 " CtrlP config
 " Always use The Silver Searcher if available
 if executable('ag')
