@@ -23,6 +23,8 @@ NeoBundle 'tpope/vim-sensible'
 NeoBundle 'nanotech/jellybeans.vim'
 " Fuzzy file, buffer, mru, tag, etc finder
 NeoBundle 'kien/ctrlp.vim'
+" Quoting/parenthesizing made simple
+NeoBundle 'tpope/vim-surround'
 " enable repeating supported plugin maps with dot
 NeoBundle 'tpope/vim-repeat'
 " Ruby on Rails power tools
