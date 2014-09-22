@@ -5,11 +5,6 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# Source Prezto.
-if [ -f ~/.zprezto/runcoms/zshrc ]; then
-  source ~/.zprezto/runcoms/zshrc
-fi
-
 # Please stop these annoying correction prompts
 unsetopt correct_all
 unsetopt correct

@@ -18,13 +18,8 @@ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew install zsh
 ```
 
-### Install Pretzo:
-Refer to https://github.com/sorin-ionescu/prezto
-
-### Copy custom Prezto theme:
-```
-cp ~/dotfiles/prompt_superlinh_setup ~/.zprezto/modules/prompt/functions
-```
+### Install oh my zsh:
+Refer to https://github.com/robbyrussell/oh-my-zsh
 
 ### Install tmux:
 ```
