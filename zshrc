@@ -8,7 +8,7 @@ unsetopt correct
 # so that HEAD^ in git works without escaping ^
 setopt NO_NOMATCH
 
-ZSH_THEME="bira"
+ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
