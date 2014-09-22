@@ -17,24 +17,12 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
-" Interactive command execution in Vim
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
 " Defaults everyone can agree on
 NeoBundle 'tpope/vim-sensible'
 " A colorful, dark color scheme for Vim
 NeoBundle 'nanotech/jellybeans.vim'
-" Search and display information from arbitrary sources
-" like files, buffers, recently used files or registers
-NeoBundle 'Shougo/unite.vim'
-" Quoting/parenthesizing made simple
-NeoBundle 'tpope/vim-surround'
+" Fuzzy file, buffer, mru, tag, etc finder
+NeoBundle 'kien/ctrlp.vim'
 " enable repeating supported plugin maps with dot
 NeoBundle 'tpope/vim-repeat'
 " Ruby on Rails power tools
@@ -103,40 +91,27 @@ set shell=/bin/bash
 " Set explore mode to use NerdTree list style
 let g:netrw_liststyle=3
 
+
+" CtrlP config
+" Always use The Silver Searcher if available
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+
+  " :Ag command for searching files in project
+  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  nnoremap <leader>f :Ag<SPACE>
+endif
+
 " Syntastic config
 let g:syntastic_enable_highlighting=0
 let g:syntastic_mode_map={ 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java'] }
-
-" Make Unite to do CtrlP-style search
-call unite#custom#profile('default', 'context', {
-	\   'start_insert': 1,
-	\   'winheight': 10,
-	\   'direction': 'botright'
-	\ })
-" Do not quit Unite automatically after opening a file in search buffer
-call unite#custom#profile('search', 'context', {
-  \   'no_quit' : 1
-  \ })
-call unite#custom#profile('default', 'context.ignorecase', 1)
-call unite#custom#profile('default', 'context.smartcase', 1)
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-"call unite#custom#source('file_rec,file_rec/async', 'matchers', ['converter_relative_word', 'matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-"call unite#custom#source('file_rec/async','sorters','sorter_rank')
-nnoremap <C-p> :Unite -buffer-name=files file_rec/async<cr>
-nnoremap <leader>f :<C-u>Unite grep:. -buffer-name=search<cr>
-" Search through yank history
-let g:unite_source_history_yank_enable = 1
-nnoremap <leader>y :<C-u>Unite history/yank<CR>
-nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<cr>
-
-" Use ag (the_silver_searcher) if available
-if executable('ag')
-  let g:unite_source_rec_async_command = 'ag --follow --nogroup --nocolor --column --hidden -g ""'
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--follow --nogroup --nocolor --column --hidden --smart-case'
-  let g:unite_source_grep_recursive_opt = ''
-endif
 
 " configure neocomplete
 " Disable AutoComplPop.
