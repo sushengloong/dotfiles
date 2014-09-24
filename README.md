@@ -65,6 +65,7 @@ git clone https://github.com/sushengloong/dotfiles.git ~/dotfiles
 
 ### Create symlinks:
 ```
+ln -s ~/dotfiles/oh-my-zsh/custom/themes ~/.oh-my-zsh/custom/themes
 ln -s ~/dotfiles/commonrc ~/.commonrc
 ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/bashrc ~/.bashrc
