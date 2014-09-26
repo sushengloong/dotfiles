@@ -5,6 +5,9 @@ export ZSH=$HOME/.oh-my-zsh
 unsetopt correct_all
 unsetopt correct
 
+# Print non-zero exit codes
+setopt printexitvalue
+
 # so that HEAD^ in git works without escaping ^
 setopt NO_NOMATCH
 
