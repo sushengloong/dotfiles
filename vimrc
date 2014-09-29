@@ -116,13 +116,15 @@ endif
 let g:syntastic_enable_highlighting=0
 let g:syntastic_mode_map={ 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java'] }
 
-" configure neocomplete
+" Configure neocomplete
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" Disable autocomplete and allow manual completion with TAB key
+let g:neocomplete#disable_auto_complete = 1
+let g:neocomplete#enable_auto_select = 0
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " move by displayed line instead of physical line
