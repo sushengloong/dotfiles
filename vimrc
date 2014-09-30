@@ -124,8 +124,14 @@ let g:neocomplete#enable_smart_case = 1
 " Disable autocomplete and allow manual completion with TAB key
 let g:neocomplete#disable_auto_complete = 1
 let g:neocomplete#enable_auto_select = 0
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ neocomplete#start_manual_complete()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() "{{{
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
 
 " move by displayed line instead of physical line
 nnoremap j gj
