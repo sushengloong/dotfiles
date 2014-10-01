@@ -1,3 +1,6 @@
+# Config locale
+export LC_ALL="en_US.UTF-8"
+
 # Add Oracle library to path
 
 INSTANTCLIENT_10_2="/usr/local/oracle/instantclient_10_2"
