@@ -21,6 +21,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tpope/vim-sensible'
 " A colorful, dark color scheme for Vim
 NeoBundle 'nanotech/jellybeans.vim'
+" Lean & mean status/tabline for vim that's light as air
+NeoBundle 'bling/vim-airline'
 " Fuzzy file, buffer, mru, tag, etc finder
 NeoBundle 'kien/ctrlp.vim'
 " Quoting/parenthesizing made simple
