@@ -64,6 +64,19 @@ NeoBundleCheck
 let mapleader = ","
 let g:mapleader = ","
 
+" Highlight trailing whitespaces.
+" Ensure that the highlight group gets created and
+" is not cleared by future colorscheme commands.
+function! HighlightExtraWhitespace()
+  highlight ExtraWhitespace ctermbg=darkred guibg=darkred
+  match ExtraWhitespace /\s\+$/
+endfunction
+if has("autocmd")
+  autocmd ColorScheme * call HighlightExtraWhitespace()
+else
+  call HighlightExtraWhitespace()
+endif
+
 " Change colorscheme
 set background=dark
 colorscheme jellybeans
@@ -81,9 +94,6 @@ set smartcase
 set hlsearch
 " highlight current line
 set cursorline
-" highlight trailing whitespaces
-highlight ExtraWhitespace ctermbg=darkred guibg=darkred
-match ExtraWhitespace /\s\+$/
 " better tab spaces
 set expandtab
 set shiftwidth=2
