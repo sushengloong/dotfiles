@@ -137,6 +137,10 @@ function! s:check_back_space() "{{{
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
 
+" Disable vim-airline hunks and branch integration
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#branch#enabled = 0
+
 " move by displayed line instead of physical line
 nnoremap j gj
 nnoremap k gk
