@@ -7,7 +7,7 @@ function ruby_version() {
 }
 
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)%{$reset_color%}"
-PROMPT='%{$fg_bold[green]%}%p %{$fg[cyan]%}$(get_pwd) %{$fg[red]%}$(ruby_version) %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % ${ret_status} '
+PROMPT='%{$fg_bold[green]%}%p %{$fg[cyan]%}$(get_pwd) %{$fg[red]%}$(ruby_version) %{$fg_bold[blue]%}$(git_prompt_info) ${ret_status} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
