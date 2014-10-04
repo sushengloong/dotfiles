@@ -173,6 +173,9 @@ cnoremap %% <C-R>=expand('%:p:h').'/'<cr>
 " Compile and run a single Java file
 noremap <leader>rj :!javac % && java <C-R>=expand('%:r')<cr><cr>
 
+" Removes trailing spaces
+command! TrimWhitespace %s/\s\+$//e
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
   augroup jumpLastCursorPos
