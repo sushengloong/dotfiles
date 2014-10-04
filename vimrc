@@ -49,6 +49,8 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'danro/rename.vim'
 " Seamless navigation between tmux panes and vim splits
 NeoBundle 'christoomey/vim-tmux-navigator'
+" Vim plugin to interact with tmux
+NeoBundle 'benmills/vimux'
 " A Vim plugin which shows a git diff in the gutter (sign column) and stages/reverts hunks.
 NeoBundle 'airblade/vim-gitgutter'
 " CoffeeScript support for vim
