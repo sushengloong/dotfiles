@@ -25,6 +25,8 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'bling/vim-airline'
 " Fuzzy file, buffer, mru, tag, etc finder
 NeoBundle 'kien/ctrlp.vim'
+" Plugins for ctrlp.vim
+NeoBundle 'sgur/ctrlp-extensions.vim'
 " Quoting/parenthesizing made simple
 NeoBundle 'tpope/vim-surround'
 " enable repeating supported plugin maps with dot
@@ -110,6 +112,7 @@ set shell=/bin/bash
 let g:netrw_liststyle=3
 
 " CtrlP config
+let g:ctrlp_extensions = ['yankring', 'cmdline']
 " Always use The Silver Searcher if available
 if executable('ag')
   " Use ag over grep
