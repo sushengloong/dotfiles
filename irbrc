@@ -4,8 +4,3 @@
   rescue LoadError
   end
 end
-
-# Clear the screen
-def clear
-  system 'clear'
-end
