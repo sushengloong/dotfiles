@@ -77,5 +77,6 @@ ln -s ~/dotfiles/githelpers ~/.githelpers
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/irbrc ~/.irbrc
+ln -s ~/dotfiles/pryrc ~/.pryrc
 ln -s ~/dotfiles/gemrc ~/.gemrc
 ```
