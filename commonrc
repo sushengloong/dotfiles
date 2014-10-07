@@ -82,3 +82,6 @@ if [ -d /usr/local/opt/go/libexec ]; then
   export GOPATH=$HOME/go
   export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 fi
+
+# Custom scripts ftw!
+export PATH=~/dotfiles/bin:$PATH
