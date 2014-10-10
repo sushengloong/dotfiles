@@ -202,5 +202,19 @@ if has("autocmd")
   augroup END
 endif
 
+" Remove smart quotes and other fancy characters
+function! ReplaceFancyCharacters()
+    let typo = {}
+    let typo["“"] = '"'
+    let typo["”"] = '"'
+    let typo["‘"] = "'"
+    let typo["’"] = "'"
+    let typo["–"] = '--'
+    let typo["—"] = '---'
+    let typo["…"] = '...'
+    :exe ":%s/".join(keys(typo), '\|').'/\=typo[submatch(0)]/ge'
+endfunction
+command! ReplaceFancyCharacters :call ReplaceFancyCharacters()
+
 filetype plugin indent on
 syntax on
