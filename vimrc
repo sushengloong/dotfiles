@@ -177,6 +177,8 @@ noremap <leader>p :set paste<cr>o<esc>"+p:set nopaste<cr>
 cnoremap %% <C-R>=expand('%:p:h').'/'<cr>
 " Compile and run a single Java file
 noremap <leader>rj :!javac % && java <C-R>=expand('%:r')<cr><cr>
+" Write to read-only file
+cnoremap w!! w !sudo tee % >/dev/null
 
 " Removes trailing spaces
 command! StripTrailingSpaces %s/\s\+$//e
