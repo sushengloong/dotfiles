@@ -17,6 +17,16 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
+" Interactive command execution in Vim
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 " Defaults everyone can agree on
 NeoBundle 'tpope/vim-sensible'
 " A colorful, dark color scheme for Vim
@@ -169,8 +179,14 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <C-w>m <C-w>\|<C-w>_
 " Remap TComment keys
 noremap <leader>c :TComment<cr>
-" Generate tags
-noremap <leader>rt :!/usr/local/bin/ctags --extra=+f --languages=-javascript,sql --exclude=.git --exclude=.svn --exclude=log -R *<CR><C-M>
+" Generate ctags asynchronously
+function! AsyncGenerateCtags()
+  if &ft =~ 'javascript\|sql\|html\|css'
+    return
+  endif
+  call vimproc#system_bg('ctags --extra=+f --languages=-javascript,sql --exclude=.git --exclude=.svn --exclude=log -R *')
+endfunction
+noremap <leader>rt :call AsyncGenerateCtags()<cr>
 " Paste from system clipboard
 noremap <leader>p :set paste<cr>o<esc>"+p:set nopaste<cr>
 " Put current working directory in command
@@ -201,6 +217,13 @@ if has("autocmd")
     " Set filetype for additional file extensions
     autocmd BufNewFile,BufRead *.gradle setfiletype groovy
     autocmd BufNewFile,BufRead */gitconfig setfiletype gitconfig
+  augroup END
+
+  augroup refreshCtags
+    " Clear all autocmds in the group
+    autocmd!
+    " Automatically regenerate ctags after writing to file
+    autocmd BufWritePost * call AsyncGenerateCtags()
   augroup END
 endif
 
