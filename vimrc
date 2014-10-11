@@ -65,6 +65,12 @@ NeoBundle 'benmills/vimux'
 NeoBundle 'airblade/vim-gitgutter'
 " CoffeeScript support for vim
 NeoBundle 'kchmck/vim-coffee-script'
+" Navigate files at the speed of Vim
+NeoBundle 'dsawardekar/portkey'
+" Vim plugin for the Emberjs frontend framework
+NeoBundle 'dsawardekar/ember.vim'
+" mustache and handlebars mode for vim
+NeoBundle 'mustache/vim-mustache-handlebars'
 " nyancat on vim
 NeoBundle 'koron/nyancat-vim'
 
