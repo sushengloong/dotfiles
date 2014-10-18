@@ -63,6 +63,8 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'benmills/vimux'
 " A Vim plugin which shows a git diff in the gutter (sign column) and stages/reverts hunks.
 NeoBundle 'airblade/vim-gitgutter'
+" Slim support for vim
+NeoBundle 'slim-template/vim-slim'
 " CoffeeScript support for vim
 NeoBundle 'kchmck/vim-coffee-script'
 " Navigate files at the speed of Vim
