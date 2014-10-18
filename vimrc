@@ -33,6 +33,8 @@ NeoBundle 'tpope/vim-sensible'
 NeoBundle 'nanotech/jellybeans.vim'
 " Lean & mean status/tabline for vim that's light as air
 NeoBundle 'bling/vim-airline'
+" Enhances netrw
+NeoBundle 'tpope/vim-vinegar'
 " Fuzzy file, buffer, mru, tag, etc finder
 NeoBundle 'kien/ctrlp.vim'
 " Plugins for ctrlp.vim
@@ -127,9 +129,6 @@ set noerrorbells visualbell t_vb=
 set wildmode=longest:list,full
 " To resolve syntastic error
 set shell=/bin/bash
-
-" Set explore mode to use NerdTree list style
-let g:netrw_liststyle=3
 
 " CtrlP config
 let g:ctrlp_extensions = ['yankring', 'cmdline']
