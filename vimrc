@@ -190,10 +190,9 @@ nnoremap <C-w>m <C-w>\|<C-w>_
 noremap <leader>c :TComment<cr>
 " Generate ctags asynchronously
 function! AsyncGenerateCtags()
-  if &ft =~ 'javascript\|sql\|html\|css'
-    return
+  if &ft =~ 'ruby\|java'
+    call vimproc#system_bg('ctags --extra=+f --languages=-javascript,sql --exclude=.git --exclude=.svn --exclude=log -R *')
   endif
-  call vimproc#system_bg('ctags --extra=+f --languages=-javascript,sql --exclude=.git --exclude=.svn --exclude=log -R *')
 endfunction
 noremap <leader>rt :call AsyncGenerateCtags()<cr>
 " Paste from system clipboard
