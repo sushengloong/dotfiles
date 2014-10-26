@@ -75,6 +75,8 @@ NeoBundle 'dsawardekar/portkey'
 NeoBundle 'dsawardekar/ember.vim'
 " mustache and handlebars mode for vim
 NeoBundle 'mustache/vim-mustache-handlebars'
+" AngularJS with Vim
+NeoBundle 'burnettk/vim-angular'
 " nyancat on vim
 NeoBundle 'koron/nyancat-vim'
 
