@@ -2,20 +2,15 @@
 export LC_ALL="en_US.UTF-8"
 
 # Add Oracle library to path
-
-INSTANTCLIENT_10_2="/usr/local/oracle/instantclient_10_2"
-INSTANTCLIENT_11_2="/usr/local/oracle/instantclient_11_2"
-
-if [ -d "$INSTANTCLIENT_10_2" ]; then
-  export DYLD_LIBRARY_PATH="$INSTANTCLIENT_10_2"
-  export SQLPATH="$INSTANTCLIENT_10_2"
-else
-  export DYLD_LIBRARY_PATH="$INSTANTCLIENT_11_2"
-  export SQLPATH="$INSTANTCLIENT_11_2"
+ORACLE_INSTANT_CLIENT_PATH="$HOME/workspace/wins/oracle/instantclient_11_2"
+if [ -d $ORACLE_INSTANT_CLIENT_PATH ]; then
+  export ORACLE_HOME=$ORACLE_INSTANT_CLIENT_PATH
+  export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$ORACLE_HOME
+  export RC_ARCHS=x86_64
+  export NLS_LANG=AMERICAN_AMERICA.UTF8
+  export TNS_ADMIN=$ORACLE_HOME/network/admin
+  export PATH=$PATH:$ORACLE_HOME
 fi
-export TNS_ADMIN="/usr/local/oracle/network/admin"
-export NLS_LANG="AMERICAN_AMERICA.UTF8"
-export PATH=$PATH:$DYLD_LIBRARY_PATH
 
 # Add MySQL library to path
 MYSQL_LIB="/usr/local/mysql/lib"
