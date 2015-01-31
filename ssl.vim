@@ -5,5 +5,3 @@
 
 set relativenumber
 colorscheme desert
-unmap L
-unmap H
