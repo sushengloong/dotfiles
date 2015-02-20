@@ -74,3 +74,6 @@ fi
 
 # Custom scripts ftw!
 export PATH=~/dotfiles/bin:$PATH
+
+# source autojump script
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
