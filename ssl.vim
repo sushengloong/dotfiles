@@ -9,5 +9,7 @@ NeoBundle 'davydovanton/vim-html2slim'
 NeoBundle 'chase/vim-ansible-yaml'
 au BufNewFile,BufRead *.yml set filetype=ansible
 
+NeoBundle 'ecomba/vim-ruby-refactoring'
+
 set relativenumber
 colorscheme desert
