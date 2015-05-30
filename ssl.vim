@@ -13,6 +13,8 @@ au BufNewFile,BufRead *.yml set filetype=ansible
 
 NeoBundle 'ecomba/vim-ruby-refactoring'
 
+NeoBundle 'christoomey/vim-tmux-navigator'
+
 call neobundle#end()
 " No NeoBundle underneath here
 
