@@ -75,8 +75,20 @@ ln -s ~/dotfiles/agignore ~/.agignore
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/githelpers ~/.githelpers
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
-ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/irbrc ~/.irbrc
 ln -s ~/dotfiles/pryrc ~/.pryrc
 ln -s ~/dotfiles/gemrc ~/.gemrc
+```
+
+### Clone and install vim-config of Neo Innovation
+```
+git clone https://github.com/neo/vim-config.git ~/vim-config
+cd ~/vim-config
+rake
+```
+
+### Symlink my custom vim config
+```
+mkdir -p ~/.vim/custom_config
+ln -s ~/dotfiles/ssl.vim ~/.vim/custom_config/ssl.vim
 ```
