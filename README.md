@@ -37,14 +37,6 @@ brew install macvim --with-cscope --with-lua --override-system-vim
 brew linkapps
 ```
 
-### Setup NeoBundle:
-```
-mkdir -p ~/.vim/bundle
-git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-vim
-Enter y or call :NeoBundleInstall
-```
-
 ### Install rbenv:
 Refer to https://github.com/sstephenson/rbenv
 
