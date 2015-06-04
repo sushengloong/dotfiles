@@ -3,6 +3,8 @@
 " Run command below to create symlink in custom_config directory.
 " mkdir -p ~/.vim/custom_config && ln -s ~/dotfiles/ssl.vim ~/.vim/custom_config/ssl.vim
 
+call neobundle#append()
+
 " Requirements:
 " gem install html2slim
 NeoBundle 'davydovanton/vim-html2slim'
@@ -15,3 +17,5 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 
 set relativenumber
 colorscheme desert
+
+call neobundle#end()
