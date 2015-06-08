@@ -1,7 +1,7 @@
 Sheng-Loong Su's dotfiles
 =========================
 
-For Mac OSX 10.6 - 10.9
+Crafted for and tested on Mac OSX. 
 
 ## Installation
 
