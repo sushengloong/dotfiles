@@ -19,3 +19,9 @@ set relativenumber
 colorscheme desert
 
 call neobundle#end()
+
+set wrap
+nnoremap j gj
+nnoremap gj j
+nnoremap k gk
+nnoremap gk k
