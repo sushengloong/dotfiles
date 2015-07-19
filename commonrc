@@ -77,3 +77,7 @@ export PATH=~/dotfiles/bin:$PATH
 
 # source autojump script
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+# Add jenv to path and initialize
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
