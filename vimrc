@@ -94,3 +94,11 @@ set smartcase
 
 set nobackup
 set noswapfile
+
+" enable mouse support for all modes
+set mouse=a
+
+nnoremap j gj
+nnoremap gj j
+nnoremap k gk
+nnoremap gk k
