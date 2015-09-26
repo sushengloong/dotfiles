@@ -67,6 +67,10 @@ endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
+" Removes trailing spaces
+command! StripTrailingSpaces %s/\s\+$//e
+nnoremap <Leader>c :StripTrailingSpaces<CR>
+
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
