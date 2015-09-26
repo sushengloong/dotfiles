@@ -31,7 +31,7 @@ call plug#begin('~/.vim/plugged')
   map <Leader>a :call RunAllSpecs()<CR>
 
   Plug 'scrooloose/nerdtree'
-  noremap nt :NERDTreeToggle<CR>
+  nnoremap <Leader>n :NERDTreeToggle<CR>
 
   Plug 'altercation/vim-colors-solarized'
 
@@ -70,6 +70,15 @@ inoremap <S-Tab> <c-n>
 " Removes trailing spaces
 command! StripTrailingSpaces %s/\s\+$//e
 nnoremap <Leader>c :StripTrailingSpaces<CR>
+
+" Can't be bothered to understand ESC vs <c-c> in insert mode
+noremap <c-c> <esc>
+
+" Clear search
+nnoremap <leader><space> :noh<cr>
+
+" Make equal or maximize current split window
+nnoremap <C-w>m <C-w>\|<C-w>_
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
