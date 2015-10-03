@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'easymotion/vim-easymotion'
   Plug 'kchmck/vim-coffee-script'
   Plug 'pearofducks/ansible-vim'
+  Plug 'keith/swift.vim'
 
   Plug 'tpope/vim-rails'
   " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
