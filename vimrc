@@ -116,3 +116,6 @@ nnoremap j gj
 nnoremap gj j
 nnoremap k gk
 nnoremap gk k
+
+" Make font bigger in MacVim
+set guifont=Monaco:h14
