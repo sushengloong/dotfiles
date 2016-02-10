@@ -35,6 +35,8 @@ brew install reattach-to-user-namespace
 ```
 brew install macvim --with-cscope --with-lua --override-system-vim
 brew linkapps
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 ### Install rbenv:
