@@ -33,6 +33,7 @@ call plug#begin('~/.vim/plugged')
   map <Leader>a :call RunAllSpecs()<CR>
 
   Plug 'scrooloose/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   nnoremap <Leader>n :NERDTreeToggle<CR>
 
   Plug 'altercation/vim-colors-solarized'
