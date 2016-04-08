@@ -12,13 +12,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
-  Plug 'rking/ag.vim'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'easymotion/vim-easymotion'
   Plug 'kchmck/vim-coffee-script'
   Plug 'pearofducks/ansible-vim'
   Plug 'keith/swift.vim'
   Plug 'mxw/vim-jsx'
+  Plug 'altercation/vim-colors-solarized'
 
   Plug 'tpope/vim-rails'
   " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
@@ -53,7 +53,14 @@ call plug#begin('~/.vim/plugged')
   endfunction
   autocmd BufEnter * call NERDTreeSyncBuffer()
 
-  Plug 'altercation/vim-colors-solarized'
+  Plug 'rking/ag.vim'
+  nmap g/ :Ag!<space>
+  nmap g* :Ag! -w <C-R><C-W><space>
+  nmap ga :AgAdd!<space>
+  nmap gn :cnext<CR>
+  nmap gp :cprev<CR>
+  nmap gq :ccl<CR>
+  nmap gl :cwindow<CR>
 
 call plug#end()
 
