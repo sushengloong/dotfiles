@@ -35,23 +35,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   nnoremap <Leader>n :NERDTreeToggle<CR>
-  " open NERDTree upon startup if no files were specified
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-  " returns true iff is NERDTree open/active
-  function! NERDTreeIsNoTOpen()
-    return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-  endfunction
-  " calls NERDTreeFind iff NERDTree is active, current window contains a modifiable file,
-  " and we're not in vimdiff
-  function! NERDTreeSyncBuffer()
-    if &modifiable && NERDTreeIsNoTOpen() && strlen(expand('%')) > 0 && !&diff
-      NERDTreeFind
-      wincmd p
-    endif
-  endfunction
-  autocmd BufEnter * call NERDTreeSyncBuffer()
 
   Plug 'rking/ag.vim'
   nmap g/ :Ag!<space>
