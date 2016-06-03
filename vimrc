@@ -50,6 +50,10 @@ call plug#end()
 set background=dark
 colorscheme solarized
 
+" Detect and auto-reload file changes
+set autoread
+au CursorHold * checktime
+
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
