@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
+  let NERDTreeIgnore = ['\.pyc$']
   nnoremap <Leader>n :NERDTreeToggle<CR>
 
   Plug 'rking/ag.vim'

@@ -18,3 +18,4 @@ tags
 *.png
 *.gif
 *.log
+*.pyc
