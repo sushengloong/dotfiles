@@ -105,11 +105,7 @@ nnoremap <C-l> <C-w>l
 set number
 set relativenumber
 
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set shiftround
-set expandtab
+autocmd FileType ruby setlocal expandtab shiftround shiftwidth=2 tabstop=2
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
