@@ -109,7 +109,10 @@ nnoremap <C-l> <C-w>l
 set number
 set relativenumber
 
-autocmd FileType ruby setlocal expandtab shiftround shiftwidth=2 tabstop=2
+" Tabs and Spaces
+autocmd FileType ruby setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
+autocmd filetype java setlocal expandtab shiftround shiftwidth=4 tabstop=4 softtabstop=4
+autocmd filetype javascript setlocal expandtab shiftround shiftwidth=4 tabstop=4 softtabstop=4
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
