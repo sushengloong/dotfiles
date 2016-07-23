@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'pearofducks/ansible-vim'
   Plug 'keith/swift.vim'
   Plug 'altercation/vim-colors-solarized'
+  Plug 'moll/vim-node'
 
   Plug 'mxw/vim-jsx'
   " Enable JSX in .js files
