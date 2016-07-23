@@ -21,8 +21,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'moll/vim-node'
 
   Plug 'mxw/vim-jsx'
-  " Enable JSX in .js files
-  let g:jsx_ext_required = 0
+  " " Enable JSX in .js files
+  " let g:jsx_ext_required = 0
 
   Plug 'tpope/vim-rails'
   " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
