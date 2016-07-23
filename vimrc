@@ -17,8 +17,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'kchmck/vim-coffee-script'
   Plug 'pearofducks/ansible-vim'
   Plug 'keith/swift.vim'
-  Plug 'mxw/vim-jsx'
   Plug 'altercation/vim-colors-solarized'
+
+  Plug 'mxw/vim-jsx'
+  " Enable JSX in .js files
+  let g:jsx_ext_required = 0
 
   Plug 'tpope/vim-rails'
   " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
