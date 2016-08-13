@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'altercation/vim-colors-solarized'
   Plug 'pangloss/vim-javascript'
   Plug 'moll/vim-node'
+  Plug 'fatih/vim-go'
 
   Plug 'mxw/vim-jsx'
   " " Enable JSX in .js files
