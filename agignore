@@ -9,7 +9,7 @@ node_modules/
 tags
 *.tags*
 *.gemtags*
-*.tmp*
+*.tmp
 *.pdf
 *.jar
 *.zip
