@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
   Plug 'tpope/vim-sensible'
+  Plug 'christoomey/vim-tmux-navigator'
   Plug 'bling/vim-airline'
   Plug 'kien/ctrlp.vim'
   Plug 'tpope/vim-surround'
