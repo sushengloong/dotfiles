@@ -116,6 +116,7 @@ set relativenumber
 " Tabs and Spaces
 autocmd filetype ruby setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
 autocmd filetype eruby setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
+autocmd filetype yaml setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
 autocmd filetype html setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
 autocmd filetype gohtmltmpl setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
 autocmd filetype css setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
