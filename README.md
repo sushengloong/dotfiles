@@ -60,6 +60,11 @@ git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
 brew install the_silver_search
 ```
 
+### Install ctags
+```
+brew install ctags
+```
+
 ### Install autojump
 ```
 brew install autojump
