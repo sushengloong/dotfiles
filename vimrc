@@ -54,6 +54,8 @@ call plug#begin('~/.vim/plugged')
   nmap gq :ccl<CR>
   nmap gl :cwindow<CR>
 
+  Plug 'Valloric/YouCompleteMe'
+
 call plug#end()
 
 set background=dark

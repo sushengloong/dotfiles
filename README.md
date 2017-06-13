@@ -37,6 +37,14 @@ brew install macvim --with-cscope --with-lua --override-system-vim
 brew linkapps
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# Then launch vim and run :PlugInstall to install all the vim plugins
+```
+
+### Install and use CMake to compile YouCompleteMe Vim plugin:
+```
+brew install cmake
+cd ~/.vim/plugged/YouCompleteMe
+./install.py --clang-completer
 ```
 
 ### Install rbenv:
