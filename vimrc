@@ -30,8 +30,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-rails'
   " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
   let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
-  " Index ctags from any project, including those outside Rails
-  map <Leader>rt :!ctags -R .<CR>
 
   Plug 'thoughtbot/vim-rspec'
   map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -56,6 +54,12 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'Valloric/YouCompleteMe'
 
+  Plug 'jsfaint/gen_tags.vim'
+  " Disable gtags support - use ctags only instead
+  let g:loaded_gentags#gtags = 1
+  let g:gen_tags#ctags_auto_gen = 1
+  let g:gen_tags#verbose = 1
+  nnoremap <Leader>rt :GenCtags<CR>
 call plug#end()
 
 set background=dark
