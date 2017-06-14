@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'terryma/vim-multiple-cursors'
   Plug 'easymotion/vim-easymotion'
   Plug 'kchmck/vim-coffee-script'
+  Plug 'digitaltoad/vim-pug'
   Plug 'pearofducks/ansible-vim'
   Plug 'keith/swift.vim'
   Plug 'altercation/vim-colors-solarized'
