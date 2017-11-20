@@ -40,6 +40,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # Then launch vim and run :PlugInstall to install all the vim plugins
 ```
 
+### Create dedicated directory for vim undo history files
+```
+mkdir ~/.vim/undodir
+```
+
 ### Install and use CMake to compile YouCompleteMe Vim plugin:
 ```
 brew install cmake

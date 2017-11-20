@@ -69,6 +69,12 @@ call plug#end()
 set background=dark
 colorscheme solarized
 
+" Enable persistent undo
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
+
 " Detect and auto-reload file changes
 set autoread
 au CursorHold * checktime
