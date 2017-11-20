@@ -127,6 +127,7 @@ autocmd filetype css setlocal expandtab shiftround shiftwidth=2 tabstop=2 softta
 autocmd filetype scss setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
 autocmd filetype javascript setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
 autocmd filetype coffee setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
+autocmd filetype pug setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
 autocmd filetype json setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
 autocmd filetype java setlocal expandtab shiftround shiftwidth=4 tabstop=4 softtabstop=4
 
