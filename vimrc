@@ -32,8 +32,8 @@ call plug#begin('~/.vim/plugged')
   map <leader>t :Tags<cr>
 
   Plug 'mhinz/vim-grepper'
-  nmap g/ :Grepper<Space>-query<Space>
-  nmap g* :Grepper<Space>-query<Space><C-R><C-W>
+  nmap g/ :Grepper<Space>-highlight<Space>-query<Space>
+  nmap g* :Grepper<Space>-highlight<Space>-query<Space><C-R><C-W>
 
   Plug 'mxw/vim-jsx'
   " " Enable JSX in .js files
