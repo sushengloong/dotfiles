@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'bling/vim-airline'
-  Plug 'kien/ctrlp.vim'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-repeat'
@@ -24,6 +23,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'moll/vim-node'
   Plug 'fatih/vim-go'
 
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+  imap <c-x><c-o> <plug>(fzf-complete-line)
+  map <leader>b :Buffers<cr>
+  map <leader>f :Files<cr>
+  map <leader>g :GFiles<cr>
+  map <leader>t :Tags<cr>
+
   Plug 'mxw/vim-jsx'
   " " Enable JSX in .js files
   " let g:jsx_ext_required = 0
@@ -33,10 +40,11 @@ call plug#begin('~/.vim/plugged')
   let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
   Plug 'thoughtbot/vim-rspec'
-  map <Leader>t :call RunCurrentSpecFile()<CR>
-  map <Leader>s :call RunNearestSpec()<CR>
-  map <Leader>l :call RunLastSpec()<CR>
-  map <Leader>a :call RunAllSpecs()<CR>
+  " Commented out as conflict with fzf mapping
+  " map <Leader>t :call RunCurrentSpecFile()<CR>
+  " map <Leader>s :call RunNearestSpec()<CR>
+  " map <Leader>l :call RunLastSpec()<CR>
+  " map <Leader>a :call RunAllSpecs()<CR>
 
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -69,18 +77,6 @@ colorscheme solarized
 " Detect and auto-reload file changes
 set autoread
 au CursorHold * checktime
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files faster
-  let g:ctrlp_user_command = 'ag %s -l -U --nocolor --hidden -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
 
 " Tab completion
 " will insert tab at beginning of line,
