@@ -81,3 +81,39 @@ export PATH=~/dotfiles/bin:$PATH
 # Add jenv to path and initialize
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# For BeanShell
+alias bsh="java -cp $HOME/.bsh/bsh-2.0b4.jar bsh.Interpreter"
+
+# This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+alias greetings="date && figlet \"sup $USER\" && echo \"                      -- `hostname`\""
+
+# Do not display greetings in DTerm.app
+if [[ $TERM == xterm-* ]]; then
+    greetings
+fi
+
+function chjava {
+    usage="Usage: chjava 6|7|8"
+    if [[ $# -ne 1 ]]; then
+        echo $usage
+        return
+    fi
+    java_version=$1; shift
+    if [[ "6 7 8" =~ $java_version ]]; then
+        export JAVA_HOME=`/usr/libexec/java_home -v 1.$java_version`
+    else
+        echo $usage
+    fi
+}
+
+# python stuff
+alias vactivate="source .ENV/bin/activate"
+alias mypython="PYTHONPATH='.' python"
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
