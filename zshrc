@@ -11,7 +11,7 @@ setopt printexitvalue
 # so that HEAD^ in git works without escaping ^
 setopt NO_NOMATCH
 
-ZSH_THEME="ssl"
+ZSH_THEME="gentoo"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
