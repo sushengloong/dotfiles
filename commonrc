@@ -30,6 +30,9 @@ if [ -f "`brew --prefix`/bin/ctags" ]; then
   alias ctags="`brew --prefix`/bin/ctags"
 fi
 
+if [ -f '/Applications/MacVim.app/Contents/MacOS/Vim' ]; then
+  alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+fi
 # vim ftw!
 export EDITOR=vim
 
@@ -79,8 +82,10 @@ export PATH=~/dotfiles/bin:$PATH
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # Add jenv to path and initialize
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+if which jenv > /dev/null; then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+fi
 
 # For BeanShell
 alias bsh="java -cp $HOME/.bsh/bsh-2.0b4.jar bsh.Interpreter"
@@ -117,3 +122,10 @@ alias mypython="PYTHONPATH='.' python"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
+
+## Krux-specific configs
+
+# Vagrant headless
+export KRUX_BOX_NOGUI=1
+# For selenium
+export CHROMEDRIVER_BIN=$HOME/bin/chromedriver
