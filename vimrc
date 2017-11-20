@@ -31,6 +31,10 @@ call plug#begin('~/.vim/plugged')
   map <leader>g :GFiles<cr>
   map <leader>t :Tags<cr>
 
+  Plug 'mhinz/vim-grepper'
+  nmap g/ :Grepper<Space>-query<Space>
+  nmap g* :Grepper<Space>-query<Space><C-R><C-W>
+
   Plug 'mxw/vim-jsx'
   " " Enable JSX in .js files
   " let g:jsx_ext_required = 0
@@ -51,15 +55,6 @@ call plug#begin('~/.vim/plugged')
   let NERDTreeShowHidden=1
   let NERDTreeIgnore = ['\.pyc$']
   nnoremap <Leader>n :NERDTreeToggle<CR>
-
-  Plug 'rking/ag.vim'
-  nmap g/ :Ag!<space>
-  nmap g* :Ag! -w <C-R><C-W><space>
-  nmap ga :AgAdd!<space>
-  nmap gn :cnext<CR>
-  nmap gp :cprev<CR>
-  nmap gq :ccl<CR>
-  nmap gl :cwindow<CR>
 
   Plug 'Valloric/YouCompleteMe'
 
