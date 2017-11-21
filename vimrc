@@ -25,6 +25,8 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  " Use ag to traverse filesystem while respecting ignored files
+  let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
   imap <c-x><c-o> <plug>(fzf-complete-line)
   map <leader>b :Buffers<cr>
   map <leader>f :Files<cr>
