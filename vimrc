@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-repeat'
-  Plug 'scrooloose/syntastic'
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
@@ -36,6 +35,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'mhinz/vim-grepper'
   nmap g/ :Grepper<Space>-highlight<Space>-query<Space>
   nmap g* :Grepper<Space>-highlight<Space>-query<Space><C-R><C-W>
+
+  Plug 'w0rp/ale'
+  " Run linter only upon file save
+  let g:ale_lint_on_text_changed = 'never'
+  " Do not run linter upon file open
+  let g:ale_lint_on_enter = 0
+  " Navigate between errors quickly
+  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+  nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
   Plug 'mxw/vim-jsx'
   " " Enable JSX in .js files
