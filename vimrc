@@ -153,6 +153,7 @@ set smartcase
 set nobackup
 set noswapfile
 
+set ttymouse=xterm2
 " enable mouse support for all modes
 set mouse=a
 
