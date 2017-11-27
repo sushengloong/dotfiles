@@ -138,19 +138,12 @@ set number
 set relativenumber
 
 " Tabs and Spaces
-autocmd filetype vim setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
-autocmd filetype ruby setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
-autocmd filetype eruby setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
-autocmd filetype yaml setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
-autocmd filetype html setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
-autocmd filetype gohtmltmpl setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
-autocmd filetype css setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
-autocmd filetype scss setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
-autocmd filetype javascript setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
-autocmd filetype coffee setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
-autocmd filetype pug setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
-autocmd filetype json setlocal expandtab shiftround shiftwidth=2 tabstop=2 softtabstop=2
-autocmd filetype java setlocal expandtab shiftround shiftwidth=4 tabstop=4 softtabstop=4
+set expandtab
+set shiftround
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+autocmd filetype java setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
