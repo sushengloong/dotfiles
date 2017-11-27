@@ -65,6 +65,11 @@ git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
 brew install the_silver_search
 ```
 
+### Install ripgrep (alternative to ag):
+```
+brew install ripgrep
+```
+
 ### Install ctags
 ```
 brew install ctags
