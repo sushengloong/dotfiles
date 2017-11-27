@@ -64,6 +64,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'Xuyuanp/nerdtree-git-plugin'
   let NERDTreeShowHidden=1
   let NERDTreeIgnore = ['\.pyc$']
+  " Open NERDTree automatically and then focus on the main window
+  " when vim starts up if no files were specified
+  function OpenNERDTree()
+    NERDTree
+    wincmd p
+  endfunction
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call OpenNERDTree() | endif
+  " Custom NERDTree shortcuts
   noremap <F2> :NERDTreeToggle<CR>
   nnoremap <Leader>nf :NERDTreeFind<CR>
 
