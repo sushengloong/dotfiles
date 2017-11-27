@@ -74,7 +74,7 @@ call plug#begin('~/.vim/plugged')
   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call OpenNERDTree() | endif
   " Custom NERDTree shortcuts
   noremap <F2> :NERDTreeToggle<CR>
-  nnoremap <Leader>nf :NERDTreeFind<CR>
+  noremap <F3> :NERDTreeFind<CR>
 
   Plug 'Valloric/YouCompleteMe'
 
