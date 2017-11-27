@@ -64,7 +64,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Xuyuanp/nerdtree-git-plugin'
   let NERDTreeShowHidden=1
   let NERDTreeIgnore = ['\.pyc$']
-  nnoremap <Leader>nn :NERDTreeToggle<CR>
+  noremap <F2> :NERDTreeToggle<CR>
   nnoremap <Leader>nf :NERDTreeFind<CR>
 
   Plug 'Valloric/YouCompleteMe'
