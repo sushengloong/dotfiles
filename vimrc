@@ -144,6 +144,13 @@ set shiftwidth=2
 set tabstop=2
 set softtabstop=2
 autocmd filetype java setlocal shiftwidth=4 tabstop=4 softtabstop=4
+" For some reasons, the default PEP8 style uses tabstop=8.
+" Disable the recommended style and use the more proper
+" indentation config.
+let g:python_recommended_style = 0
+" Proper PEP8 indentation
+autocmd filetype python setlocal shiftwidth=4 tabstop=4 softtabstop=4
+  \ textwidth=79 autoindent fileformat=unix
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
