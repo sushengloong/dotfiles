@@ -26,11 +26,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
   " Use ag to traverse filesystem while respecting ignored files
   let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
-  imap <c-x><c-o> <plug>(fzf-complete-line)
   map <leader>b :Buffers<cr>
-  map <leader>f :Files<cr>
-  map <leader>g :GFiles<cr>
-  map <leader>t :Tags<cr>
+  map <leader>t :Files<cr>
 
   Plug 'mhinz/vim-grepper'
   nmap g/ :Grepper<Space>-highlight<Space>-query<Space>
