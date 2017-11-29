@@ -71,13 +71,6 @@ call plug#begin('~/.vim/plugged')
   noremap <F3> :NERDTreeFind<CR>
 
   Plug 'Valloric/YouCompleteMe'
-
-  Plug 'jsfaint/gen_tags.vim'
-  " Disable gtags support - use ctags only instead
-  let g:loaded_gentags#gtags = 1
-  let g:gen_tags#ctags_auto_gen = 1
-  let g:gen_tags#verbose = 1
-  nnoremap <Leader>rt :GenCtags<CR>
 call plug#end()
 
 set background=dark
