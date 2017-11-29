@@ -41,9 +41,6 @@ call plug#begin('~/.vim/plugged')
   let g:ale_lint_on_text_changed = 'never'
   " Do not run linter upon file open
   let g:ale_lint_on_enter = 0
-  " Navigate between errors quickly
-  nmap <silent> <leader>k <Plug>(ale_previous_wrap)
-  nmap <silent> <leader>j <Plug>(ale_next_wrap)
 
   Plug 'mxw/vim-jsx'
   " " Enable JSX in .js files
