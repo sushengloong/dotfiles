@@ -70,9 +70,9 @@ brew install the_silver_search
 brew install ripgrep
 ```
 
-### Install ctags
+### Install universal-ctags
 ```
-brew install ctags
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 ```
 
 ### Install autojump

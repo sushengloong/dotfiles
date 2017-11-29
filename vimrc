@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'moll/vim-node'
   Plug 'fatih/vim-go'
+  Plug 'ludovicchabant/vim-gutentags'
 
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
