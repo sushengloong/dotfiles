@@ -26,3 +26,5 @@ fi
 #     tmux attach -t hack || tmux new -s hack; exit
 #   fi
 # fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
