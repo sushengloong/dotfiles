@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'keith/swift.vim'
   Plug 'altercation/vim-colors-solarized'
   Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
   Plug 'moll/vim-node'
   Plug 'fatih/vim-go'
   Plug 'ludovicchabant/vim-gutentags'
@@ -39,10 +40,6 @@ call plug#begin('~/.vim/plugged')
   let g:ale_lint_on_text_changed = 'never'
   " Do not run linter upon file open
   let g:ale_lint_on_enter = 0
-
-  Plug 'mxw/vim-jsx'
-  " " Enable JSX in .js files
-  " let g:jsx_ext_required = 0
 
   Plug 'tpope/vim-rails'
   " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
