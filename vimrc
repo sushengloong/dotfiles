@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-eunuch'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'easymotion/vim-easymotion'
+  Plug 'derekwyatt/vim-scala'
   Plug 'kchmck/vim-coffee-script'
   Plug 'digitaltoad/vim-pug'
   Plug 'pearofducks/ansible-vim'
