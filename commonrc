@@ -131,3 +131,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 export KRUX_BOX_NOGUI=1
 # For selenium
 export CHROMEDRIVER_BIN=$HOME/bin/chromedriver
+# For AWS
+export AWS_DEFAULT_REGION=us-east-1
