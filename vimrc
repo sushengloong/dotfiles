@@ -53,6 +53,12 @@ call plug#begin('~/.vim/plugged')
   " map <Leader>l :call RunLastSpec()<CR>
   " map <Leader>a :call RunAllSpecs()<CR>
 
+  Plug 'junegunn/vim-easy-align'
+  " Start interactive EasyAlign in visual mode (e.g. vipga)
+  xmap ga <Plug>(EasyAlign)
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
+
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   let NERDTreeShowHidden=1
