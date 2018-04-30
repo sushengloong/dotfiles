@@ -71,6 +71,8 @@ call plug#begin('~/.vim/plugged')
   endfunction
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call OpenNERDTree() | endif
+  " Close vim if the only window left open is a NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
   " Custom NERDTree shortcuts
   noremap <F2> :NERDTreeToggle<CR>
   noremap <F3> :NERDTreeFind<CR>
