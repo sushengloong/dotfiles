@@ -14,6 +14,7 @@ set wildmode=longest:list,full
 set history=1000
 set hlsearch
 set incsearch
+set number
 
 " Come on, this is vim.
 set nobackup
