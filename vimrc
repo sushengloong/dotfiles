@@ -14,6 +14,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'easymotion/vim-easymotion'
   Plug 'derekwyatt/vim-scala'
   Plug 'keith/swift.vim'
+  Plug 'leafgarland/typescript-vim'
 
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
