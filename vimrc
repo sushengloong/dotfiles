@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'derekwyatt/vim-scala'
   Plug 'keith/swift.vim'
   Plug 'leafgarland/typescript-vim'
+  Plug 'mattn/vim-nyancat'
 
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
