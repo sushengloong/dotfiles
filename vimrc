@@ -19,7 +19,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   " Use ag to traverse filesystem while respecting ignored files (including those in .agignore)
-  let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
+  let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
   map <leader>b :Buffers<cr>
   map <leader>t :Files<cr>
 
