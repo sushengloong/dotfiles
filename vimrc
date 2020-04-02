@@ -52,14 +52,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'Xuyuanp/nerdtree-git-plugin'
   let NERDTreeShowHidden=1
   let NERDTreeIgnore = ['\.pyc$']
-  " Open NERDTree automatically and then focus on the main window
-  " when vim starts up if no files were specified
-  function OpenNERDTree()
-    NERDTree
-    wincmd p
-  endfunction
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call OpenNERDTree() | endif
   " Close vim if the only window left open is a NERDTree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
   " Custom NERDTree shortcuts
