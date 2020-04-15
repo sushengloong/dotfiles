@@ -81,6 +81,7 @@ call plug#end()
 
 colorscheme dracula
 set background=dark
+set termguicolors
 
 " Enable persistent undo
 set undodir=~/.vim/undodir
