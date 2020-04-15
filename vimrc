@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
+  Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'tpope/vim-sensible'
   Plug 'bling/vim-airline'
   Plug 'tpope/vim-surround'
@@ -78,6 +79,7 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+colorscheme dracula
 set background=dark
 
 " Enable persistent undo
