@@ -8,7 +8,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
   Plug 'terryma/vim-multiple-cursors'
@@ -16,6 +15,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'derekwyatt/vim-scala'
   Plug 'keith/swift.vim'
   Plug 'leafgarland/typescript-vim'
+
+  Plug 'mhinz/vim-signify'
+  let g:signify_sign_change = '~'
 
   Plug 'dense-analysis/ale'
   let g:ale_sign_error = '✘'
