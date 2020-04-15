@@ -16,6 +16,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'keith/swift.vim'
   Plug 'leafgarland/typescript-vim'
 
+  Plug 'dense-analysis/ale'
+  let g:ale_sign_error = '✘'
+  let g:ale_sign_warning = '⚠'
+  highlight ALEErrorSign ctermbg=NONE ctermfg=red
+  highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+  let g:ale_linters = {
+    \ 'javascript': ['eslint']
+    \ }
+  let g:ale_javascript_eslint_executable='npx eslint'
+
   Plug 'ludovicchabant/vim-gutentags'
   set statusline+=%{gutentags#statusline()}
   " TODO: make this work with Ctrl-O/Ctrl-T
