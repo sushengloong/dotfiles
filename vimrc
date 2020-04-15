@@ -30,10 +30,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'ludovicchabant/vim-gutentags'
   set statusline+=%{gutentags#statusline()}
   " TODO: make this work with Ctrl-O/Ctrl-T
-  " let g:gutentags_ctags_tagfile = '.tags'
+  let g:gutentags_ctags_tagfile = '.tags'
   " set tags=./tags;,tags;
   " Save auto-generated tags files in ~/.cache/tags so not to pollute projects
-  " let g:gutentags_cache_dir = expand('~/.cache/tags')
+  let g:gutentags_cache_dir = expand('~/.cache/tags')
 
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Use tab for trigger completion with characters ahead and navigate.
@@ -79,7 +79,9 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+let g:dracula_italic = 0
 colorscheme dracula
+highlight Normal ctermbg=None
 set background=dark
 set termguicolors
 
