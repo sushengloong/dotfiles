@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')
-
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'tpope/vim-sensible'
   Plug 'bling/vim-airline'
@@ -15,72 +14,94 @@ call plug#begin('~/.vim/plugged')
   Plug 'derekwyatt/vim-scala'
   Plug 'keith/swift.vim'
   Plug 'leafgarland/typescript-vim'
-
   Plug 'mhinz/vim-signify'
-  let g:signify_sign_change = '~'
-
   Plug 'dense-analysis/ale'
-  let g:ale_sign_error = '✘'
-  let g:ale_sign_warning = '⚠'
-  highlight ALEErrorSign ctermbg=NONE ctermfg=red
-  highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-  let g:ale_linters = {
-    \ 'javascript': ['eslint']
-    \ }
-  let g:ale_javascript_eslint_executable='npx eslint'
-
   Plug 'ludovicchabant/vim-gutentags'
-  set statusline+=%{gutentags#statusline()}
-  " TODO: make this work with Ctrl-O/Ctrl-T
-  let g:gutentags_ctags_tagfile = '.tags'
-  " set tags=./tags;,tags;
-  " Save auto-generated tags files in ~/.cache/tags so not to pollute projects
-  let g:gutentags_cache_dir = expand('~/.cache/tags')
-
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  " Use tab for trigger completion with characters ahead and navigate.
-  " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-  " other plugin before putting this into your config.
-  inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
-
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-  " Use ag to traverse filesystem while respecting ignored files (including those in .agignore)
-  " let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
-  map <leader>b :Buffers<cr>
-  map <leader>t :Files<cr>
-
   Plug 'mhinz/vim-grepper'
-  nmap g/ :Grepper<Space>-highlight<Space>-query<Space>
-  nmap g* :Grepper<Space>-highlight<Space>-query<Space><C-R><C-W>
-
   Plug 'junegunn/vim-easy-align'
-  " Start interactive EasyAlign in visual mode (e.g. vipga)
-  xmap ga <Plug>(EasyAlign)
-  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nmap ga <Plug>(EasyAlign)
-
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
-  let NERDTreeShowHidden=1
-  let NERDTreeIgnore = ['\.pyc$']
-  " Close vim if the only window left open is a NERDTree
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-  " Custom NERDTree shortcuts
-  noremap <F2> :NERDTreeToggle<CR>
-  noremap <F3> :NERDTreeFind<CR>
-
 call plug#end()
+
+" mhinz/vim-signify
+let g:signify_sign_change = '~'
+
+" dense-analysis/ale
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+let g:ale_linters = {
+  \ 'javascript': ['eslint']
+  \ }
+let g:ale_javascript_eslint_executable='npx eslint'
+
+" ludovicchabant/vim-gutentags
+set statusline+=%{gutentags#statusline()}
+" TODO: make this work with Ctrl-O/Ctrl-T
+let g:gutentags_ctags_tagfile = '.tags'
+" set tags=./tags;,tags;
+" Save auto-generated tags files in ~/.cache/tags so not to pollute projects
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+" neoclide/coc.nvim
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" neoclide/coc.nvim
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" junegunn/fzf.vim
+let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+" Use ag to traverse filesystem while respecting ignored files (including those in .agignore)
+" let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
+map <leader>b :Buffers<cr>
+map <leader>t :Files<cr>
+
+" mhinz/vim-grepper
+nmap g/ :Grepper<Space>-highlight<Space>-query<Space>
+nmap g* :Grepper<Space>-highlight<Space>-query<Space><C-R><C-W>
+
+" junegunn/vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" Xuyuanp/nerdtree-git-plugin
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.pyc$']
+" Close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Custom NERDTree shortcuts
+noremap <F2> :NERDTreeToggle<CR>
+noremap <F3> :NERDTreeFind<CR>
 
 let g:dracula_italic = 0
 colorscheme dracula
