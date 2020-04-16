@@ -60,12 +60,7 @@ Refer to https://github.com/sstephenson/rbenv
 git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
 ```
 
-### Install the_silver_searcher / ag:
-```
-brew install the_silver_search
-```
-
-### Install ripgrep (alternative to ag):
+### Install ripgrep (rg):
 ```
 brew install ripgrep
 ```
