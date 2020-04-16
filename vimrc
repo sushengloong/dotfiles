@@ -11,9 +11,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-eunuch'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'easymotion/vim-easymotion'
-  Plug 'derekwyatt/vim-scala'
-  Plug 'keith/swift.vim'
-  Plug 'leafgarland/typescript-vim'
   Plug 'mhinz/vim-signify'
   Plug 'dense-analysis/ale'
   Plug 'ludovicchabant/vim-gutentags'
@@ -24,6 +21,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-easy-align'
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
+
+  " Language/framework-specific plugins
+  Plug 'derekwyatt/vim-scala'
+  Plug 'keith/swift.vim'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " mhinz/vim-signify
