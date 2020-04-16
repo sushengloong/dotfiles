@@ -82,7 +82,8 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.g
 " Use ag to traverse filesystem while respecting ignored files (including those in .agignore)
 " let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
 map <leader>b :Buffers<cr>
-map <leader>t :Files<cr>
+map <leader>f :Files<cr>
+map <leader>t :Tags<cr>
 
 " mhinz/vim-grepper
 nmap g/ :Grepper<Space>-highlight<Space>-query<Space>
