@@ -43,12 +43,13 @@ let g:ale_linters = {
 let g:ale_javascript_eslint_executable='npx eslint'
 
 " ludovicchabant/vim-gutentags
+" rely on rg to respect .gitignore
+let g:gutentags_file_list_command = 'rg --files'
 set statusline+=%{gutentags#statusline()}
-" TODO: make this work with Ctrl-O/Ctrl-T
-let g:gutentags_ctags_tagfile = '.tags'
-" set tags=./tags;,tags;
+
+" Commented out because it does not work sometimes :facepalm:
 " Save auto-generated tags files in ~/.cache/tags so not to pollute projects
-let g:gutentags_cache_dir = expand('~/.cache/tags')
+" let g:gutentags_cache_dir = expand('~/.cache/tags')
 
 " neoclide/coc.nvim
 " Use tab for trigger completion with characters ahead and navigate.
