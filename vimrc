@@ -114,6 +114,8 @@ highlight Normal ctermbg=None
 set background=dark
 set termguicolors
 
+set foldmethod=syntax
+
 " Enable persistent undo
 set undodir=~/.vim/undodir
 set undofile
