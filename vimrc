@@ -115,6 +115,7 @@ set background=dark
 set termguicolors
 
 set foldmethod=syntax
+set nofoldenable " no fold when opening a file
 
 " Enable persistent undo
 set undodir=~/.vim/undodir
