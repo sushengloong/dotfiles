@@ -81,7 +81,7 @@ function! s:check_back_space() abort
 endfunction
 
 " junegunn/fzf.vim
-let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 " Use ag to traverse filesystem while respecting ignored files (including those in .agignore)
 " let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
 map <leader>b :Buffers<cr>
