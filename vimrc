@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'tpope/vim-sensible'
+  Plug 'christoomey/vim-tmux-navigator'
   Plug 'bling/vim-airline'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
@@ -22,11 +23,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
-  " Language/framework-specific plugins
+  " Adding support for languages/frameworks
   Plug 'derekwyatt/vim-scala'
   Plug 'keith/swift.vim'
   Plug 'leafgarland/typescript-vim'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'ericpruitt/tmux.vim', {'rtp': 'vim/'}
 call plug#end()
 
 " mhinz/vim-signify
