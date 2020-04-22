@@ -21,6 +21,9 @@ brew install zsh
 ### Install oh my zsh:
 Refer to https://github.com/robbyrussell/oh-my-zsh
 
+### Install Powerlevel10k theme for Zsh:
+Refer to https://github.com/romkatv/powerlevel10k#oh-my-zsh
+
 ### Install tmux:
 ```
 brew install tmux
