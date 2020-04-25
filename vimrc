@@ -24,9 +24,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " Adding support for languages/frameworks
+  Plug 'yuezk/vim-js'
+  Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'leafgarland/typescript-vim'
   Plug 'derekwyatt/vim-scala'
   Plug 'keith/swift.vim'
-  Plug 'leafgarland/typescript-vim'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'ericpruitt/tmux.vim', {'rtp': 'vim/'}
 call plug#end()
