@@ -36,31 +36,12 @@ brew install reattach-to-user-namespace
 
 ### Install Vim:
 ```
-brew install macvim --with-cscope --with-lua --override-system-vim
-brew linkapps
+brew install --HEAD vim
+
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # Then launch vim and run :PlugInstall to install all the vim plugins
-```
-
-### Create dedicated directory for vim undo history files
-```
-mkdir ~/.vim/undodir
-```
-
-### Install and use CMake to compile YouCompleteMe Vim plugin:
-```
-brew install cmake
-cd ~/.vim/plugged/YouCompleteMe
-./install.py --clang-completer
-```
-
-### Install rbenv:
-Refer to https://github.com/sstephenson/rbenv
-
-### Install rbenv gem-src plugin:
-```
-git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
 ```
 
 ### Install ripgrep (rg):
@@ -76,6 +57,14 @@ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 ### Install autojump
 ```
 brew install autojump
+```
+
+### Install rbenv:
+Refer to https://github.com/sstephenson/rbenv
+
+### Install rbenv gem-src plugin:
+```
+git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
 ```
 
 ### Clone this repository:
