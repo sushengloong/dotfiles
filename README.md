@@ -59,6 +59,9 @@ brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 brew install autojump
 ```
 
+### Install nodenv and node:
+Refer to https://github.com/nodenv/nodenv#installation
+
 ### Install rbenv:
 Refer to https://github.com/sstephenson/rbenv
 
