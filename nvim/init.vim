@@ -67,3 +67,18 @@ nnoremap <leader><space> :noh<cr>
 " mhinz/vim-grepper
 nmap g/ :Grepper<Space>-highlight<Space>-query<Space>
 nmap g* :Grepper<Space>-highlight<Space>-query<Space><C-R><C-W>
+
+" Disable backup and swap file
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Enable persistent undo
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+" Detect and auto-reload file changes
+set autoread
+au CursorHold * checktime
