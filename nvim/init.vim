@@ -23,6 +23,7 @@ endif
 set mouse=a
 
 colors onedark
+set termguicolors " enable devicons color
 
 " Declare coc extensions (auto-install if missing)
 let g:coc_global_extensions = ['coc-json', 'coc-metals']
