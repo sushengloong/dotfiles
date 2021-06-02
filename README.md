@@ -92,4 +92,5 @@ ln -s ~/dotfiles/pryrc ~/.pryrc
 ln -s ~/dotfiles/gemrc ~/.gemrc
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/ctags.d ~/.ctags.d
+ln -s ~/dotfiles/nvim ~/.config/nvim
 ```
