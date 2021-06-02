@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'joshdick/onedark.vim'
+Plug 'bling/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
