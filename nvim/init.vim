@@ -30,7 +30,7 @@ set termguicolors " enable devicons color
 let g:coc_global_extensions = ['coc-json', 'coc-metals']
 
 " Toggle CHADTree
-nnoremap <leader>v <cmd>CHADopen<cr>
+nnoremap <F2> <cmd>CHADopen<cr>
 
 " Configure fzf
 let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
