@@ -5,7 +5,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'mhinz/vim-grepper'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 
@@ -35,6 +34,11 @@ nnoremap <F2> <cmd>CHADopen<cr>
 " Configure fzf
 let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
 nnoremap <C-p> :Files<cr>
+" Exclude file names from Rg results
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+nnoremap g/ :Rg<CR>
+nnoremap g* :Rg <C-R><C-W><CR>
+
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -65,10 +69,6 @@ set smartcase
 
 " Clear search
 nnoremap <leader><space> :noh<cr>
-
-" mhinz/vim-grepper
-nmap g/ :Grepper<Space>-highlight<Space>-query<Space>
-nmap g* :Grepper<Space>-highlight<Space>-query<Space><C-R><C-W>
 
 " Disable backup and swap file
 set nobackup
