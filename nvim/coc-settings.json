@@ -1,5 +1,6 @@
 {
   "codeLens.enable": true,
-  "metals.superMethodLensesEnabled": true,
-  "metals.showInferredType": true
+  "metals.showInferredType": true,
+  "metals.statusBarEnabled": true,
+  "metals.superMethodLensesEnabled": true
 }
