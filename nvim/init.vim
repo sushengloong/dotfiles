@@ -7,6 +7,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
+Plug 'machakann/vim-sandwich'
 
 " https://github.com/ryanoasis/vim-devicons/issues/198
 " brew tap homebrew/cask-fonts
@@ -40,6 +41,8 @@ command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-hea
 nnoremap g/ :Rg<CR>
 nnoremap g* :Rg <C-R><C-W><CR>
 
+" Use surround.vim keybinding for sandwich
+runtime macros/sandwich/keymap/surround.vim
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
