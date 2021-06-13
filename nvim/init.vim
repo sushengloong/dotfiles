@@ -44,6 +44,12 @@ nnoremap g* :Rg <C-R><C-W><CR>
 " Use surround.vim keybinding for sandwich
 runtime macros/sandwich/keymap/surround.vim
 
+" Modified from https://stackoverflow.com/a/17096082
+" relative path  (src/foo.txt)
+nnoremap <leader>cp :let @*=expand("%")<CR>
+" absolute path  (/something/src/foo.txt)
+nnoremap <leader>cP :let @*=expand("%:p")<CR>
+
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
