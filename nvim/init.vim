@@ -27,7 +27,7 @@ colors onedark
 set termguicolors " enable devicons color
 
 " Declare coc extensions (auto-install if missing)
-let g:coc_global_extensions = ['coc-json', 'coc-metals']
+let g:coc_global_extensions = ['coc-json', 'coc-metals', 'coc-pairs']
 
 " Toggle CHADTree
 nnoremap <F2> <cmd>CHADopen<cr>
