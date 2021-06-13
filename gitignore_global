@@ -1,1 +1,8 @@
+.DS_Store
+.ammonite/
+.idea/
+.metals/
+.bloop/
+.vscode/
+
 tags
