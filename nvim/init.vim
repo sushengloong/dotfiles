@@ -56,6 +56,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+"During insert, escapes (`^ is so that the cursor doesn't move) and saves
+inoremap jj <Esc>`^:w<CR>
+
 " Numbers
 set number
 set relativenumber
