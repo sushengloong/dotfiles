@@ -8,6 +8,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'machakann/vim-sandwich'
+Plug 'airblade/vim-gitgutter'
 
 " https://github.com/ryanoasis/vim-devicons/issues/198
 " brew tap homebrew/cask-fonts
