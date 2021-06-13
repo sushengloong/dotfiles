@@ -17,8 +17,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
-if filereadable(expand("~/.config/coc/extensions/node_modules/coc-metals/coc-mappings.vim"))
- source ~/.config/coc/extensions/node_modules/coc-metals/coc-mappings.vim
+if filereadable(expand("~/.config/nvim/coc-mappings.vim"))
+ source ~/.config/nvim/coc-mappings.vim
 endif
 
 " enable mouse support for all modes
