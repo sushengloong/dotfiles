@@ -7,6 +7,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'machakann/vim-sandwich'
 Plug 'airblade/vim-gitgutter'
 
@@ -99,3 +100,11 @@ set undoreload=10000
 " Detect and auto-reload file changes
 set autoread
 au CursorHold * checktime
+
+" View authors with Fugitive
+nnoremap <Leader>gb :Git blame<CR>
+" View code in web browser with Fugitive
+nnoremap <Leader>go :.GBrowse<CR>
+" Yank Git link with Fugitive
+nnoremap <Leader>gy :.GBrowse!<CR>
+xnoremap <Leader>gy :'<'>GBrowse!<CR>
