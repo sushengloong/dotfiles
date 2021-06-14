@@ -51,6 +51,11 @@ runtime macros/sandwich/keymap/surround.vim
 nnoremap <leader>cp :let @*=expand("%")<CR>
 " absolute path  (/something/src/foo.txt)
 nnoremap <leader>cP :let @*=expand("%:p")<CR>
+" Shortcut for removing trailing white spaces
+nnoremap <leader>cs :%s/\s\+$//e<cr>
+
+" Clear search
+nnoremap <leader><space> :noh<cr>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -79,12 +84,6 @@ set list listchars=tab:»·,trail:·,nbsp:·
 " Search
 set ignorecase
 set smartcase
-
-" Shortcut for removing trailing white spaces
-" nnoremap <leader>c :%s/\s\+$//e<cr>
-
-" Clear search
-nnoremap <leader><space> :noh<cr>
 
 " Disable backup and swap file
 set nobackup
