@@ -38,6 +38,7 @@ nnoremap <F2> <cmd>CHADopen<cr>
 let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
 " To have syntax highlighting in preview do: brew install bat
 nnoremap <C-p> :Files<cr>
+nnoremap <leader>b :Buffers<cr>
 " Exclude file names from Rg results
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap g/ :Rg<CR>
