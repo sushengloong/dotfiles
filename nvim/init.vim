@@ -68,6 +68,9 @@ nnoremap <C-l> <C-w>l
 " clears highlighting and saves
 inoremap jj <Esc>`^:noh<CR>:w<CR>
 
+" Set title in terminal tab and window
+set title
+
 " Numbers
 set number
 set relativenumber
