@@ -1,0 +1,24 @@
+{
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "workbench.colorTheme": "One Dark Pro",
+    "editor.fontSize": 12.5,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "metals.javaHome": "/Users/ssl/.sdkman/candidates/java/current",
+    "metals.sbtScript": "/Users/ssl/.sdkman/candidates/sbt/current/bin/sbt",
+    "editor.minimap.enabled": false,
+    "workbench.colorCustomizations": {
+        "tab.activeBorderTop": "#0A84FF",
+        "tab.activeBorder": "#0A84FF",
+    },
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true,
+    "terminal.integrated.scrollback": 99999999
+}
