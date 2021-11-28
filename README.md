@@ -70,6 +70,12 @@ Refer to https://github.com/sstephenson/rbenv
 git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
 ```
 
+### Install these CLI tools:
+```
+brew install bat
+brew install git-delta
+```
+
 ### Clone this repository:
 ```
 git clone https://github.com/sushengloong/dotfiles.git ~/dotfiles
