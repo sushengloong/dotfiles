@@ -44,6 +44,14 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # Then launch vim and run :PlugInstall to install all the vim plugins
 ```
 
+### Install the development version of NeoVim:
+```
+brew install --HEAD luajit neovim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+nvim -c ":PlugInstall"
+```
+
 ### Install ripgrep (rg):
 ```
 brew install ripgrep
