@@ -52,11 +52,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 nvim -c ":PlugInstall"
 ```
 
-### Install ripgrep (rg):
-```
-brew install ripgrep
-```
-
 ### Install universal-ctags
 ```
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
@@ -80,8 +75,7 @@ git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
 
 ### Install these CLI tools:
 ```
-brew install bat
-brew install git-delta
+brew install bat fd git-delta ripgrep
 ```
 
 ### Clone this repository:
