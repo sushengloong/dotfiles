@@ -11,6 +11,9 @@ Plug 'tpope/vim-rhubarb'
 Plug 'machakann/vim-sandwich'
 Plug 'airblade/vim-gitgutter'
 
+" Language-specific
+Plug 'LnL7/vim-nix'
+
 " https://github.com/ryanoasis/vim-devicons/issues/198
 " brew tap homebrew/cask-fonts
 " brew install --cask font-hack-nerd-font
