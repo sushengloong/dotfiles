@@ -1,5 +1,5 @@
 call plug#begin('~/.vim/plugged')
-Plug 'joshdick/onedark.vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'bling/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
@@ -28,8 +28,11 @@ endif
 " enable mouse support for all modes
 set mouse=a
 
-colors onedark
-set termguicolors " enable devicons color
+syntax on
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
 
 " Declare coc extensions (auto-install if missing)
 let g:coc_global_extensions = ['coc-json', 'coc-metals', 'coc-pairs']
