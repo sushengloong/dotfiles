@@ -101,4 +101,6 @@ ln -s ~/dotfiles/gemrc ~/.gemrc
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/ctags.d ~/.ctags.d
 ln -s ~/dotfiles/nvim ~/.config/nvim
+
+ln -s ~/dotfiles/nixpkgs/darwin-configuration.nix ~/.nixpkgs/darwin-configuration.nix
 ```
