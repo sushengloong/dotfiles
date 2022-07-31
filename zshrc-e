@@ -54,8 +54,3 @@ if [ -f '/Users/ssl/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ssl/google-
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ssl/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ssl/google-cloud-sdk/completion.zsh.inc'; fi
-
-[ -f "/Users/ssl/.ghcup/env" ] && source "/Users/ssl/.ghcup/env" # ghcup-env
-
-alias vi=nvim
-alias vim=nvim
