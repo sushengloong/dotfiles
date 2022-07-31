@@ -34,7 +34,7 @@ brew install tmux
 brew install reattach-to-user-namespace
 ```
 
-### Install Vim:
+### [Deprecated] Install Vim:
 ```
 brew install --HEAD vim
 
@@ -44,12 +44,20 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # Then launch vim and run :PlugInstall to install all the vim plugins
 ```
 
-### Install the development version of NeoVim:
+### [Deprecated] Install the development version of NeoVim:
 ```
 brew install --HEAD luajit neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim -c ":PlugInstall"
+```
+
+### Vim setup
+```
+brew install neovim
+
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 
 ### Install universal-ctags
