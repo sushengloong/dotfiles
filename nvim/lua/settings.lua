@@ -1,4 +1,7 @@
-HOME = os.getenv("HOME")
+HOME = os.getenv('HOME')
+
+-- Enable mouse
+vim.cmd('set mouse=a')
 
 -- Number line
 vim.o.number = true
@@ -13,13 +16,13 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Colorscheme
-vim.cmd("colorscheme nightfox")
+vim.cmd('colorscheme nightfox')
 
 -- Plugin settings below
 
 require('feline').setup()
 
-require("nvim-tree").setup()
+require('nvim-tree').setup()
 
 require('telescope').setup{
   defaults = {

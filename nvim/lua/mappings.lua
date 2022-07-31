@@ -35,11 +35,11 @@ nmap('<C-k>', '<C-w>k')
 nmap('<C-l>', '<C-w>l')
 
 -- Nvim-tree file explorer
-nmap("<F2>", "<cmd> :NvimTreeToggle<cr>")
-nmap("<F3>", "<cmd> :NvimTreeFindFile<cr>")
+nmap('<F2>', '<cmd> :NvimTreeToggle<cr>')
+nmap('<F3>', '<cmd> :NvimTreeFindFile<cr>')
 
 -- Telescope file search
-nmap("<C-p>", "<cmd>lua require('telescope.builtin').find_files()<cr>")
-nmap("<leader>f", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
-nmap("<leader>b", "<cmd>lua require('telescope.builtin').buffers()<cr>")
+nmap('<C-p>', "<cmd>lua require('telescope.builtin').find_files()<cr>")
+nmap('<leader>f', "<cmd>lua require('telescope.builtin').live_grep()<cr>")
+nmap('<leader>b', "<cmd>lua require('telescope.builtin').buffers()<cr>")
 
