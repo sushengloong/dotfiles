@@ -1,13 +1,14 @@
 HOME = os.getenv('HOME')
 
 -- Enable mouse
-vim.cmd('set mouse=a')
+vim.o.mouse = 'a'
 
 -- Number line
 vim.o.number = true
 vim.o.relativenumber = true
 
 -- White characters
+vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.expandtab = true
 
