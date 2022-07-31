@@ -37,3 +37,6 @@ require('telescope').setup{
     }
   }
 }
+
+-- Use surround.vim keybinding for sandwich
+vim.cmd('runtime macros/sandwich/keymap/surround.vim')
