@@ -49,6 +49,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 brew install --HEAD luajit neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+ln -s ~/dotfiles/nvim ~/.config/nvim
 nvim -c ":PlugInstall"
 ```
 
@@ -93,6 +94,7 @@ git clone https://github.com/sushengloong/dotfiles.git ~/dotfiles
 
 ### Create symlinks:
 ```
+ln -s ~/dotfiles/bin ~/bin
 ln -s ~/dotfiles/oh-my-zsh/custom/themes ~/.oh-my-zsh/custom/themes
 ln -s ~/dotfiles/commonrc ~/.commonrc
 ln -s ~/dotfiles/zshrc ~/.zshrc

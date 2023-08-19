@@ -1,11 +1,11 @@
 [core]
 	excludesfile = ~/.gitignore_global
-	pager = delta
+	# pager = delta
 [interactive]
-	diffFilter = delta --color-only
+	# diffFilter = delta --color-only
 [delta]
 	features = ssl
-	side-by-side = true
+	# side-by-side = true
 [delta "ssl"]
 	commit-decoration-style = bold box ul
 	dark = true
@@ -80,3 +80,8 @@
 	helper = osxkeychain
 [push]
 	default = simple
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
