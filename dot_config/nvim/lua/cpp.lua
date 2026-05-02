@@ -69,6 +69,7 @@ local function tmux_runner_pane()
   local output, err = system_ok({
     "tmux",
     "split-window",
+    "-d",
     "-v",
     "-l",
     "35%",

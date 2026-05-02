@@ -131,7 +131,7 @@ K              Show hover documentation
 :CppRun        Build and run the current C/C++ file in a tmux pane
 ```
 
-`<leader>cr` and `:CppRun` create or reuse a tmux pane below Neovim, compile the current file, and run the binary. By default, the binary is written under `build/nvim-run/` in the detected project root.
+`<leader>cr` and `:CppRun` create or reuse a tmux pane below Neovim, compile the current file, and run the binary without moving focus out of Neovim. By default, the binary is written under `build/nvim-run/` in the detected project root.
 
 The default C++ build command is equivalent to:
 
