@@ -199,6 +199,16 @@ local function run_in_tmux_pane()
   vim.notify("Build and run sent to tmux pane " .. pane)
 end
 
+local function lsp_hover()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  if vim.tbl_isempty(clients) then
+    vim.notify("No LSP client attached yet. Run :LspStatus or wait for clangd.", vim.log.levels.WARN)
+    return
+  end
+
+  vim.lsp.buf.hover()
+end
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "c", "cpp", "objc", "objcpp", "cuda" },
   callback = function()
@@ -215,6 +225,11 @@ vim.api.nvim_create_autocmd("FileType", {
       },
       root_dir = root_dir(),
       capabilities = vim.lsp.protocol.make_client_capabilities(),
+    })
+
+    vim.keymap.set("n", "K", lsp_hover, {
+      buffer = true,
+      desc = "Show LSP hover when clangd is attached",
     })
 
     vim.keymap.set("n", "<leader>cr", run_in_tmux_pane, {
@@ -234,7 +249,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "K", lsp_hover, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
@@ -249,18 +264,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.lsp.buf.format({ async = true })
       end
     end, opts)
-  end,
-})
-
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(event)
-    local opts = { buffer = event.buf }
-
-    vim.bo[event.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
   end,
 })
 
