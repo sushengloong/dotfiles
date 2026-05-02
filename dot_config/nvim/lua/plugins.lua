@@ -64,6 +64,25 @@ pcall(function()
       functions = {},
       variables = {},
     },
+    on_colors = function(colors)
+      colors.fg = "#d8e2ff"
+      colors.fg_dark = "#c8d3f5"
+      colors.comment = "#8a98bf"
+    end,
+    on_highlights = function(highlights, colors)
+      highlights.Normal = { fg = colors.fg, bg = colors.bg }
+      highlights.LineNr = { fg = "#6f7fa8" }
+      highlights.CursorLineNr = { fg = "#ffcc66", bold = true }
+      highlights.SignColumn = { fg = "#7f8db3", bg = colors.bg }
+      highlights.FoldColumn = { fg = "#7f8db3", bg = colors.bg }
+      highlights.Comment = { fg = colors.comment }
+      highlights.NonText = { fg = "#5f6f99" }
+      highlights.SpecialKey = { fg = "#6f7fa8" }
+      highlights.DiagnosticVirtualTextError = { fg = "#ff8f8f" }
+      highlights.DiagnosticVirtualTextWarn = { fg = "#ffd580" }
+      highlights.DiagnosticVirtualTextInfo = { fg = "#9ad8ff" }
+      highlights.DiagnosticVirtualTextHint = { fg = "#b8f0c2" }
+    end,
     plugins = {
       all = true,
     },
