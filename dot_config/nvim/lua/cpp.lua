@@ -199,15 +199,7 @@ local function run_in_tmux_pane()
   vim.notify("Build and run sent to tmux pane " .. pane)
 end
 
-local function lsp_hover()
-  local clients = vim.lsp.get_clients({ bufnr = 0 })
-  if vim.tbl_isempty(clients) then
-    vim.notify("No LSP client attached yet. Run :LspStatus or wait for clangd.", vim.log.levels.WARN)
-    return
-  end
-
-  vim.lsp.buf.hover()
-end
+local lsp_hover = require("lsp_hover").hover
 
 local cpp_filetypes = {
   c = true,

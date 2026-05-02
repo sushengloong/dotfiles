@@ -12,6 +12,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
+vim.keymap.set("n", "K", require("lsp_hover").hover, { desc = "Show LSP hover" })
+
 local function require_config(module)
   local ok, err = pcall(require, module)
   if not ok then
