@@ -209,35 +209,53 @@ local function lsp_hover()
   vim.lsp.buf.hover()
 end
 
+local cpp_filetypes = {
+  c = true,
+  cpp = true,
+  objc = true,
+  objcpp = true,
+  cuda = true,
+}
+
+local function setup_cpp_buffer(event)
+  local bufnr = event and event.buf or vim.api.nvim_get_current_buf()
+
+  if not cpp_filetypes[vim.bo[bufnr].filetype] then
+    return
+  end
+
+  configure_include_path()
+
+  vim.lsp.start({
+    name = "clangd",
+    cmd = {
+      "clangd",
+      "--background-index",
+      "--clang-tidy",
+      "--completion-style=detailed",
+      "--header-insertion=iwyu",
+    },
+    root_dir = root_dir(),
+    capabilities = vim.lsp.protocol.make_client_capabilities(),
+  })
+
+  vim.keymap.set("n", "K", lsp_hover, {
+    buffer = bufnr,
+    desc = "Show LSP hover when clangd is attached",
+  })
+
+  vim.keymap.set("n", "<leader>cr", run_in_tmux_pane, {
+    buffer = bufnr,
+    desc = "Build and run current C/C++ file in a tmux pane",
+  })
+end
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "c", "cpp", "objc", "objcpp", "cuda" },
-  callback = function()
-    configure_include_path()
-
-    vim.lsp.start({
-      name = "clangd",
-      cmd = {
-        "clangd",
-        "--background-index",
-        "--clang-tidy",
-        "--completion-style=detailed",
-        "--header-insertion=iwyu",
-      },
-      root_dir = root_dir(),
-      capabilities = vim.lsp.protocol.make_client_capabilities(),
-    })
-
-    vim.keymap.set("n", "K", lsp_hover, {
-      buffer = true,
-      desc = "Show LSP hover when clangd is attached",
-    })
-
-    vim.keymap.set("n", "<leader>cr", run_in_tmux_pane, {
-      buffer = true,
-      desc = "Build and run current C/C++ file in a tmux pane",
-    })
-  end,
+  callback = setup_cpp_buffer,
 })
+
+setup_cpp_buffer()
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
