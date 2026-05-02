@@ -8,6 +8,7 @@ At the moment it manages:
 - `dot_config/nvim/lua/plugins.lua` -> `~/.config/nvim/lua/plugins.lua`
 - `dot_config/nvim/lua/cpp.lua` -> `~/.config/nvim/lua/cpp.lua`
 - `dot_config/nvim/lua/local.lua.tmpl` -> `~/.config/nvim/lua/local.lua`
+- `dot_config/nvim/nvim-pack-lock.json` -> `~/.config/nvim/nvim-pack-lock.json`
 - `dot_tmux.conf` -> `~/.tmux.conf`
 
 The `local.lua.tmpl` file is rendered by chezmoi and sets a platform-specific C++ compiler value.
@@ -26,7 +27,19 @@ For the C++ Neovim setup, install `clangd` and `clang-format` so LSP and formatt
 brew install llvm clang-format
 ```
 
-On non-macOS systems, use the equivalent package manager packages for `chezmoi`, `neovim`, `tmux`, `git`, `clangd`, and `clang-format`.
+For Telescope search performance, install `ripgrep`. It is used for live grep and fast file discovery:
+
+```sh
+brew install ripgrep
+```
+
+The native Telescope sorter also needs `make` and a C compiler. On macOS, install the Xcode Command Line Tools if those are missing:
+
+```sh
+xcode-select --install
+```
+
+On non-macOS systems, use the equivalent package manager packages for `chezmoi`, `neovim`, `tmux`, `git`, `clangd`, `clang-format`, `ripgrep`, `make`, and a C compiler.
 
 ## First-Time Setup
 
@@ -105,6 +118,11 @@ Optional plugins are installed with `vim.pack` when that API is available:
 
 - `nvim-treesitter/nvim-treesitter`
 - `stevearc/conform.nvim`
+- `nvim-lua/plenary.nvim`
+- `nvim-telescope/telescope.nvim`
+- `nvim-telescope/telescope-fzf-native.nvim`
+
+Telescope uses `telescope-fzf-native.nvim` as its sorter because it is implemented in C and is materially faster than the default Lua sorter on larger lists. The config builds it with `make` after install or update when the compiled library is missing.
 
 The C++ configuration starts `clangd` for C, C++, Objective-C, Objective-C++, and CUDA buffers. Project roots are detected from:
 
@@ -127,6 +145,12 @@ K              Show hover documentation
 <leader>e      Show diagnostics
 [d / ]d        Previous / next diagnostic
 <leader>f      Format buffer
+<leader>ff     Find files
+<leader>fg     Live grep
+<leader>fb     Find buffers
+<leader>fh     Find help
+<leader>fr     Find recent files
+<leader>fd     Find diagnostics
 <leader>cr     Build and run the current C/C++ file in a tmux pane
 :CppRun        Build and run the current C/C++ file in a tmux pane
 ```
