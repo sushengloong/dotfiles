@@ -7,9 +7,7 @@ At the moment it manages:
 - `dot_config/nvim/init.lua` -> `~/.config/nvim/init.lua`
 - `dot_config/nvim/lua/plugins.lua` -> `~/.config/nvim/lua/plugins.lua`
 - `dot_config/nvim/lua/cpp.lua` -> `~/.config/nvim/lua/cpp.lua`
-- `dot_config/nvim/lua/lsp_hover.lua` -> `~/.config/nvim/lua/lsp_hover.lua`
 - `dot_config/nvim/lua/local.lua.tmpl` -> `~/.config/nvim/lua/local.lua`
-- `dot_config/nvim/after/ftplugin/*.lua` -> `~/.config/nvim/after/ftplugin/*.lua`
 - `dot_config/nvim/nvim-pack-lock.json` -> `~/.config/nvim/nvim-pack-lock.json`
 - `dot_tmux.conf` -> `~/.tmux.conf`
 
@@ -162,7 +160,7 @@ K              Show LSP hover documentation
 
 For C/C++ buffers, `gf` uses include directories discovered from the active compiler, so standard headers like `vector` and `iostream` can be opened without hardcoded system paths.
 
-`K` is mapped to LSP hover globally, with C/C++ ftplugin fallbacks, so it does not fall back to Vim's default man-page lookup. If clangd is still starting, it shows a short "No LSP client attached to current buffer" message instead of `No manual entry`.
+For C/C++ buffers, `K` is mapped before clangd attaches so it does not fall back to Vim's default man-page lookup. If clangd is still starting, it shows a short "No LSP client attached yet" message instead of `No manual entry`.
 
 The default C++ build command is equivalent to:
 
