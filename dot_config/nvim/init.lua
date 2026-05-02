@@ -15,4 +15,3 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 require("plugins")
 require("cpp")
 require("local")
-

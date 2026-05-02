@@ -139,7 +139,7 @@ gd             Go to definition
 gD             Go to declaration
 gr             List references
 gi             Go to implementation
-K              Show LSP hover documentation
+K              Show hover documentation
 <leader>rn     Rename symbol
 <leader>ca     Code action
 <leader>e      Show diagnostics
@@ -159,8 +159,6 @@ K              Show LSP hover documentation
 `<leader>cr` and `:CppRun` create or reuse a tmux pane below Neovim, compile the current file, and run the binary without moving focus out of Neovim. By default, the binary is written under `build/nvim-run/` in the detected project root.
 
 For C/C++ buffers, `gf` uses include directories discovered from the active compiler, so standard headers like `vector` and `iostream` can be opened without hardcoded system paths.
-
-For C/C++ buffers, `K` is mapped before clangd attaches so it does not fall back to Vim's default man-page lookup. If clangd is still starting, it shows a short "No LSP client attached yet" message instead of `No manual entry`.
 
 The default C++ build command is equivalent to:
 
