@@ -121,8 +121,11 @@ Optional plugins are installed with `vim.pack` when that API is available:
 - `nvim-lua/plenary.nvim`
 - `nvim-telescope/telescope.nvim`
 - `nvim-telescope/telescope-fzf-native.nvim`
+- `folke/tokyonight.nvim`
 
 Telescope uses `telescope-fzf-native.nvim` as its sorter because it is implemented in C and is materially faster than the default Lua sorter on larger lists. The config builds it with `make` after install or update when the compiled library is missing.
+
+The active colorscheme is `tokyonight-night`. It was chosen for C++ because it has mature Tree-sitter, LSP, diagnostics, Telescope, and terminal color support while keeping strong contrast on a dark background. Italics are disabled for steadier terminal rendering inside tmux.
 
 The C++ configuration starts `clangd` for C, C++, Objective-C, Objective-C++, and CUDA buffers. Project roots are detected from:
 

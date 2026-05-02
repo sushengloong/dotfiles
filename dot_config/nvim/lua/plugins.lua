@@ -45,12 +45,32 @@ if vim.pack then
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/nvim-telescope/telescope.nvim" },
     { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
+    { src = "https://github.com/folke/tokyonight.nvim" },
   }, {
     confirm = false,
   })
 
   build_fzf_native(plugin_path("telescope-fzf-native.nvim"))
 end
+
+pcall(function()
+  require("tokyonight").setup({
+    style = "night",
+    terminal_colors = true,
+    cache = true,
+    styles = {
+      comments = {},
+      keywords = {},
+      functions = {},
+      variables = {},
+    },
+    plugins = {
+      all = true,
+    },
+  })
+
+  vim.cmd.colorscheme("tokyonight")
+end)
 
 -- Treesitter is optional but useful for C++ highlighting.
 pcall(function()
