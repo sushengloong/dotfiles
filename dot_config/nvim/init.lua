@@ -12,13 +12,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
-local function require_config(module)
-  local ok, err = pcall(require, module)
-  if not ok then
-    vim.notify("Could not load " .. module .. ": " .. err, vim.log.levels.ERROR)
-  end
-end
+require("plugins")
+require("cpp")
+require("local")
 
-require_config("local")
-require_config("cpp")
-require_config("plugins")
