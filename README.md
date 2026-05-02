@@ -2,12 +2,13 @@
 
 This is a [chezmoi](https://www.chezmoi.io/) source repository for personal dotfiles.
 
-At the moment it manages a focused Neovim configuration:
+At the moment it manages:
 
 - `dot_config/nvim/init.lua` -> `~/.config/nvim/init.lua`
 - `dot_config/nvim/lua/plugins.lua` -> `~/.config/nvim/lua/plugins.lua`
 - `dot_config/nvim/lua/cpp.lua` -> `~/.config/nvim/lua/cpp.lua`
 - `dot_config/nvim/lua/local.lua.tmpl` -> `~/.config/nvim/lua/local.lua`
+- `dot_tmux.conf` -> `~/.tmux.conf`
 
 The `local.lua.tmpl` file is rendered by chezmoi and sets a platform-specific C++ compiler value.
 
@@ -16,7 +17,7 @@ The `local.lua.tmpl` file is rendered by chezmoi and sets a platform-specific C+
 Install the core tools before applying the dotfiles:
 
 ```sh
-brew install chezmoi neovim git
+brew install chezmoi neovim tmux git
 ```
 
 For the C++ Neovim setup, install `clangd` and `clang-format` so LSP and formatting work:
@@ -25,7 +26,7 @@ For the C++ Neovim setup, install `clangd` and `clang-format` so LSP and formatt
 brew install llvm clang-format
 ```
 
-On non-macOS systems, use the equivalent package manager packages for `chezmoi`, `neovim`, `git`, `clangd`, and `clang-format`.
+On non-macOS systems, use the equivalent package manager packages for `chezmoi`, `neovim`, `tmux`, `git`, `clangd`, and `clang-format`.
 
 ## First-Time Setup
 
@@ -128,6 +129,50 @@ K              Show hover documentation
 <leader>f      Format buffer
 ```
 
+## Tmux Notes
+
+The tmux config is tuned for Neovim sessions:
+
+- `tmux-256color` with true color enabled for common terminal types
+- extended key handling for terminal Neovim
+- focus events for Neovim autocmds
+- low escape timeout for modal editing
+- mouse support and vi copy mode
+- large scrollback for build and test output
+- new panes and windows inherit the current project directory
+
+Start a C++ project session:
+
+```sh
+tmux new-session -s cpp -c ~/src/project
+```
+
+Inside the session, open Neovim in one pane:
+
+```sh
+nvim .
+```
+
+Create a build pane in the same project directory:
+
+```sh
+tmux split-window -h -c "#{pane_current_path}"
+cmake --build build
+```
+
+Detach and reattach:
+
+```sh
+tmux detach-client
+tmux attach-session -t cpp
+```
+
+Reload tmux config after changes:
+
+```sh
+tmux source-file ~/.tmux.conf
+```
+
 ## Template Check
 
 Render the platform-specific local Neovim template without applying it:
@@ -168,9 +213,27 @@ Re-apply only the Neovim config:
 chezmoi apply ~/.config/nvim
 ```
 
+Re-apply only the tmux config:
+
+```sh
+chezmoi apply ~/.tmux.conf
+```
+
 If Neovim opens but C++ LSP does not attach, confirm `clangd` is available:
 
 ```sh
 which clangd
 clangd --version
+```
+
+Inside tmux, confirm the terminal type is the tmux terminfo entry:
+
+```sh
+echo "$TERM"
+```
+
+It should print:
+
+```text
+tmux-256color
 ```
