@@ -186,7 +186,8 @@ The tmux config is tuned for Neovim sessions:
 - mouse support and vi copy mode
 - large scrollback for build and test output
 - new panes and windows inherit the current project directory
-- prefix-free pane movement with `Alt-h`, `Alt-j`, `Alt-k`, and `Alt-l`
+- pane movement with `Ctrl-b h`, `Ctrl-b j`, `Ctrl-b k`, and `Ctrl-b l`
+- optional prefix-free pane movement with `Alt-h`, `Alt-j`, `Alt-k`, and `Alt-l`
 
 Start a C++ project session:
 
@@ -217,10 +218,10 @@ tmux attach-session -t cpp
 Move between panes:
 
 ```text
-Alt-j       Move to pane below
-Alt-k       Move to pane above
-Alt-h       Move to pane on the left
-Alt-l       Move to pane on the right
+Ctrl-b j    Move to pane below
+Ctrl-b k    Move to pane above
+Ctrl-b h    Move to pane on the left
+Ctrl-b l    Move to pane on the right
 Ctrl-b ↓    Move to pane below
 Ctrl-b ↑    Move to pane above
 Ctrl-b o    Cycle panes
