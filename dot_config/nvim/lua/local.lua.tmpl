@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os "darwin" }}
+vim.g.cpp_compiler = "clang++"
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+vim.g.cpp_compiler = "g++"
+{{ end }}
+
