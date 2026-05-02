@@ -37,6 +37,71 @@ local function build_flags_for_buffer()
   return vim.b.cpp_build_flags or vim.g.cpp_build_flags or "-std=c++20 -Wall -Wextra -g"
 end
 
+local compiler_include_cache = {}
+
+local function include_language_for_buffer()
+  if vim.bo.filetype == "c" then
+    return "c"
+  end
+
+  return "c++"
+end
+
+local function compiler_include_dirs()
+  local compiler = compiler_for_buffer()
+  local language = include_language_for_buffer()
+  local cache_key = compiler .. "\n" .. language
+
+  if compiler_include_cache[cache_key] then
+    return compiler_include_cache[cache_key]
+  end
+
+  if vim.fn.executable(compiler) == 0 then
+    compiler_include_cache[cache_key] = {}
+    return compiler_include_cache[cache_key]
+  end
+
+  local result = vim.system({
+    compiler,
+    "-E",
+    "-x",
+    language,
+    "-",
+    "-v",
+  }, {
+    stdin = "",
+    text = true,
+  }):wait()
+
+  local output = table.concat({ result.stderr or "", result.stdout or "" }, "\n")
+  local dirs = {}
+  local in_search_list = false
+
+  for line in output:gmatch("[^\r\n]+") do
+    if line:find("#include <...> search starts here:", 1, true) then
+      in_search_list = true
+    elseif line:find("End of search list.", 1, true) then
+      in_search_list = false
+    elseif in_search_list then
+      local dir = line:gsub("%s*%(framework directory%)%s*$", ""):match("^%s*(.-)%s*$")
+      if dir and dir ~= "" and vim.fn.isdirectory(dir) == 1 then
+        table.insert(dirs, dir)
+      end
+    end
+  end
+
+  compiler_include_cache[cache_key] = dirs
+  return dirs
+end
+
+local function configure_include_path()
+  vim.opt_local.path:append({ "." })
+
+  for _, dir in ipairs(compiler_include_dirs()) do
+    vim.opt_local.path:append({ dir })
+  end
+end
+
 local function current_file()
   local file = vim.api.nvim_buf_get_name(0)
   if file == "" then
@@ -137,6 +202,8 @@ end
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "c", "cpp", "objc", "objcpp", "cuda" },
   callback = function()
+    configure_include_path()
+
     vim.lsp.start({
       name = "clangd",
       cmd = {
@@ -211,3 +278,7 @@ vim.api.nvim_create_user_command("LspStatus", function()
 end, {})
 
 vim.api.nvim_create_user_command("CppRun", run_in_tmux_pane, {})
+
+vim.api.nvim_create_user_command("CppIncludePath", function()
+  print(table.concat(compiler_include_dirs(), "\n"))
+end, {})

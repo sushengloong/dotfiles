@@ -153,9 +153,12 @@ K              Show hover documentation
 <leader>fd     Find diagnostics
 <leader>cr     Build and run the current C/C++ file in a tmux pane
 :CppRun        Build and run the current C/C++ file in a tmux pane
+:CppIncludePath Show compiler include directories used for gf
 ```
 
 `<leader>cr` and `:CppRun` create or reuse a tmux pane below Neovim, compile the current file, and run the binary without moving focus out of Neovim. By default, the binary is written under `build/nvim-run/` in the detected project root.
+
+For C/C++ buffers, `gf` uses include directories discovered from the active compiler, so standard headers like `vector` and `iostream` can be opened without hardcoded system paths.
 
 The default C++ build command is equivalent to:
 
