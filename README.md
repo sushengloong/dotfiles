@@ -127,6 +127,22 @@ K              Show hover documentation
 <leader>e      Show diagnostics
 [d / ]d        Previous / next diagnostic
 <leader>f      Format buffer
+<leader>cr     Build and run the current C/C++ file in a tmux pane
+:CppRun        Build and run the current C/C++ file in a tmux pane
+```
+
+`<leader>cr` and `:CppRun` create or reuse a tmux pane below Neovim, compile the current file, and run the binary. By default, the binary is written under `build/nvim-run/` in the detected project root.
+
+The default C++ build command is equivalent to:
+
+```sh
+clang++ -std=c++20 -Wall -Wextra -g current_file.cpp -o build/nvim-run/current_file
+```
+
+Override the command in `dot_config/nvim/lua/local.lua.tmpl` if a project should use CMake or a custom binary name:
+
+```lua
+vim.g.cpp_run_command = "cmake --build build && ./build/my_program"
 ```
 
 ## Tmux Notes
