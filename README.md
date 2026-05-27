@@ -33,6 +33,14 @@ For Telescope search performance, install `ripgrep`. It is used for live grep an
 brew install ripgrep
 ```
 
+### Nerd Font
+
+Install and select a Nerd Font in your terminal if you want file icons in nvim-tree and the statusline:
+
+```sh
+brew install --cask font-meslo-lg-nerd-font
+```
+
 The native Telescope sorter also needs `make` and a C compiler. On macOS, install the Xcode Command Line Tools if those are missing:
 
 ```sh
@@ -122,6 +130,11 @@ Optional plugins are installed with `vim.pack` when that API is available:
 - `nvim-telescope/telescope.nvim`
 - `nvim-telescope/telescope-fzf-native.nvim`
 - `folke/tokyonight.nvim`
+- `nvim-tree/nvim-web-devicons`
+- `nvim-tree/nvim-tree.lua`
+- `tpope/vim-fugitive`
+- `lewis6991/gitsigns.nvim`
+- `nvim-lualine/lualine.nvim`
 
 Telescope uses `telescope-fzf-native.nvim` as its sorter because it is implemented in C and is materially faster than the default Lua sorter on larger lists. The config builds it with `make` after install or update when the compiled library is missing.
 
@@ -150,10 +163,16 @@ K              Show hover documentation
 <leader>f      Format buffer
 <leader>ff     Find files
 <leader>fg     Live grep
+<leader>fw     Live grep for word under cursor or visual selection
 <leader>fb     Find buffers
 <leader>fh     Find help
 <leader>fr     Find recent files
 <leader>fd     Find diagnostics
+<leader>fk     Find keymaps
+<leader>n      Toggle nvim-tree
+<leader>fn     Reveal current file in nvim-tree
+]c / [c        Next / previous git hunk
+<leader>gb     Git blame current file
 <leader>cr     Build and run the current C/C++ file in a tmux pane
 :CppRun        Build and run the current C/C++ file in a tmux pane
 :CppIncludePath Show compiler include directories used for gf
@@ -179,6 +198,7 @@ vim.g.cpp_run_command = "cmake --build build && ./build/my_program"
 
 The tmux config is tuned for Neovim sessions:
 
+- prefix remapped from `Ctrl-b` to `Ctrl-a`
 - `tmux-256color` with true color enabled for common terminal types
 - extended key handling for terminal Neovim
 - focus events for Neovim autocmds
@@ -186,8 +206,10 @@ The tmux config is tuned for Neovim sessions:
 - mouse support and vi copy mode
 - large scrollback for build and test output
 - new panes and windows inherit the current project directory
-- pane movement with `Ctrl-b h`, `Ctrl-b j`, `Ctrl-b k`, and `Ctrl-b l`
+- automatic window names show the foreground command or current directory
+- pane movement with `Ctrl-a h`, `Ctrl-a j`, `Ctrl-a k`, and `Ctrl-a l`
 - optional prefix-free pane movement with `Alt-h`, `Alt-j`, `Alt-k`, and `Alt-l`
+- repeatable `Ctrl-a <` / `Ctrl-a >` bindings move the current window in the window list
 
 Start a C++ project session:
 
@@ -218,13 +240,13 @@ tmux attach-session -t cpp
 Move between panes:
 
 ```text
-Ctrl-b j    Move to pane below
-Ctrl-b k    Move to pane above
-Ctrl-b h    Move to pane on the left
-Ctrl-b l    Move to pane on the right
-Ctrl-b ↓    Move to pane below
-Ctrl-b ↑    Move to pane above
-Ctrl-b o    Cycle panes
+Ctrl-a j    Move to pane below
+Ctrl-a k    Move to pane above
+Ctrl-a h    Move to pane on the left
+Ctrl-a l    Move to pane on the right
+Ctrl-a ↓    Move to pane below
+Ctrl-a ↑    Move to pane above
+Ctrl-a o    Cycle panes
 ```
 
 Reload tmux config after changes:

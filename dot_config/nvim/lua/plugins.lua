@@ -46,6 +46,11 @@ if vim.pack then
     { src = "https://github.com/nvim-telescope/telescope.nvim" },
     { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
     { src = "https://github.com/folke/tokyonight.nvim" },
+    { src = "https://github.com/nvim-tree/nvim-web-devicons" },
+    { src = "https://github.com/nvim-tree/nvim-tree.lua" },
+    { src = "https://github.com/tpope/vim-fugitive" },
+    { src = "https://github.com/lewis6991/gitsigns.nvim" },
+    { src = "https://github.com/nvim-lualine/lualine.nvim" },
   }, {
     confirm = false,
   })
@@ -142,10 +147,18 @@ pcall(function()
 
   vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
   vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
+  vim.keymap.set("n", "<leader>fw", function()
+    builtin.live_grep({ default_text = vim.fn.expand("<cword>") })
+  end, { desc = "Live grep prefilled with word under cursor" })
+  vim.keymap.set("x", "<leader>fw", function()
+    local lines = vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), { type = vim.fn.mode() })
+    builtin.live_grep({ default_text = table.concat(lines, " ") })
+  end, { desc = "Live grep prefilled with visual selection" })
   vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffers" })
   vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find help" })
   vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Find recent files" })
   vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Find diagnostics" })
+  vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
 end)
 
 -- conform.nvim is optional; clangd can format too.
@@ -157,3 +170,121 @@ pcall(function()
     },
   })
 end)
+
+-- Filetype icons for nvim-tree, statuslines, etc. Requires a Nerd Font
+-- in the terminal to render correctly (see README "Nerd Font" section).
+pcall(function()
+  require("nvim-web-devicons").setup({
+    default = true,
+  })
+end)
+
+-- File explorer sidebar via nvim-tree.
+pcall(function()
+  require("nvim-tree").setup({
+    view = {
+      width = 32,
+      side = "left",
+      preserve_window_proportions = true,
+    },
+    renderer = {
+      group_empty = true,
+      highlight_git = true,
+      indent_markers = {
+        enable = true,
+      },
+    },
+    filters = {
+      dotfiles = false,
+      git_ignored = false,
+      custom = { "^.git$" },
+    },
+    git = {
+      enable = true,
+    },
+    update_focused_file = {
+      enable = true,
+      update_root = false,
+    },
+    actions = {
+      open_file = {
+        quit_on_open = false,
+      },
+    },
+  })
+
+  vim.keymap.set("n", "<leader>n", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer sidebar" })
+  vim.keymap.set("n", "<leader>fn", "<cmd>NvimTreeFindFile<CR>", { desc = "Reveal current file in explorer" })
+end)
+
+-- Statusline. The "tokyonight" lualine theme is maintained by the
+-- tokyonight.nvim author and tracks whichever tokyonight style is active.
+pcall(function()
+  require("lualine").setup({
+    options = {
+      theme = "tokyonight",
+      icons_enabled = true,
+      globalstatus = true,
+      section_separators = { left = "", right = "" },
+      component_separators = { left = "|", right = "|" },
+      disabled_filetypes = {
+        winbar = { "NvimTree", "help", "qf" },
+      },
+    },
+    sections = {
+      lualine_a = { "mode" },
+      lualine_b = { "branch", "diff", "diagnostics" },
+      lualine_c = { { "filename", path = 1 } },
+      lualine_x = { "encoding", "fileformat", "filetype" },
+      lualine_y = { "progress" },
+      lualine_z = { "location" },
+    },
+    winbar = {
+      lualine_c = {
+        { "filename", path = 1, file_status = true, newfile_status = true },
+      },
+    },
+    inactive_winbar = {
+      lualine_c = {
+        { "filename", path = 1, file_status = true, newfile_status = true },
+      },
+    },
+  })
+end)
+
+-- Mark added / changed / removed lines in the signcolumn, plus inline hunk
+-- navigation with ]c / [c.
+pcall(function()
+  require("gitsigns").setup({
+    signs = {
+      add = { text = "+" },
+      change = { text = "~" },
+      delete = { text = "_" },
+      topdelete = { text = "‾" },
+      changedelete = { text = "~" },
+      untracked = { text = "|" },
+    },
+    on_attach = function(bufnr)
+      local gs = require("gitsigns")
+
+      vim.keymap.set("n", "]c", function()
+        if vim.wo.diff then
+          return "]c"
+        end
+        vim.schedule(gs.next_hunk)
+        return "<Ignore>"
+      end, { buffer = bufnr, expr = true, desc = "Next git hunk" })
+
+      vim.keymap.set("n", "[c", function()
+        if vim.wo.diff then
+          return "[c"
+        end
+        vim.schedule(gs.prev_hunk)
+        return "<Ignore>"
+      end, { buffer = bufnr, expr = true, desc = "Previous git hunk" })
+    end,
+  })
+end)
+
+-- vim-fugitive shortcuts. <leader>g* is reserved for git operations.
+vim.keymap.set("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git blame current file" })
