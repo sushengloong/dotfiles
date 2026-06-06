@@ -224,59 +224,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(event)
-    local opts = { buffer = event.buf }
-
-    vim.bo[event.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-
-    vim.keymap.set("n", "<leader>f", function()
-      local ok = pcall(require, "conform")
-      if ok then
-        require("conform").format({ async = true })
-      else
-        vim.lsp.buf.format({ async = true })
-      end
-    end, opts)
-  end,
-})
-
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(event)
-    local opts = { buffer = event.buf }
-
-    vim.bo[event.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-  end,
-})
-
-vim.api.nvim_create_user_command("LspStatus", function()
-  local clients = vim.lsp.get_clients({ bufnr = 0 })
-
-  if vim.tbl_isempty(clients) then
-    print("No LSP clients attached to current buffer")
-    return
-  end
-
-  for _, client in ipairs(clients) do
-    print("LSP attached: " .. client.name)
-  end
-end, {})
-
 vim.api.nvim_create_user_command("CppRun", run_in_tmux_pane, {})
 
 vim.api.nvim_create_user_command("CppIncludePath", function()

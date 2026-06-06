@@ -6,12 +6,16 @@ At the moment it manages:
 
 - `dot_config/nvim/init.lua` -> `~/.config/nvim/init.lua`
 - `dot_config/nvim/lua/plugins.lua` -> `~/.config/nvim/lua/plugins.lua`
+- `dot_config/nvim/lua/lsp.lua` -> `~/.config/nvim/lua/lsp.lua`
 - `dot_config/nvim/lua/cpp.lua` -> `~/.config/nvim/lua/cpp.lua`
+- `dot_config/nvim/lua/terraform.lua` -> `~/.config/nvim/lua/terraform.lua`
 - `dot_config/nvim/lua/local.lua.tmpl` -> `~/.config/nvim/lua/local.lua`
 - `dot_config/nvim/nvim-pack-lock.json` -> `~/.config/nvim/nvim-pack-lock.json`
 - `dot_tmux.conf` -> `~/.tmux.conf`
 
-The `local.lua.tmpl` file is rendered by chezmoi and sets a platform-specific C++ compiler value.
+The `local.lua.tmpl` file is rendered by chezmoi and sets a platform-specific
+C++ compiler value. It is also the place for host-local database connection
+settings through `vim.g.dbs`.
 
 ## Prerequisites
 
@@ -33,6 +37,18 @@ For Telescope search performance, install `ripgrep`. It is used for live grep an
 brew install ripgrep
 ```
 
+For Terraform and HCL LSP support, install `terraform-ls`:
+
+```sh
+brew install terraform-ls
+```
+
+JSON formatting uses `jq`, and XML formatting uses `xmllint`:
+
+```sh
+brew install jq libxml2
+```
+
 ### Nerd Font
 
 Install and select a Nerd Font in your terminal if you want file icons in nvim-tree and the statusline:
@@ -47,7 +63,23 @@ The native Telescope sorter also needs `make` and a C compiler. On macOS, instal
 xcode-select --install
 ```
 
-On non-macOS systems, use the equivalent package manager packages for `chezmoi`, `neovim`, `tmux`, `git`, `clangd`, `clang-format`, `ripgrep`, `make`, and a C compiler.
+nvim-treesitter uses the `tree-sitter` CLI to build language parsers:
+
+```sh
+brew install tree-sitter-cli
+```
+
+blink.cmp can build its native fuzzy matcher when `cargo` and `rustup` are
+available. Without Rust it falls back to the Lua matcher and warns once:
+
+```sh
+brew install rustup
+rustup-init
+```
+
+On non-macOS systems, use the equivalent package manager packages for
+`chezmoi`, `neovim`, `tmux`, `git`, `clangd`, `clang-format`, `terraform-ls`,
+`tree-sitter-cli`, `ripgrep`, `jq`, `xmllint`, `make`, and a C compiler.
 
 ## First-Time Setup
 
@@ -126,6 +158,8 @@ Optional plugins are installed with `vim.pack` when that API is available:
 
 - `nvim-treesitter/nvim-treesitter`
 - `stevearc/conform.nvim`
+- `saghen/blink.lib`
+- `saghen/blink.cmp`
 - `nvim-lua/plenary.nvim`
 - `nvim-telescope/telescope.nvim`
 - `nvim-telescope/telescope-fzf-native.nvim`
@@ -133,12 +167,27 @@ Optional plugins are installed with `vim.pack` when that API is available:
 - `nvim-tree/nvim-web-devicons`
 - `nvim-tree/nvim-tree.lua`
 - `tpope/vim-fugitive`
+- `tpope/vim-dadbod`
+- `kristijanhusak/vim-dadbod-ui`
+- `kristijanhusak/vim-dadbod-completion`
 - `lewis6991/gitsigns.nvim`
 - `nvim-lualine/lualine.nvim`
 
 Telescope uses `telescope-fzf-native.nvim` as its sorter because it is implemented in C and is materially faster than the default Lua sorter on larger lists. The config builds it with `make` after install or update when the compiled library is missing.
 
+Telescope file search and live grep include hidden files while excluding
+`.git/` and `build/`.
+
+blink.cmp provides completion with Super-Tab navigation, a rounded menu,
+automatically displayed documentation, LSP signatures, and LSP, path, snippet,
+and buffer sources. SQL-family buffers also receive vim-dadbod completion. Its
+optional Rust fuzzy matcher is built after plugin installation or update.
+
 The active colorscheme is `tokyonight-night`. It was chosen for C++ because it has mature Tree-sitter, LSP, diagnostics, Telescope, and terminal color support. The config increases foreground, diagnostic, and line-number contrast, and disables italics for steadier terminal rendering inside tmux.
+
+Editor defaults include soft wrapping at word boundaries, persistent undo
+history, split live-substitute previews, visible-line movement with `j`/`k`,
+search-highlight clearing with `<Esc>`, and brief highlighting after a yank.
 
 The C++ configuration starts `clangd` for C, C++, Objective-C, Objective-C++, and CUDA buffers. Project roots are detected from:
 
@@ -147,10 +196,16 @@ The C++ configuration starts `clangd` for C, C++, Objective-C, Objective-C++, an
 - `.git`
 - `CMakeLists.txt`
 
+The Terraform configuration starts `terraform-ls serve` for Terraform,
+Terraform variables, and HCL buffers when the executable is installed.
+Project roots are detected from `.terraform`, `.terraform.lock.hcl`, or `.git`.
+
 Useful Neovim commands and keymaps:
 
 ```text
 :LspStatus     Show attached LSP clients for the current buffer
+<Esc>          Clear search highlighting
+j / k          Move by visible line, or real line when given a count
 gd             Go to definition
 gD             Go to declaration
 gr             List references
@@ -160,7 +215,7 @@ K              Show hover documentation
 <leader>ca     Code action
 <leader>e      Show diagnostics
 [d / ]d        Previous / next diagnostic
-<leader>f      Format buffer
+<leader>cf     Format buffer with conform or LSP fallback
 <leader>ff     Find files
 <leader>fg     Live grep
 <leader>fw     Live grep for word under cursor or visual selection
@@ -173,6 +228,12 @@ K              Show hover documentation
 <leader>fn     Reveal current file in nvim-tree
 ]c / [c        Next / previous git hunk
 <leader>gb     Git blame current file
+<leader>go     Open current line or visual selection on the git remote
+<leader>yp     Copy the current file's absolute path
+<leader>yr     Copy the current file's cwd-relative path
+<leader>yn     Copy the current filename
+<leader>db     Toggle the database UI
+<leader>df     Find the current database buffer in the database UI
 <leader>cr     Build and run the current C/C++ file in a tmux pane
 :CppRun        Build and run the current C/C++ file in a tmux pane
 :CppIncludePath Show compiler include directories used for gf
@@ -194,6 +255,20 @@ Override the command in `dot_config/nvim/lua/local.lua.tmpl` if a project should
 vim.g.cpp_run_command = "cmake --build build && ./build/my_program"
 ```
 
+### Database (vim-dadbod)
+
+The database UI is installed without repository credentials. Define named
+connections in the rendered `local.lua` through `vim.g.dbs`, for example:
+
+```lua
+vim.g.dbs = {
+  local_postgres = os.getenv("DATABASE_URL"),
+}
+```
+
+`<leader>db` toggles the database UI and `<leader>df` reveals the database
+buffer associated with the current query.
+
 ## Tmux Notes
 
 The tmux config is tuned for Neovim sessions:
@@ -210,6 +285,7 @@ The tmux config is tuned for Neovim sessions:
 - pane movement with `Ctrl-a h`, `Ctrl-a j`, `Ctrl-a k`, and `Ctrl-a l`
 - optional prefix-free pane movement with `Alt-h`, `Alt-j`, `Alt-k`, and `Alt-l`
 - repeatable `Ctrl-a <` / `Ctrl-a >` bindings move the current window in the window list
+- repeatable `Ctrl-a H/J/K/L` bindings resize panes in five-cell steps
 
 Start a C++ project session:
 
@@ -247,6 +323,10 @@ Ctrl-a l    Move to pane on the right
 Ctrl-a ↓    Move to pane below
 Ctrl-a ↑    Move to pane above
 Ctrl-a o    Cycle panes
+Ctrl-a H    Resize pane left by 5 cells
+Ctrl-a J    Resize pane down by 5 cells
+Ctrl-a K    Resize pane up by 5 cells
+Ctrl-a L    Resize pane right by 5 cells
 ```
 
 Reload tmux config after changes:

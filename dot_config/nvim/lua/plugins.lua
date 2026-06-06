@@ -30,11 +30,35 @@ local function build_fzf_native(path)
   end
 end
 
+local function build_blink_cmp()
+  local ok, blink = pcall(require, "blink.cmp")
+  if not ok or type(blink.build) ~= "function" then
+    return
+  end
+
+  local build_ok, task = pcall(blink.build)
+  if not build_ok then
+    vim.notify("blink.cmp build failed: " .. task, vim.log.levels.WARN)
+    return
+  end
+
+  if type(task) ~= "table" or type(task.wait) ~= "function" then
+    return
+  end
+
+  local wait_ok, err = pcall(task.wait, task, 60000)
+  if not wait_ok then
+    vim.notify("blink.cmp build failed: " .. err, vim.log.levels.WARN)
+  end
+end
+
 if vim.pack then
   vim.api.nvim_create_autocmd("PackChanged", {
     callback = function(event)
       if event.data.spec.name == "telescope-fzf-native.nvim" then
         build_fzf_native(event.data.path)
+      elseif event.data.spec.name == "blink.cmp" then
+        build_blink_cmp()
       end
     end,
   })
@@ -42,6 +66,8 @@ if vim.pack then
   vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/stevearc/conform.nvim" },
+    { src = "https://github.com/saghen/blink.lib" },
+    { src = "https://github.com/saghen/blink.cmp" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/nvim-telescope/telescope.nvim" },
     { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
@@ -49,6 +75,9 @@ if vim.pack then
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/nvim-tree/nvim-tree.lua" },
     { src = "https://github.com/tpope/vim-fugitive" },
+    { src = "https://github.com/tpope/vim-dadbod" },
+    { src = "https://github.com/kristijanhusak/vim-dadbod-ui" },
+    { src = "https://github.com/kristijanhusak/vim-dadbod-completion" },
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
   }, {
@@ -56,6 +85,7 @@ if vim.pack then
   })
 
   build_fzf_native(plugin_path("telescope-fzf-native.nvim"))
+  build_blink_cmp()
 end
 
 pcall(function()
@@ -96,11 +126,17 @@ pcall(function()
   vim.cmd.colorscheme("tokyonight")
 end)
 
--- Treesitter is optional but useful for C++ highlighting.
+-- Install parsers and enable native Treesitter highlighting for configured
+-- languages. install() is a no-op when a parser is already current.
 pcall(function()
-  require("nvim-treesitter.configs").setup({
-    ensure_installed = { "c", "cpp", "lua", "cmake" },
-    highlight = { enable = true },
+  local languages = { "c", "cpp", "lua", "cmake", "terraform", "hcl" }
+  require("nvim-treesitter").install(languages)
+
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = languages,
+    callback = function()
+      pcall(vim.treesitter.start)
+    end,
   })
 end)
 
@@ -110,9 +146,23 @@ pcall(function()
 
   telescope.setup({
     defaults = {
+      vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--hidden",
+        "--glob",
+        "!.git/*",
+        "--glob",
+        "!build/*",
+      },
       file_ignore_patterns = {
-        "%.git/",
-        "build/",
+        "^%.git/",
+        "^build/",
       },
       mappings = {
         i = {
@@ -167,6 +217,53 @@ pcall(function()
     formatters_by_ft = {
       c = { "clang_format" },
       cpp = { "clang_format" },
+      json = { "jq" },
+      xml = { "xmllint" },
+    },
+  })
+end)
+
+pcall(function()
+  require("blink.cmp").setup({
+    keymap = {
+      preset = "super-tab",
+    },
+    completion = {
+      menu = {
+        border = "rounded",
+      },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 200,
+      },
+      list = {
+        selection = {
+          preselect = false,
+          auto_insert = false,
+        },
+      },
+    },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
+      per_filetype = {
+        sql = { "dadbod", "buffer" },
+        mysql = { "dadbod", "buffer" },
+        plsql = { "dadbod", "buffer" },
+      },
+      providers = {
+        dadbod = {
+          name = "Dadbod",
+          module = "vim_dadbod_completion.blink",
+        },
+      },
+    },
+    -- The built-in matcher only requested completion on server trigger
+    -- characters, which made completion feel late and inconsistent.
+    fuzzy = {
+      implementation = "prefer_rust_with_warning",
+    },
+    signature = {
+      enabled = true,
     },
   })
 end)
@@ -286,5 +383,13 @@ pcall(function()
   })
 end)
 
+-- Database connection strings belong in local.lua via vim.g.dbs so credentials
+-- never enter the repository.
+vim.g.db_ui_use_nerd_fonts = 1
+vim.keymap.set("n", "<leader>db", "<cmd>DBUIToggle<CR>", { desc = "Toggle database UI" })
+vim.keymap.set("n", "<leader>df", "<cmd>DBUIFindBuffer<CR>", { desc = "Find database buffer" })
+
 -- vim-fugitive shortcuts. <leader>g* is reserved for git operations.
 vim.keymap.set("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git blame current file" })
+vim.keymap.set("n", "<leader>go", "<cmd>GBrowse<CR>", { desc = "Open current line on git remote" })
+vim.keymap.set("x", "<leader>go", ":GBrowse<CR>", { desc = "Open selection on git remote" })
