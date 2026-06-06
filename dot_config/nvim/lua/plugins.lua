@@ -129,13 +129,32 @@ end)
 -- Install parsers and enable native Treesitter highlighting for configured
 -- languages. install() is a no-op when a parser is already current.
 pcall(function()
-  local languages = { "c", "cpp", "lua", "cmake", "terraform", "hcl" }
+  local languages = {
+    "c",
+    "cpp",
+    "lua",
+    "cmake",
+    "terraform",
+    "hcl",
+    "json",
+    "xml",
+    "yaml",
+  }
   require("nvim-treesitter").install(languages)
 
   vim.api.nvim_create_autocmd("FileType", {
     pattern = languages,
     callback = function()
       pcall(vim.treesitter.start)
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "json", "jsonc", "xml", "yaml" },
+    callback = function()
+      vim.wo.foldmethod = "expr"
+      vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+      vim.wo.foldlevel = 99
     end,
   })
 end)

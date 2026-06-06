@@ -188,6 +188,9 @@ The active colorscheme is `tokyonight-night`. It was chosen for C++ because it h
 Editor defaults include soft wrapping at word boundaries, persistent undo
 history, split live-substitute previews, visible-line movement with `j`/`k`,
 search-highlight clearing with `<Esc>`, and brief highlighting after a yank.
+JSON, XML, and YAML buffers use Tree-sitter expression folding and open fully
+expanded. Use `za` to toggle the fold under the cursor, `zc`/`zo` to
+close/open it, and `zM`/`zR` to close/open all folds.
 
 The C++ configuration starts `clangd` for C, C++, Objective-C, Objective-C++, and CUDA buffers. Project roots are detected from:
 
