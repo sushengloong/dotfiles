@@ -227,6 +227,7 @@ pcall(function()
           "rg",
           "--files",
           "--hidden",
+          "--no-ignore-vcs",
           "--glob",
           "!.git/*",
           "--glob",
