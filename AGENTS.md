@@ -18,6 +18,7 @@ This is a chezmoi source repository for personal dotfiles. These instructions ap
 - Preserve the `Managed by chezmoi` comments in files that already have them.
 - Avoid hardcoded machine-local paths, secrets, or credentials. Use chezmoi templates when a setting must vary by host.
 - Update `README.md` when adding managed files, changing setup steps, or altering daily workflow commands.
+- Do not add Claude or Codex as a co-author in git commits. Omit any `Co-Authored-By` trailer referencing them.
 
 ## Validation
 

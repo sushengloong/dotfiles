@@ -9,6 +9,7 @@ At the moment it manages:
 - `dot_config/nvim/lua/lsp.lua` -> `~/.config/nvim/lua/lsp.lua`
 - `dot_config/nvim/lua/cpp.lua` -> `~/.config/nvim/lua/cpp.lua`
 - `dot_config/nvim/lua/terraform.lua` -> `~/.config/nvim/lua/terraform.lua`
+- `dot_config/nvim/lua/python.lua` -> `~/.config/nvim/lua/python.lua`
 - `dot_config/nvim/lua/local.lua.tmpl` -> `~/.config/nvim/lua/local.lua`
 - `dot_config/nvim/nvim-pack-lock.json` -> `~/.config/nvim/nvim-pack-lock.json`
 - `dot_tmux.conf` -> `~/.tmux.conf`
@@ -41,6 +42,12 @@ For Terraform and HCL LSP support, install `terraform-ls`:
 
 ```sh
 brew install terraform-ls
+```
+
+For Python go-to-definition, diagnostics, and completion, install the `basedpyright` language server (plain `pyright` also works):
+
+```sh
+brew install basedpyright
 ```
 
 JSON formatting uses `jq`, and XML formatting uses `xmllint`:
@@ -202,6 +209,8 @@ The C++ configuration starts `clangd` for C, C++, Objective-C, Objective-C++, an
 The Terraform configuration starts `terraform-ls serve` for Terraform,
 Terraform variables, and HCL buffers when the executable is installed.
 Project roots are detected from `.terraform`, `.terraform.lock.hcl`, or `.git`.
+
+For Python buffers, `basedpyright` (or `pyright` if that is what is installed) attaches automatically and provides hover, go-to-definition, references, and completion. Project roots are detected from `pyproject.toml`, `setup.py`, `setup.cfg`, `requirements.txt`, or `.git`.
 
 Useful Neovim commands and keymaps:
 
