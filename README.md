@@ -11,6 +11,7 @@ At the moment it manages:
 - `dot_config/nvim/lua/terraform.lua` -> `~/.config/nvim/lua/terraform.lua`
 - `dot_config/nvim/lua/python.lua` -> `~/.config/nvim/lua/python.lua`
 - `dot_config/nvim/lua/csharp.lua` -> `~/.config/nvim/lua/csharp.lua`
+- `dot_config/nvim/lua/typescript.lua` -> `~/.config/nvim/lua/typescript.lua`
 - `dot_config/nvim/lua/local.lua.tmpl` -> `~/.config/nvim/lua/local.lua`
 - `dot_config/nvim/nvim-pack-lock.json` -> `~/.config/nvim/nvim-pack-lock.json`
 - `dot_tmux.conf` -> `~/.tmux.conf`
@@ -50,6 +51,15 @@ For Python go-to-definition, diagnostics, and completion, install the `basedpyri
 ```sh
 brew install basedpyright
 ```
+
+For TypeScript and JavaScript go-to-definition, diagnostics, and completion, install Node.js plus the TypeScript language server:
+
+```sh
+brew install node
+npm install -g typescript typescript-language-server
+```
+
+Deno projects with a `deno.json` or `deno.jsonc` use `deno lsp` when `deno` is installed.
 
 For C# go-to-definition, diagnostics, and completion, install the Roslyn language server via Mason inside Neovim:
 
@@ -112,7 +122,8 @@ rustup-init
 
 On non-macOS systems, use the equivalent package manager packages for
 `chezmoi`, `neovim`, `tmux`, `git`, `clangd`, `clang-format`, `terraform-ls`,
-`tree-sitter-cli`, `ripgrep`, `dotnet`, `jq`, `xmllint`, `make`, and a C compiler.
+`tree-sitter-cli`, `ripgrep`, `node`, `npm`, `typescript`, `typescript-language-server`,
+`dotnet`, `jq`, `xmllint`, `make`, and a C compiler.
 
 ## First-Time Setup
 
@@ -223,9 +234,10 @@ The active colorscheme is `jb`.
 Editor defaults include soft wrapping at word boundaries, persistent undo
 history, split live-substitute previews, visible-line movement with `j`/`k`,
 search-highlight clearing with `<Esc>`, and brief highlighting after a yank.
-JSON, XML, YAML, Python, C#, and SQL-family buffers use Tree-sitter expression
-folding and open fully expanded. Use `za` to toggle the fold under the cursor,
-`zc`/`zo` to close/open it, and `zM`/`zR` to close/open all folds.
+JSON, XML, YAML, Python, TypeScript, JavaScript, C#, and SQL-family buffers use
+Tree-sitter expression folding and open fully expanded. Use `za` to toggle the
+fold under the cursor, `zc`/`zo` to close/open it, and `zM`/`zR` to close/open
+all folds.
 
 The C++ configuration starts `clangd` for C, C++, Objective-C, Objective-C++, and CUDA buffers. Project roots are detected from:
 
@@ -239,6 +251,8 @@ Terraform variables, and HCL buffers when the executable is installed.
 Project roots are detected from `.terraform`, `.terraform.lock.hcl`, or `.git`.
 
 For Python buffers, `basedpyright` (or `pyright` if that is what is installed) attaches automatically and provides hover, go-to-definition, references, and completion. Project roots are detected from `pyproject.toml`, `setup.py`, `setup.cfg`, `requirements.txt`, or `.git`.
+
+For TypeScript, TSX, JavaScript, and JSX buffers, `typescript-language-server` attaches automatically and provides hover, go-to-definition, references, diagnostics, and completion. Project roots are detected from `tsconfig.json`, `jsconfig.json`, `package.json`, or `.git`. Deno projects use `deno lsp` instead when `deno.json` or `deno.jsonc` is present.
 
 For C# buffers, `roslyn.nvim` attaches to the Mason-installed Roslyn language server when it is available.
 
