@@ -10,6 +10,7 @@ At the moment it manages:
 - `dot_config/nvim/lua/cpp.lua` -> `~/.config/nvim/lua/cpp.lua`
 - `dot_config/nvim/lua/terraform.lua` -> `~/.config/nvim/lua/terraform.lua`
 - `dot_config/nvim/lua/python.lua` -> `~/.config/nvim/lua/python.lua`
+- `dot_config/nvim/lua/csharp.lua` -> `~/.config/nvim/lua/csharp.lua`
 - `dot_config/nvim/lua/local.lua.tmpl` -> `~/.config/nvim/lua/local.lua`
 - `dot_config/nvim/nvim-pack-lock.json` -> `~/.config/nvim/nvim-pack-lock.json`
 - `dot_tmux.conf` -> `~/.tmux.conf`
@@ -50,6 +51,31 @@ For Python go-to-definition, diagnostics, and completion, install the `basedpyri
 brew install basedpyright
 ```
 
+For C# go-to-definition, diagnostics, and completion, install the Roslyn language server via Mason inside Neovim:
+
+```vim
+:MasonInstall roslyn
+```
+
+The Roslyn server requires the .NET 10 runtime to run regardless of what your project targets. Install it via Homebrew:
+
+```sh
+brew install --cask dotnet
+```
+
+The cask installs to `/usr/local/share/dotnet`, but if your existing .NET SDK lives in `~/.dotnet`, copy the .NET 10 runtime into that directory so both versions coexist under the same `DOTNET_ROOT`:
+
+```sh
+cp -r /usr/local/share/dotnet/shared/Microsoft.NETCore.App/10.0.9 ~/.dotnet/shared/Microsoft.NETCore.App/
+cp -r /usr/local/share/dotnet/host/fxr/10.0.9 ~/.dotnet/host/fxr/
+```
+
+Verify both runtimes are visible:
+
+```sh
+dotnet --list-runtimes
+```
+
 JSON formatting uses `jq`, and XML formatting uses `xmllint`:
 
 ```sh
@@ -86,7 +112,7 @@ rustup-init
 
 On non-macOS systems, use the equivalent package manager packages for
 `chezmoi`, `neovim`, `tmux`, `git`, `clangd`, `clang-format`, `terraform-ls`,
-`tree-sitter-cli`, `ripgrep`, `jq`, `xmllint`, `make`, and a C compiler.
+`tree-sitter-cli`, `ripgrep`, `dotnet`, `jq`, `xmllint`, `make`, and a C compiler.
 
 ## First-Time Setup
 
@@ -159,7 +185,7 @@ git status
 
 ## Neovim Notes
 
-This configuration uses Neovim's native Lua config and avoids plugin manager frameworks such as lazy.nvim or Mason.
+This configuration uses Neovim's native Lua config, avoids plugin manager frameworks such as lazy.nvim, and installs plugins through `vim.pack`.
 
 Optional plugins are installed with `vim.pack` when that API is available:
 
@@ -170,7 +196,7 @@ Optional plugins are installed with `vim.pack` when that API is available:
 - `nvim-lua/plenary.nvim`
 - `nvim-telescope/telescope.nvim`
 - `nvim-telescope/telescope-fzf-native.nvim`
-- `folke/tokyonight.nvim`
+- `nickkadutskyi/jb.nvim`
 - `nvim-tree/nvim-web-devicons`
 - `nvim-tree/nvim-tree.lua`
 - `tpope/vim-fugitive`
@@ -179,6 +205,8 @@ Optional plugins are installed with `vim.pack` when that API is available:
 - `kristijanhusak/vim-dadbod-completion`
 - `lewis6991/gitsigns.nvim`
 - `nvim-lualine/lualine.nvim`
+- `williamboman/mason.nvim`
+- `seblyng/roslyn.nvim`
 
 Telescope uses `telescope-fzf-native.nvim` as its sorter because it is implemented in C and is materially faster than the default Lua sorter on larger lists. The config builds it with `make` after install or update when the compiled library is missing.
 
@@ -190,7 +218,7 @@ automatically displayed documentation, LSP signatures, and LSP, path, snippet,
 and buffer sources. SQL-family buffers also receive vim-dadbod completion. Its
 optional Rust fuzzy matcher is built after plugin installation or update.
 
-The active colorscheme is `tokyonight-night`. It was chosen for C++ because it has mature Tree-sitter, LSP, diagnostics, Telescope, and terminal color support. The config increases foreground, diagnostic, and line-number contrast, and disables italics for steadier terminal rendering inside tmux.
+The active colorscheme is `jb`.
 
 Editor defaults include soft wrapping at word boundaries, persistent undo
 history, split live-substitute previews, visible-line movement with `j`/`k`,
@@ -211,6 +239,8 @@ Terraform variables, and HCL buffers when the executable is installed.
 Project roots are detected from `.terraform`, `.terraform.lock.hcl`, or `.git`.
 
 For Python buffers, `basedpyright` (or `pyright` if that is what is installed) attaches automatically and provides hover, go-to-definition, references, and completion. Project roots are detected from `pyproject.toml`, `setup.py`, `setup.cfg`, `requirements.txt`, or `.git`.
+
+For C# buffers, `roslyn.nvim` attaches to the Mason-installed Roslyn language server when it is available.
 
 Useful Neovim commands and keymaps:
 

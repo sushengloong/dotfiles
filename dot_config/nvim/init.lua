@@ -3,6 +3,7 @@
 
 vim.g.mapleader = " "
 
+vim.opt.clipboard = "unnamedplus"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
@@ -27,6 +28,12 @@ vim.opt.inccommand = "split"
 -- case-sensitive as soon as it contains any uppercase character.
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- Use treesitter expressions for folding. Start with all folds open so files
+-- don't open collapsed; close folds manually with zc/zM.
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
 
 -- Disable netrw so nvim-tree can take over file exploration cleanly.
 vim.g.loaded_netrw = 1
@@ -98,4 +105,5 @@ require("lsp")
 require("cpp")
 require("terraform")
 require("python")
+require("csharp")
 require("local")

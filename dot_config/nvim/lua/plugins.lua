@@ -1,5 +1,5 @@
 -- Tiny native plugin installation.
--- No lazy.nvim, no Mason, no framework.
+-- No lazy.nvim or plugin-manager framework; vim.pack handles plugins.
 
 local function plugin_path(name)
   for _, plugin in ipairs(vim.pack.get({ name }, { info = false })) do
@@ -71,7 +71,7 @@ if vim.pack then
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/nvim-telescope/telescope.nvim" },
     { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
-    { src = "https://github.com/folke/tokyonight.nvim" },
+    { src = "https://github.com/nickkadutskyi/jb.nvim" },
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/nvim-tree/nvim-tree.lua" },
     { src = "https://github.com/tpope/vim-fugitive" },
@@ -80,6 +80,8 @@ if vim.pack then
     { src = "https://github.com/kristijanhusak/vim-dadbod-completion" },
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
+    { src = "https://github.com/williamboman/mason.nvim" },
+    { src = "https://github.com/seblyng/roslyn.nvim" },
   }, {
     confirm = false,
   })
@@ -89,41 +91,8 @@ if vim.pack then
 end
 
 pcall(function()
-  require("tokyonight").setup({
-    style = "night",
-    terminal_colors = true,
-    cache = true,
-    styles = {
-      comments = {},
-      keywords = {},
-      functions = {},
-      variables = {},
-    },
-    on_colors = function(colors)
-      colors.fg = "#d8e2ff"
-      colors.fg_dark = "#c8d3f5"
-      colors.comment = "#8a98bf"
-    end,
-    on_highlights = function(highlights, colors)
-      highlights.Normal = { fg = colors.fg, bg = colors.bg }
-      highlights.LineNr = { fg = "#6f7fa8" }
-      highlights.CursorLineNr = { fg = "#ffcc66", bold = true }
-      highlights.SignColumn = { fg = "#7f8db3", bg = colors.bg }
-      highlights.FoldColumn = { fg = "#7f8db3", bg = colors.bg }
-      highlights.Comment = { fg = colors.comment }
-      highlights.NonText = { fg = "#5f6f99" }
-      highlights.SpecialKey = { fg = "#6f7fa8" }
-      highlights.DiagnosticVirtualTextError = { fg = "#ff8f8f" }
-      highlights.DiagnosticVirtualTextWarn = { fg = "#ffd580" }
-      highlights.DiagnosticVirtualTextInfo = { fg = "#9ad8ff" }
-      highlights.DiagnosticVirtualTextHint = { fg = "#b8f0c2" }
-    end,
-    plugins = {
-      all = true,
-    },
-  })
-
-  vim.cmd.colorscheme("tokyonight")
+  require("jb").setup()
+  vim.cmd.colorscheme("jb")
 end)
 
 -- Install parsers and enable native Treesitter highlighting for configured
@@ -366,12 +335,11 @@ pcall(function()
   vim.keymap.set("n", "<leader>fn", "<cmd>NvimTreeFindFile<CR>", { desc = "Reveal current file in explorer" })
 end)
 
--- Statusline. The "tokyonight" lualine theme is maintained by the
--- tokyonight.nvim author and tracks whichever tokyonight style is active.
+-- Statusline.
 pcall(function()
   require("lualine").setup({
     options = {
-      theme = "tokyonight",
+      theme = "auto",
       icons_enabled = true,
       globalstatus = true,
       section_separators = { left = "", right = "" },
@@ -440,6 +408,17 @@ end)
 vim.g.db_ui_use_nerd_fonts = 1
 vim.keymap.set("n", "<leader>db", "<cmd>DBUIToggle<CR>", { desc = "Toggle database UI" })
 vim.keymap.set("n", "<leader>df", "<cmd>DBUIFindBuffer<CR>", { desc = "Find database buffer" })
+
+-- Mason package manager. Used to install the Roslyn language server for C#.
+-- After setup, run :MasonInstall roslyn to install it.
+pcall(function()
+  require("mason").setup({
+    registries = {
+      "github:mason-org/mason-registry",
+      "github:Crashdummyy/mason-registry",
+    },
+  })
+end)
 
 -- vim-fugitive shortcuts. <leader>g* is reserved for git operations.
 vim.keymap.set("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git blame current file" })
