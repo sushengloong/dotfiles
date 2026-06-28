@@ -201,6 +201,8 @@ This configuration uses Neovim's native Lua config, avoids plugin manager framew
 Optional plugins are installed with `vim.pack` when that API is available:
 
 - `nvim-treesitter/nvim-treesitter`
+- `MeanderingProgrammer/render-markdown.nvim`
+- `kylechui/nvim-surround`
 - `stevearc/conform.nvim`
 - `saghen/blink.lib`
 - `saghen/blink.cmp`
@@ -231,6 +233,12 @@ blink.cmp provides completion with Super-Tab navigation, a rounded menu,
 automatically displayed documentation, LSP signatures, and LSP, path, snippet,
 and buffer sources. SQL-family buffers also receive vim-dadbod completion. Its
 optional Rust fuzzy matcher is built after plugin installation or update.
+
+Markdown buffers are rendered by `render-markdown.nvim` by default. Use
+`<leader>mr` to toggle rendering for the current buffer.
+
+`nvim-surround` uses its default mappings: `ys{motion}{char}` adds a surround,
+`ds{char}` deletes one, and `cs{target}{replacement}` changes one.
 
 The active colorscheme is `jb`.
 
@@ -282,6 +290,7 @@ K              Show hover documentation
 <leader>fr     Find recent files
 <leader>fd     Find diagnostics
 <leader>fk     Find keymaps
+<leader>mr     Toggle Markdown rendering for the current buffer
 <leader>n      Toggle nvim-tree
 <leader>fn     Reveal current file in nvim-tree
 ]c / [c        Next / previous git hunk

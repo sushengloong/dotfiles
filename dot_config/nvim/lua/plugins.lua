@@ -65,6 +65,11 @@ if vim.pack then
 
   vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+    { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+    {
+      src = "https://github.com/kylechui/nvim-surround",
+      version = vim.version.range("4.x"),
+    },
     { src = "https://github.com/stevearc/conform.nvim" },
     { src = "https://github.com/saghen/blink.lib" },
     { src = "https://github.com/saghen/blink.cmp" },
@@ -112,6 +117,8 @@ pcall(function()
     "hcl",
     "json",
     "javascript",
+    "markdown",
+    "markdown_inline",
     "xml",
     "yaml",
     "python",
@@ -128,6 +135,15 @@ pcall(function()
     callback = function(event)
       pcall(vim.treesitter.start, event.buf)
     end,
+  })
+end)
+
+pcall(function()
+  local render_markdown = require("render-markdown")
+  render_markdown.setup({})
+
+  vim.keymap.set("n", "<leader>mr", render_markdown.buf_toggle, {
+    desc = "Toggle Markdown rendering for buffer",
   })
 end)
 
