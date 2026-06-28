@@ -211,6 +211,7 @@ Optional plugins are installed with `vim.pack` when that API is available:
 - `nvim-tree/nvim-web-devicons`
 - `nvim-tree/nvim-tree.lua`
 - `tpope/vim-fugitive`
+- `tpope/vim-rhubarb`
 - `tpope/vim-dadbod`
 - `kristijanhusak/vim-dadbod-ui`
 - `kristijanhusak/vim-dadbod-completion`
@@ -222,7 +223,9 @@ Optional plugins are installed with `vim.pack` when that API is available:
 Telescope uses `telescope-fzf-native.nvim` as its sorter because it is implemented in C and is materially faster than the default Lua sorter on larger lists. The config builds it with `make` after install or update when the compiled library is missing.
 
 Telescope file search and live grep include hidden files while excluding
-`.git/` and `build/`.
+`.git/` and `build/`. Its prompt appears above the results, with the best match
+first and the preview on the right. Fuzzy-match highlighting is limited to the
+selected result row.
 
 blink.cmp provides completion with Super-Tab navigation, a rounded menu,
 automatically displayed documentation, LSP signatures, and LSP, path, snippet,
@@ -234,10 +237,9 @@ The active colorscheme is `jb`.
 Editor defaults include soft wrapping at word boundaries, persistent undo
 history, split live-substitute previews, visible-line movement with `j`/`k`,
 search-highlight clearing with `<Esc>`, and brief highlighting after a yank.
-JSON, XML, YAML, Python, TypeScript, JavaScript, C#, and SQL-family buffers use
-Tree-sitter expression folding and open fully expanded. Use `za` to toggle the
-fold under the cursor, `zc`/`zo` to close/open it, and `zM`/`zR` to close/open
-all folds.
+Buffers with an installed Tree-sitter parser use native expression folding and
+open fully expanded. Use `za` to toggle the fold under the cursor, `zc`/`zo` to
+close/open it, `zM`/`zR` to close/open all folds, and `zT` to toggle all folds.
 
 The C++ configuration starts `clangd` for C, C++, Objective-C, Objective-C++, and CUDA buffers. Project roots are detected from:
 
@@ -283,7 +285,7 @@ K              Show hover documentation
 <leader>n      Toggle nvim-tree
 <leader>fn     Reveal current file in nvim-tree
 ]c / [c        Next / previous git hunk
-<leader>gb     Git blame current file
+<leader>gb     Toggle git blame for the current file
 <leader>go     Open current line or visual selection on the git remote
 <leader>yp     Copy the current file's absolute path
 <leader>yr     Copy the current file's cwd-relative path

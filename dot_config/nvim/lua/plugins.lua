@@ -75,6 +75,8 @@ if vim.pack then
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/nvim-tree/nvim-tree.lua" },
     { src = "https://github.com/tpope/vim-fugitive" },
+    -- GitHub handler for fugitive's :GBrowse command.
+    { src = "https://github.com/tpope/vim-rhubarb" },
     { src = "https://github.com/tpope/vim-dadbod" },
     { src = "https://github.com/kristijanhusak/vim-dadbod-ui" },
     { src = "https://github.com/kristijanhusak/vim-dadbod-completion" },
@@ -95,9 +97,12 @@ pcall(function()
   vim.cmd.colorscheme("jb")
 end)
 
--- Install parsers and enable native Treesitter highlighting for configured
--- languages. install() is a no-op when a parser is already current.
+-- nvim-treesitter's main branch installs parsers; Neovim core provides
+-- highlighting and folding. install() is a no-op when a parser is current.
 pcall(function()
+  local ts = require("nvim-treesitter")
+  ts.setup()
+
   local parsers = {
     "c",
     "cpp",
@@ -115,58 +120,13 @@ pcall(function()
     "c_sharp",
     "sql",
   }
-  require("nvim-treesitter").install(parsers)
+  ts.install(parsers)
 
   vim.treesitter.language.register("sql", { "mysql", "plsql" })
 
   vim.api.nvim_create_autocmd("FileType", {
-    pattern = {
-      "c",
-      "cpp",
-      "lua",
-      "cmake",
-      "terraform",
-      "terraform-vars",
-      "hcl",
-      "json",
-      "jsonc",
-      "javascript",
-      "javascriptreact",
-      "xml",
-      "yaml",
-      "python",
-      "typescript",
-      "typescriptreact",
-      "cs",
-      "sql",
-      "mysql",
-      "plsql",
-    },
-    callback = function()
-      pcall(vim.treesitter.start)
-    end,
-  })
-
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = {
-      "json",
-      "jsonc",
-      "javascript",
-      "javascriptreact",
-      "xml",
-      "yaml",
-      "python",
-      "typescript",
-      "typescriptreact",
-      "cs",
-      "sql",
-      "mysql",
-      "plsql",
-    },
-    callback = function()
-      vim.wo.foldmethod = "expr"
-      vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-      vim.wo.foldlevel = 99
+    callback = function(event)
+      pcall(vim.treesitter.start, event.buf)
     end,
   })
 end)
@@ -198,6 +158,16 @@ pcall(function()
       mappings = {
         i = {
           ["<Esc>"] = require("telescope.actions").close,
+        },
+      },
+      -- Put the selected result directly below the prompt.
+      sorting_strategy = "ascending",
+      layout_strategy = "horizontal",
+      layout_config = {
+        horizontal = {
+          prompt_position = "top",
+          preview_width = 0.5,
+          height = 0.45,
         },
       },
     },
@@ -241,6 +211,53 @@ pcall(function()
   vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Find recent files" })
   vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Find diagnostics" })
   vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
+end)
+
+-- Telescope normally highlights fuzzy matches on every result row. Keep those
+-- marks only on the active row and raise them above the selection highlight.
+pcall(function()
+  local Picker = require("telescope.pickers")._Picker
+  if Picker._dotfiles_scoped_matching then
+    return
+  end
+
+  local ns_matching = vim.api.nvim_create_namespace("telescope_matching")
+  local original_set_selection = Picker.set_selection
+
+  function Picker:set_selection(row)
+    local bufnr = self.results_bufnr
+    if bufnr and vim.api.nvim_buf_is_valid(bufnr) then
+      vim.api.nvim_buf_clear_namespace(bufnr, ns_matching, 0, -1)
+    end
+
+    local result = original_set_selection(self, row)
+
+    if bufnr and vim.api.nvim_buf_is_valid(bufnr) then
+      local selected_row = self:get_selection_row()
+      local marks = vim.api.nvim_buf_get_extmarks(
+        bufnr,
+        ns_matching,
+        { selected_row, 0 },
+        { selected_row, -1 },
+        { details = true }
+      )
+
+      if #marks > 0 then
+        vim.api.nvim_buf_clear_namespace(bufnr, ns_matching, selected_row, selected_row + 1)
+        for _, mark in ipairs(marks) do
+          vim.api.nvim_buf_set_extmark(bufnr, ns_matching, mark[2], mark[3], {
+            end_col = mark[4].end_col,
+            hl_group = mark[4].hl_group,
+            priority = 5000,
+          })
+        end
+      end
+    end
+
+    return result
+  end
+
+  Picker._dotfiles_scoped_matching = true
 end)
 
 -- conform.nvim is optional; clangd can format too.
@@ -432,6 +449,15 @@ pcall(function()
 end)
 
 -- vim-fugitive shortcuts. <leader>g* is reserved for git operations.
-vim.keymap.set("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git blame current file" })
+vim.keymap.set("n", "<leader>gb", function()
+  for _, window in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+    if vim.bo[vim.api.nvim_win_get_buf(window)].filetype == "fugitiveblame" then
+      vim.api.nvim_win_close(window, false)
+      return
+    end
+  end
+
+  vim.cmd("Git blame")
+end, { desc = "Toggle git blame for current file" })
 vim.keymap.set("n", "<leader>go", "<cmd>GBrowse<CR>", { desc = "Open current line on git remote" })
 vim.keymap.set("x", "<leader>go", ":GBrowse<CR>", { desc = "Open selection on git remote" })

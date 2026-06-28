@@ -30,10 +30,21 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Use treesitter expressions for folding. Start with all folds open so files
--- don't open collapsed; close folds manually with zc/zM.
+-- don't open collapsed; close folds manually with zc/zM. foldexpr is Neovim's
+-- native treesitter folding and works for any buffer whose parser is installed.
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldenable = false
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldenable = true
+vim.opt.foldlevelstart = 99
+
+-- Toggle all folds open/closed based on the current window's fold level.
+vim.keymap.set("n", "zT", function()
+  if vim.wo.foldlevel > 0 then
+    vim.cmd("normal! zM")
+  else
+    vim.cmd("normal! zR")
+  end
+end, { desc = "Toggle all folds open/closed" })
 
 -- Disable netrw so nvim-tree can take over file exploration cleanly.
 vim.g.loaded_netrw = 1
