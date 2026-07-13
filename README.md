@@ -203,6 +203,7 @@ Optional plugins are installed with `vim.pack` when that API is available:
 - `nvim-treesitter/nvim-treesitter`
 - `MeanderingProgrammer/render-markdown.nvim`
 - `kylechui/nvim-surround`
+- `HiPhish/rainbow-delimiters.nvim`
 - `stevearc/conform.nvim`
 - `saghen/blink.lib`
 - `saghen/blink.cmp`
@@ -239,6 +240,9 @@ Markdown buffers are rendered by `render-markdown.nvim` by default. Use
 
 `nvim-surround` uses its default mappings: `ys{motion}{char}` adds a surround,
 `ds{char}` deletes one, and `cs{target}{replacement}` changes one.
+
+`rainbow-delimiters.nvim` colors nested parentheses, brackets, and braces using
+Tree-sitter and its default delimiter palette.
 
 The active colorscheme is `jb`.
 

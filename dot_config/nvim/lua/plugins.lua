@@ -70,6 +70,7 @@ if vim.pack then
       src = "https://github.com/kylechui/nvim-surround",
       version = vim.version.range("4.x"),
     },
+    { src = "https://github.com/HiPhish/rainbow-delimiters.nvim" },
     { src = "https://github.com/stevearc/conform.nvim" },
     { src = "https://github.com/saghen/blink.lib" },
     { src = "https://github.com/saghen/blink.cmp" },
